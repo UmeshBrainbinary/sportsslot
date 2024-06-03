@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "739072824156",
+    "project_id": "sportot-8af62",
+    "storage_bucket": "sportot-8af62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739072824156:android:e93227264d2e8ddac12799",
+        "android_client_info": {
+          "package_name": "com.sportsslot.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDRdW5HiAV8LhwPqnWMZNlwP-qdmM9CFU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
