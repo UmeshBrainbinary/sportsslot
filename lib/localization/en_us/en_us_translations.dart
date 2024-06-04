@@ -559,14 +559,14 @@ final Map<String, String> enUs = {
   "err_msg_please_enter_valid_text": "Please enter valid text",
   "err_msg_please_enter_valid_number": "Please enter valid number",
 
-  // ---------web-----------
+  /// ---------web-----------
 
   // LoginScreen
-  'PlaygroundBooking':'Uttarakhand Booking App',
+  'PlaygroundBooking':'Sportsslot App',
   'Login' : 'Log in',
   'EmailAddress' : 'Email Address',
   'Password' :'Password',
-  'Playground' : 'Welcome to Uttarakhand Booking App',
+  'Playground' : 'Welcome to Sportsslot App',
 
   ///---------------------------------------- logo screen ----------------------------------------
  'LogoandIcon' : 'Logo and Icon',
