@@ -25,7 +25,6 @@ class _AboutScreenState extends State<AboutScreen> {
 
   ThemeController themeController = Get.find<ThemeController>();
 
-
   QuillEditorController richTextController = QuillEditorController();
 
 

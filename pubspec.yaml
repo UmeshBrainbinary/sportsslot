@@ -128,6 +128,18 @@ flutter:
     - family: Roboto-Bold
       fonts:
         - asset: assets/web/fonts/Roboto-Bold.ttf
+    - family: Montserrat-Bold
+      fonts:
+        - asset: assets/web/fonts/Montserrat-Bold.ttf
+    - family: Montserrat-Medium
+      fonts:
+        - asset: assets/web/fonts/Montserrat-Medium.ttf
+    - family: Montserrat-Regular
+      fonts:
+        - asset: assets/web/fonts/Montserrat-Regular.ttf
+    - family: Montserrat-SemiBold
+      fonts:
+        - asset: assets/web/fonts/Montserrat-SemiBold.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

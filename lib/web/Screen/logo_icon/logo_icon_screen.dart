@@ -46,16 +46,47 @@ ThemeController themeController = Get.find<ThemeController>();
                           Padding(
                             padding: const EdgeInsets.only(bottom: 10),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
                                   'sportIcon'.tr,
                                   style: mediumFontStyle(
                                       size: 24),
                                 ),
-                                CustomAddButton(
-                                    text: "uploadSportIcon".tr,
-                                    onTap: () {
+                                // CustomAddButton(
+                                //
+                                //     text: "uploadSportIcon".tr,
+                                //     onTap: () {
+                                //     controller.imagePath.value = "";
+                                //     controller.nameController.clear();
+                                //     showInsertDialog(
+                                //         context: context,
+                                //         width: width,
+                                //         height: height,
+                                //
+                                //         imageUrl: controller.imagePath,
+                                //         textController: controller.nameController,
+                                //         onTap: () async {
+                                //
+                                //           await controller.uploadSportIcon(
+                                //             base64Images: [controller.imagePath.value],
+                                //             onSuccess: () {
+                                //
+                                //               showUploadSuccessDialog(
+                                //                   context: context,
+                                //                   width: width,
+                                //                   height: height,
+                                //                   isUpdate: false);
+                                //
+                                //             }, context: context,
+                                //           );
+                                //         },
+                                //         isLoading: controller.loader);
+                                //   }
+                                // ),
+                                SizedBox(width: 20),
+                                GestureDetector(
+                                  onTap: () {
                                     controller.imagePath.value = "";
                                     controller.nameController.clear();
                                     showInsertDialog(
@@ -81,7 +112,20 @@ ThemeController themeController = Get.find<ThemeController>();
                                           );
                                         },
                                         isLoading: controller.loader);
-                                  }
+                                  },
+                                  child: Container(
+                                    height: 30,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      border: Border.all(color: appTheme.themeColor),
+                                    ),
+                                    child: Icon(
+                                      Icons.add,
+                                      color: appTheme.themeColor,
+                                      size: 17,
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -275,14 +319,14 @@ ThemeController themeController = Get.find<ThemeController>();
                                                                         top: 5,
                                                                         bottom: 30),
                                                                 child: ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(4),
-                                                                  child: Image.network(
-                                                                      controller.sportIconList.value[index].image,
-                                                                      height: 105,
-                                                                      width: 105,
-                                                                      fit: BoxFit.fill),
+                                                                  borderRadius: BorderRadius.circular(4),
+                                                                  child: CustomImageView(
+                                                                    imagePath: controller.sportIconList[index].image,
+                                                                    height: 105,
+                                                                    width: 105,
+                                                                    fit: BoxFit.fill,
+                                                                  )
+
                                                                 ),
                                                               ),
                                                               Text(

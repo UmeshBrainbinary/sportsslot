@@ -2,12 +2,13 @@
 
 import 'package:get/get.dart';
 
-class DashboardController extends GetxController{
+class DashboardController extends GetxController {
+
   final List items = [
-    'Sports & Icon',
-    'Stadium Details',
-    'Event Details',
+    'Sports',
     "bookingHistory".tr,
+    'Event',
+    'Stadium',
     'notification'.tr,
     "privacyPolicy".tr,
     "faqs".tr,

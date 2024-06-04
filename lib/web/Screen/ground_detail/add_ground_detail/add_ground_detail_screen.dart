@@ -1031,10 +1031,9 @@ class _AddGroundDetailScreenState extends State<AddGroundDetailScreen> {
                                                                           AssetRes
                                                                               .addImageIcon,
                                                                           scale:
-                                                                          4),
-                                                                      SizedBox(
-                                                                          width:
-                                                                          5),
+                                                                          4, color: appTheme.themeColor
+                                                                      ),
+                                                                      SizedBox(width: 5),
                                                                       Text("add_ground_image"
                                                                           .tr),
                                                                     ],

@@ -53,6 +53,20 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
 
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Obx(
+                          () => CustomSwitch(
+                        value: themeController.isDarkMode.value,
+                        onChanged: (value) {
+                          debugPrint("-=-=-=-=-=-: ${value}");
+                          themeController.isDarkMode.value = value;
+                          themeController.switchTheme();
+                        },
+                      ),
+                    ),
+                  ),
+
                   Center(
                     child: Column(
                       children: [

@@ -54,7 +54,7 @@ class AllGroundDetailScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 12),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 'ground_details'.tr,
@@ -62,11 +62,34 @@ class AllGroundDetailScreen extends StatelessWidget {
                                     size: 24//boldFontStyle(color: appTheme.black, size: 24
                                 ) ,
                               ),
-                              CustomAddButton(text: 'add_ground_details'.tr, onTap: () {    addGroundController.clearData();
-                              Get.to(
-                                transition: Transition.noTransition,
-                                    () => AddGroundDetailScreen(),
-                              ); }),
+                              // CustomAddButton(text: 'add_ground_details'.tr,
+                              //     onTap: () {    addGroundController.clearData();
+                              // Get.to(
+                              //   transition: Transition.noTransition,
+                              //       () => AddGroundDetailScreen(),
+                              // ); }
+                              // ),
+                              SizedBox(width: 20),
+                              GestureDetector(
+                                onTap: () {    addGroundController.clearData();
+                                Get.to(
+                                  transition: Transition.noTransition,
+                                      () => AddGroundDetailScreen(),
+                                ); },
+                                child: Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    border: Border.all(color: appTheme.themeColor),
+                                  ),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: appTheme.themeColor,
+                                    size: 17,
+                                  ),
+                                ),
+                              ),
 
                             ],
                           ),
@@ -126,7 +149,7 @@ class AllGroundDetailScreen extends StatelessWidget {
                                                                   width: 20,
                                                                   height: 20,
                                                                   image: AssetImage(AssetRes.dot)):  CommonEditDeletePopup(
-                                                                editArgs: "stadium detail",
+                                                                editArgs: "stadium",
                                                                 onTapEdit: () {
                                                                   if(controller.loader.value)
                                                                   {

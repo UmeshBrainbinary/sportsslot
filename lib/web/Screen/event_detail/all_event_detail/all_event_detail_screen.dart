@@ -52,7 +52,7 @@ class AllEventDetailScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 'event_Details'.tr,
@@ -60,11 +60,35 @@ class AllEventDetailScreen extends StatelessWidget {
                                 //boldFontStyle(color: appTheme.black, size: 24),
                               ),
 
-                              CustomAddButton(text: 'add_Event_Details'.tr, onTap: () {
-                                Get.to(
-                                  transition: Transition.noTransition,
-                                      () => AddEventDetailScreen(),
-                                ); }),
+                              // CustomAddButton(text: 'add_Event_Details'.tr,
+                              //     onTap: () {
+                              //   Get.to(
+                              //     transition: Transition.noTransition,
+                              //         () => AddEventDetailScreen(),
+                              //   ); }
+                              // ),
+
+                              SizedBox(width: 20),
+                              GestureDetector(
+                                onTap: () {
+                                  Get.to(
+                                    transition: Transition.noTransition,
+                                        () => AddEventDetailScreen(),
+                                  ); },
+                                child: Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    border: Border.all(color: appTheme.themeColor),
+                                  ),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: appTheme.themeColor,
+                                    size: 17,
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -141,8 +165,9 @@ class AllEventDetailScreen extends StatelessWidget {
                                                                   () =>controller.loader.value ?Image(
                                                                   width: 20,
                                                                   height: 20,
-                                                                  image: AssetImage(AssetRes.dot)) :  CommonEditDeletePopup(
-                                                                editArgs: "event detail",
+                                                                  image: AssetImage(AssetRes.dot)) :
+                                                                  CommonEditDeletePopup(
+                                                                editArgs: "event",
                                                                 onTapEdit: () {
                                                                   if(controller.loader.value)
                                                                   {

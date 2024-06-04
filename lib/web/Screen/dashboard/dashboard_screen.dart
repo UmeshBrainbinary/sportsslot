@@ -28,6 +28,9 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   DashboardController controller = Get.put(DashboardController());
   ThemeController themeController = Get.find<ThemeController>();
+
+
+
   indexWiseNavigation({index}) {
     print("------------------------$index");
     if (index == 0) {
@@ -36,14 +39,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
           () => DashboardScreen(child: LogoIconScreen(), index: 0));
     } else if (index == 1) {
       Get.offAll(
-          transition: Transition.noTransition, () => AllGroundDetailScreen());
+          transition: Transition.noTransition,
+              () => DashboardScreen(child: BookingHistoryScreen(), index: 1));
+
     } else if (index == 2) {
       Get.offAll(
           transition: Transition.noTransition, () => AllEventDetailScreen());
     } else if (index == 3) {
       Get.offAll(
-          transition: Transition.noTransition,
-          () => DashboardScreen(child: BookingHistoryScreen(), index: 3));
+          transition: Transition.noTransition, () => AllGroundDetailScreen());
     } else if (index == 4) {
       Get.offAll(
           transition: Transition.noTransition,
@@ -66,6 +70,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return ResponsiveBuilder(
       builder: (context, sizingInformation) {
         if (sizingInformation.isDesktop) {
@@ -76,6 +81,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           width = 350;
         }
         return Scaffold(
+          backgroundColor: appTheme.white,
           body: Row(
             children: [
               Expanded(
@@ -89,8 +95,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       const EdgeInsets.symmetric(horizontal: 0, vertical: 30),
                   child: Column(
                     children: [
-                      Container(
-                          height: width / 6, child: Image.asset(AssetRes.logo)),
+                      Image.asset(AssetRes.logo, height: height*0.15),
                       SizedBox(
                         height: 10,
                       ),

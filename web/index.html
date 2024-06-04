@@ -23,16 +23,71 @@
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="sportsslot">
+  <meta name="apple-mobile-web-app-title" content="Uttarakhand Booking App">
+
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
+  <!--  ///  URL LAUNCHER START-->
+  <base href="/">
+  <!-- JavaScript function to handle URL launches -->
+  <script>
+    function launchUrl(url) {
+      window.open(url, '_blank');
+    }
+  </script>
+
+  <!--  ///  URL LAUNCHER END-->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>sportsslot</title>
+  <title>Uttarakhand Booking App</title>
   <link rel="manifest" href="manifest.json">
+
+  <!--  /// FIREBASE NOTIFICATION CONFIG START-->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-messaging.js"></script>
+  <script>
+    var firebaseConfig = {
+               apiKey: "AIzaSyBCAfZFOvkFEkqABD--Ke-xweCClIrhNG0",
+  authDomain: "sportot-8af62.firebaseapp.com",
+  projectId: "sportot-8af62",
+  storageBucket: "sportot-8af62.appspot.com",
+  messagingSenderId: "739072824156",
+  appId: "1:739072824156:web:b7dcbd7906a55668c12799",
+  measurementId: "G-10CT5JQG3X"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <!--  /// FIREBASE NOTIFICATION CONFIG END-->
+  <script type="text/javascript">
+    window.flutterWebRenderer = "html";
+</script>
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = null;
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
 </head>
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+<!--  /// FIREBASE NOTIFICATION CONFIG START-->
+<script src="main.dart.js" type="application/javascript"></script>
+<!--  /// FIREBASE NOTIFICATION CONFIG END-->
+
+<script>
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>

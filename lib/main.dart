@@ -103,11 +103,9 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return  (!kIsWeb) ? GetMaterialApp(
-
       debugShowCheckedModeBanner: false,
       theme: theme,
       translations: AppLocalization(),
@@ -117,8 +115,6 @@ class _MyAppState extends State<MyApp> {
       initialBinding: InitialBindings(),
       initialRoute: AppRoutes.initialRoute,
       getPages: AppRoutes.pages,
-
-
     ) : GetMaterialApp(
 
       debugShowCheckedModeBanner: false,
@@ -126,7 +122,6 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: themeController.isDarkMode.value ? ThemeMode.dark : ThemeMode.light,
-
       translations: AppLocalization(),
       locale: Get.deviceLocale,
       fallbackLocale: Locale('en', 'US'),
@@ -137,7 +132,6 @@ class _MyAppState extends State<MyApp> {
       home: PrefService.getBool(PrefKeys.isLoggedIn) ?
       // DashboardScreen(child: BookingHistoryScreen(), index: 3)
       DashboardScreen(child: LogoIconScreen(), index: 0)
-      // UserDataList(userIds: ["2KMgPmNEcvTGOBN9k6ng","4MdXTGd7nraVTah7r2yX","r5vfQBYhvBj1LnLFk6N5"],)
           : LoginScreen(),
     );
   }

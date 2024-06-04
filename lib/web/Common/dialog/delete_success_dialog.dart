@@ -28,59 +28,62 @@ void showDeleteSuccessDialog(
             constraints:
             BoxConstraints(maxWidth: width * 0.6, maxHeight: height * 0.4),
             width: width * 0.49,
-            // height: width * 0.47,
+
             alignment: Alignment.center,
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        padding: EdgeInsets.only(left: 3, bottom: 3, top: 2),
-                        color: Colors.transparent,
-                        child: Icon(Icons.close, color: appTheme.dotted,size: 25),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: width * 0.007,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(AssetRes.deleteImg, height: width*0.2, width:width*0.2),
-                    SizedBox(height: width * 0.047),
-                    // Spacer(),
-                    Text(msg ?? "confirmDeleteIcon".tr,
-                      style: regularFontStyle(size: 16),
-                    ),
-                    SizedBox(height: width * 0.038),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Obx(
-                          () =>  CommonPrimaryButton(
-                              text: " ${'yes'.tr} ",
-                              onTap:onTap,isLoading: isLoading.value),
+            child: SingleChildScrollView(
+              child: Column(
+
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.only(left: 3, bottom: 3, top: 2),
+                          color: Colors.transparent,
+                          child: Icon(Icons.close, color: appTheme.dotted,size: 25),
                         ),
-                        SizedBox(width: width*0.02),
-                        CommonPrimaryButton(
-                          color: themeController.c.value,//appTheme.white,
-                            textColor: themeController.d.value,//appTheme.black,
-                            text: " ${'no'.tr} ",
-                            onTap: () {
-                              Navigator.pop(context);
-                            }),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: width * 0.007,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(AssetRes.deleteImg, height: width*0.2, width:width*0.2),
+                      SizedBox(height: width * 0.047),
+                      // Spacer(),
+                      Text(msg ?? "confirmDeleteIcon".tr,
+                        style: regularFontStyle(size: 16),
+                      ),
+                      SizedBox(height: width * 0.038),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Obx(
+                            () =>  CommonPrimaryButton(
+                                text: " ${'yes'.tr} ",
+                                onTap:onTap,isLoading: isLoading.value),
+                          ),
+                          SizedBox(width: width*0.02),
+                          CommonPrimaryButton(
+                            color: themeController.c.value,//appTheme.white,
+                              textColor: themeController.d.value,//appTheme.black,
+                              text: " ${'no'.tr} ",
+                              onTap: () {
+                                Navigator.pop(context);
+                              }),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         );

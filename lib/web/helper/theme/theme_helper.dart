@@ -369,7 +369,7 @@ class PrimaryColors {
   Color get whiteA700 => Color(0XFFFFFFFE);
   ///---------------------------------------- Web--------------------------------------//////
   //Color get  webBgColor => Color(0xFFECF6F5)
-  Color get  webBgColor => Color(0xFFfcf8f2);
+  Color get  webBgColor => Color(0xFFfffbf7);
 
 
 

@@ -42,7 +42,7 @@ TextStyle regularFontStyle(
           : size != null && sizingInformation == null
               ? size
               : size ?? 12,
-      fontFamily: family ?? Family.robotRegular,
+      fontFamily: family ?? Family.montserratRegular,
       fontWeight: FontWeight.w400,
       height: height,
       // shadows:
@@ -75,7 +75,7 @@ TextStyle mediumFontStyle(
       // shadows: underLine == true
       //     ? [Shadow(color: color ?? appTheme.black, offset: Offset(0, -5))]
       //     : null,
-      fontFamily: family ?? Family.robotMedium,
+      fontFamily: family ?? Family.montserratMedium,
       fontWeight: FontWeight.w500,
       height: height,
       // decoration: underLine == true ? TextDecoration.underline : null,
@@ -99,7 +99,7 @@ TextStyle semiBoldFontStyle(
           : size != null && sizingInformation == null
               ? size
               : size ?? 12,
-      fontFamily: family ?? Family.robotMedium,
+      fontFamily: family ?? Family.montserratSemiBold,
       fontWeight: FontWeight.w600,
     height: height,
     color: color
@@ -121,7 +121,7 @@ TextStyle boldFontStyle(
           : size != null && sizingInformation == null
               ? size
               : size ?? 12,
-      fontFamily: family ?? Family.robotBold,
+      fontFamily: family ?? Family.montserratBold,
       fontWeight: FontWeight.w700,
       color: color ?? appTheme.black);
 }

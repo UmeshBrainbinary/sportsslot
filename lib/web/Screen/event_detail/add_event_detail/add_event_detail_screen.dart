@@ -66,7 +66,7 @@ class _AddEventDetailScreenState extends State<AddEventDetailScreen> {
                  Obx(() =>  Container(
                    height: height,
                    width: width,
-                   color: themeController.bgColor.value,//appTheme.secondarybgcolor,
+                   color: themeController.bgColor.value,
                    child: Padding(
                      padding: const EdgeInsets.symmetric(
                          horizontal: 30, vertical: 30),
@@ -124,10 +124,9 @@ class _AddEventDetailScreenState extends State<AddEventDetailScreen> {
                                                  SizedBox(
                                                    width: width * 0.32,
                                                    child: Row(
-                                                     // crossAxisAlignment: CrossAxisAlignment.center,
+
                                                      children: [
-                                                       customTitleTextWithStar(
-                                                           title: 'locationUrl'.tr),
+                                                       customTitleTextWithStar(title: 'locationUrl'.tr),
                                                        SizedBox(width: Get.width * 0.01),
                                                        Expanded(
                                                          child: CommonTextFiled(
@@ -137,7 +136,7 @@ class _AddEventDetailScreenState extends State<AddEventDetailScreen> {
                                                      ],
                                                    ),
                                                  ),
-                                                 Obx(() => controller.urlError.value.isNotEmpty ?  SizedBox(
+                                                 Obx(() => controller.urlError.value.isNotEmpty ? SizedBox(
                                                    width: width * 0.32,
                                                    child: Row(
                                                      // crossAxisAlignment: CrossAxisAlignment.center,
@@ -197,7 +196,7 @@ class _AddEventDetailScreenState extends State<AddEventDetailScreen> {
                                                                  Image.asset(
                                                                      AssetRes
                                                                          .addImageIcon,
-                                                                     scale: 4),
+                                                                     scale: 4, color: appTheme.themeColor),
                                                                  SizedBox(width: 5),
                                                                  Text(
                                                                    "addEventImage"
@@ -476,7 +475,7 @@ class _AddEventDetailScreenState extends State<AddEventDetailScreen> {
           SizedBox(height: Get.height * 0.03),
           Container(
             width: width * 0.28,
-            height: height * 0.3,
+            height: 50,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
             child: DottedBorder(
               borderType: BorderType.Rect,
@@ -487,33 +486,48 @@ class _AddEventDetailScreenState extends State<AddEventDetailScreen> {
               dashPattern: [10, 6],
               strokeWidth: 1,
               child: Container(
-                width: double.infinity,
-                height: width * 0.30,
+                width: width * 0.28,
+                height: 50,
                 decoration: BoxDecoration(
                     color: themeController.textfieldBgColor.value,//appTheme.colorFAFAFA,
                     borderRadius: BorderRadius.circular(10)),
-                padding:
-                    EdgeInsets.only(top: width * 0.013, bottom: width * 0.013),
-                child: Stack(
-                  alignment: Alignment.center,
+                //padding: EdgeInsets.only(top: width * 0.013, bottom: width * 0.013),
+                child:  Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CommonPrimaryButton(
-                          text: 'browse'.tr,
-                          onTap: () async{
-                            List<String> images = await pickMultiImage();
-                           controller.eventImgList.value.addAll(images);
-                           controller.eventImgList.value = controller.eventImgList.value.toSet().toList();
-                           controller.eventImgList.refresh();
+                    GestureDetector(
+                      onTap: () async{
 
-                          },
+                        List<String> images = await pickMultiImage();
+                        controller.eventImgList.value.addAll(images);
+                        controller.eventImgList.value = controller.eventImgList.value.toSet().toList();
+                        controller.eventImgList.refresh();
+
+                      },
+                      child: Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(color: appTheme.themeColor),
                         ),
-                      ],
+                        child: Icon(
+                          Icons.add,
+                          color: appTheme.themeColor,
+                          size: 17,
+                        ),
+                      ),
                     ),
+                    SizedBox(width: 20),
+                Text(
+                  "addImage"
+                      .tr,
+                  style:
+                  regularFontStyle(
+                      size: 16),)
                   ],
-                ),
+                )
               ),
             ),
           ),
@@ -618,7 +632,7 @@ class _AddEventDetailScreenState extends State<AddEventDetailScreen> {
                                     sizingInformation: sizingInformation),
                               ),
                             ),
-                            Image.asset(AssetRes.calendarIcon),
+                            Image.asset(AssetRes.calendarIcon, color: appTheme.themeColor,),
                           ],
                         ),
                       ),
@@ -661,7 +675,7 @@ class _AddEventDetailScreenState extends State<AddEventDetailScreen> {
                                     sizingInformation: sizingInformation),
                               ),
                             ),
-                            Image.asset(AssetRes.calendarIcon),
+                            Image.asset(AssetRes.calendarIcon, color: appTheme.themeColor),
                           ],
                         ),
                       ),
