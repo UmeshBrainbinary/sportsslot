@@ -42,7 +42,8 @@ void showLogoutSuccessDialog(
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.pop(context);
+                       // Navigator.pop(context);
+                        Get.back();
                       },
                       child: Container(
                         padding: EdgeInsets.only(left: 3, bottom: 3, top: 2),
@@ -72,7 +73,7 @@ void showLogoutSuccessDialog(
                             text: "  ${'yes'.tr}  ",
                             onTap: () async{
                               await PrefService.clear();
-                             Navigator.pop(context);
+                             Get.back();
                              Get.offAll(LoginScreen());
                             }),
                         SizedBox(width: width*0.02),

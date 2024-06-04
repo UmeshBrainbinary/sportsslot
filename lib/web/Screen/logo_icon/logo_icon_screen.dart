@@ -279,10 +279,7 @@ ThemeController themeController = Get.find<ThemeController>();
                                                                       BorderRadius
                                                                           .circular(4),
                                                                   child: Image.network(
-                                                                      controller
-                                                                          .sportIconList
-                                                                          .value[index]
-                                                                          .image,
+                                                                      controller.sportIconList.value[index].image,
                                                                       height: 105,
                                                                       width: 105,
                                                                       fit: BoxFit.fill),

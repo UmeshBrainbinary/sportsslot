@@ -11,6 +11,7 @@ class CommonPrimaryButton extends StatelessWidget {
   final Color? textColor;
   final bool? isLoading;
   final double? height;
+  final double? width;
    CommonPrimaryButton({
     super.key,
     required this.text,
@@ -18,7 +19,9 @@ class CommonPrimaryButton extends StatelessWidget {
     this.textStyle,
     this.color,
     this.textColor,
-    this.isLoading, this.height,
+    this.isLoading,
+     this.height,
+     this.width
   });
 
 

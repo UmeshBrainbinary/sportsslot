@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sportsslot/core/utils/toast_message.dart';
+import 'package:sportsslot/web/Screen/dashboard/dashboard_screen.dart';
+import 'package:sportsslot/web/Screen/logo_icon/logo_icon_screen.dart';
 import 'package:sportsslot/web/model/user_model.dart';
 import 'package:sportsslot/web/service/pref_service.dart';
 import 'package:sportsslot/web/utils/firebase_keys.dart';
@@ -79,8 +81,8 @@ class LoginController extends GetxController {
             print("login users role is ------------------- ${documentSnapshot.get(Keys.email)}");
           }
         }
-        /// todo
-        //Get.offAll(() => DashboardScreen(child: LogoIconScreen(), index: 0));
+
+        Get.offAll(() => DashboardScreen(child: LogoIconScreen(), index: 0));
       } else {
         // errorToast("Invalid credential");
       }

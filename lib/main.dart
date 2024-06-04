@@ -130,7 +130,7 @@ class _MyAppState extends State<MyApp> {
       translations: AppLocalization(),
       locale: Get.deviceLocale,
       fallbackLocale: Locale('en', 'US'),
-      title: ' Uttarakhand Booking App',
+      title: 'Sportsslot',
       initialBinding: InitialBindings(),
       // initialRoute: AppRoutes.initialRoute,
       // getPages: AppRoutes.pages,

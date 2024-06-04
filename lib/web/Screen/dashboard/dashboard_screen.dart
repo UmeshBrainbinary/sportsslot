@@ -3,8 +3,14 @@ import 'package:sportsslot/core/app_export.dart';
 import 'package:sportsslot/web/Common/custom_switch.dart';
 import 'package:sportsslot/web/Common/dialog/logout_dialog.dart';
 import 'package:sportsslot/web/Screen/about/about_screen.dart';
+import 'package:sportsslot/web/Screen/booking_history/booking_history_screen.dart';
 import 'package:sportsslot/web/Screen/dashboard/dashboard_controller.dart';
+import 'package:sportsslot/web/Screen/event_detail/all_event_detail/all_event_detail_screen.dart';
+import 'package:sportsslot/web/Screen/faqs/faq_screen.dart';
+import 'package:sportsslot/web/Screen/ground_detail/all_ground_detail/all_ground_detail_screen.dart';
 import 'package:sportsslot/web/Screen/logo_icon/logo_icon_screen.dart';
+import 'package:sportsslot/web/Screen/notification/notification_screen.dart';
+import 'package:sportsslot/web/Screen/privacy_policy/privacy_policy_screen.dart';
 import 'package:sportsslot/web/helper/theme/theme_controller.dart';
 import 'package:sportsslot/web/utils/style_res.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -29,27 +35,27 @@ class _DashboardScreenState extends State<DashboardScreen> {
           transition: Transition.noTransition,
           () => DashboardScreen(child: LogoIconScreen(), index: 0));
     } else if (index == 1) {
-      // Get.offAll(
-      //     transition: Transition.noTransition, () => AllGroundDetailScreen());
+      Get.offAll(
+          transition: Transition.noTransition, () => AllGroundDetailScreen());
     } else if (index == 2) {
-      // Get.offAll(
-      //     transition: Transition.noTransition, () => AllEventDetailScreen());
+      Get.offAll(
+          transition: Transition.noTransition, () => AllEventDetailScreen());
     } else if (index == 3) {
-      // Get.offAll(
-      //     transition: Transition.noTransition,
-      //     () => DashboardScreen(child: BookingHistoryScreen(), index: 3));
+      Get.offAll(
+          transition: Transition.noTransition,
+          () => DashboardScreen(child: BookingHistoryScreen(), index: 3));
     } else if (index == 4) {
-      // Get.offAll(
-      //     transition: Transition.noTransition,
-      //     () => DashboardScreen(child: NotificationScreen(), index: 4));
+      Get.offAll(
+          transition: Transition.noTransition,
+          () => DashboardScreen(child: NotificationScreen(), index: 4));
     } else if (index == 5) {
-      // Get.offAll(
-      //     transition: Transition.noTransition,
-      //     () => DashboardScreen(child: PrivacyPolicyScreen(), index: 5));
+      Get.offAll(
+          transition: Transition.noTransition,
+          () => DashboardScreen(child: PrivacyPolicyScreen(), index: 5));
     } else if (index == 6) {
-      // Get.offAll(
-      //     transition: Transition.noTransition,
-      //     () => DashboardScreen(child: FaqScreen(), index: 6));
+      Get.offAll(
+          transition: Transition.noTransition,
+          () => DashboardScreen(child: FaqScreen(), index: 6));
     } else if (index == 7) {
       Get.offAll(
           transition: Transition.noTransition,

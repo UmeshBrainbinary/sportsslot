@@ -43,223 +43,144 @@ class _LoginScreenState extends State<LoginScreen> {
       return GetBuilder<LoginController>(
         id: "login",
         builder: (controller) => Scaffold(
-          body: Obx(() => Container(
-            width: size.width,
-            color: themeController.webBgColor.value,
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    color: themeController.drawerBgColor.value,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 25, vertical: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
+          body: Obx(() =>  Container(
+            color: themeController.drawerBgColor.value,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 25, vertical: 10),
+              child: Column(
+                //crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
 
-                          Center(
-                            child: Column(
-                              children: [
-                                Container(
-                                    height: size.height / 5,
-                                    child: Image.asset(AssetRes.logo)),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text('PlaygroundBooking'.tr,
-                                    style: semiBoldFontStyle(
-                                        size: 23,
-                                        sizingInformation: sizingInformation)),
-                                SizedBox(height: height * 0.03),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                            EdgeInsets.symmetric(horizontal: width * 0.034),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(height: height * 0.05),
-                                Text('EmailAddress'.tr,
-                                    style: regularFontStyle(size: 15)),
-                                SizedBox(
-                                  height: 8,
-                                ),
-                                CommonTextFiled(
-                                  hintext: 'abc@gmail.com',
-                                  controller: loginController.emailController,
-                                ),
-                                loginController.emailError.isEmpty
-                                    ? const SizedBox()
-                                    : Text(
-                                  loginController.emailError,
-                                  style: const TextStyle(
-                                      fontFamily: 'FontMedium',
-                                      fontSize: 13,
-                                      color: Colors.red),
-                                ),
-
-                                SizedBox(height: 15),
-
-                                Text('Password'.tr,
-                                    style: regularFontStyle(size: 15)),
-                                SizedBox(height: 8),
-                                CommonTextFiled(
-                                  hintHeight: 3,
-                                  icon: Icons.remove_red_eye_outlined,
-                                  maxLine: 1,
-                                  obscureText: loginController.passView,
-                                  hintext: '••••••',
-                                  controller:
-                                  loginController.passwordController,
-                                  suffixIcon: GestureDetector(
-                                    onTap: () {
-                                      loginController.passView =
-                                      !loginController.passView;
-                                      loginController.update(["login"]);
-                                    },
-                                    child: Container(
-                                      child: loginController.passView
-                                          ? Image.asset(AssetRes.closeEye,
-                                          scale: 4,color: themeController.hintColor.value)
-                                          : Image.asset(AssetRes.openEye,
-                                          scale: 2.5,color: themeController.hintColor.value),
-                                    ),
-                                  ),
-                                ),
-
-                                // CommonTextFiled(
-                                //
-                                //   icon: Icons.remove_red_eye_outlined,
-                                //   controller: loginController.passwordController,
-                                //   obscureText: loginController.passView,
-                                //   hintHeight: 2,
-                                //   maxLine:1,
-                                //   suffixIcon: GestureDetector(
-                                //     onTap: () {
-                                //       loginController.passView = !loginController.passView;
-                                //       loginController.update(["login"]);
-                                //     },
-                                //     child: Container(
-                                //       child: loginController.passView ? Image.asset(AssetRes.closeEye,scale: 4) : Image.asset(AssetRes.openEye,scale: 2.5),
-                                //     ),
-                                //   ), hintext: '.....',
-                                // ),
-                                loginController.passwordError.isEmpty
-                                    ? const SizedBox()
-                                    : Text(
-                                  loginController.passwordError,
-                                  style: const TextStyle(
-                                      fontFamily: 'FontMedium',
-                                      fontSize: 13,
-                                      color: Colors.red),
-                                ),
-
-                                SizedBox(height: 40),
-
-                                SizedBox(
-                                  height: 50,
-                                  width: width,
-                                  child: Obx(
-                                        () => CommonPrimaryButton(
-                                      text: 'Login'.tr,
-                                      onTap: () async {
-                                        FocusScope.of(context).unfocus();
-
-                                        await loginController.emailValidation();
-                                        await loginController
-                                            .passwordValidation();
-
-                                        if (loginController
-                                            .emailError.isEmpty &&
-                                            loginController
-                                                .passwordError.isEmpty) {
-                                          await controller
-                                              .loginWithEmailAndPassword();
-
-                                          // if(isSuccess)
-                                          //   {
-
-                                          // }
-                                        }
-                                      },
-                                      isLoading: controller.loader.value,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-
-                        ],
-                      ),
+                  Center(
+                    child: Column(
+                      children: [
+                        Container(
+                            height: size.height / 6,
+                            child: Image.asset(AssetRes.logo)),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text('PlaygroundBooking'.tr,
+                            style: semiBoldFontStyle(
+                                size: 23,
+                                sizingInformation: sizingInformation)),
+                        SizedBox(height: height * 0.03),
+                      ],
                     ),
                   ),
-                ),
-                Expanded(
-                  flex: 5,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      // image: DecorationImage(
-                      //     image: AssetImage(AssetRes.loginBg),
-                      // ),
+                  Padding(
+                    padding:
+                    EdgeInsets.symmetric(horizontal: width * 0.034),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: height * 0.05),
+                        Text('EmailAddress'.tr,
+                            style: regularFontStyle(size: 15)),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        CommonTextFiled(
+                          width: width * 0.8,
+                          hintext: 'abc@gmail.com',
+                          controller: loginController.emailController,
+                        ),
+                        loginController.emailError.isEmpty
+                            ? const SizedBox()
+                            : Text(
+                          loginController.emailError,
+                          style: const TextStyle(
+                              fontFamily: 'FontMedium',
+                              fontSize: 13,
+                              color: Colors.red),
+                        ),
 
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: Get.width * 0.0065,
-                          vertical: height * 0.011),
-                      child: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Obx(
-                                  () => CustomSwitch(
-                                value: themeController.isDarkMode.value,
-                                onChanged: (value) {
-                                  debugPrint("-=-=-=-=-=-: ${value}");
-                                  themeController.isDarkMode.value = value;
-                                  themeController.switchTheme();
-                                },
-                              ),
+                        SizedBox(height: 15),
+
+                        Text('Password'.tr,
+                            style: regularFontStyle(size: 15)),
+                        SizedBox(height: 8),
+                        CommonTextFiled(
+                          width: width * 0.8,
+                          hintHeight: 3,
+                          icon: Icons.remove_red_eye_outlined,
+                          maxLine: 1,
+                          obscureText: loginController.passView,
+                          hintext: '••••••',
+                          controller:
+                          loginController.passwordController,
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              loginController.passView =
+                              !loginController.passView;
+                              loginController.update(["login"]);
+                            },
+                            child: Container(
+                              child: loginController.passView
+                                  ? Image.asset(AssetRes.closeEye,
+                                  scale: 4,color: themeController.hintColor.value)
+                                  : Image.asset(AssetRes.openEye,
+                                  scale: 2.5,color: themeController.hintColor.value),
                             ),
                           ),
-                          Spacer(),
-                          // SizedBox(
-                          //   height: size.width / 9,
-                          // ),
-                          Container(
-                            // height: size.width / 3.5,
-                              child: Image.asset(AssetRes.Groups, scale: 4.3)),
-                          SizedBox(height: Get.height * 0.04),
-                          // SizedBox(
-                          //   height: size.width / 25,
-                          // ),
-                          Text('Playground'.tr,
-                              style: semiBoldFontStyle(
-                                  size: 35,
-                                  sizingInformation: sizingInformation)
+                        ),
 
-                            // style: TextStyle(
-                            //     color: ColorRes.Text,
-                            //     fontSize: 25,
-                            //     fontWeight: FontWeight.w600,
-                            //     fontFamily: Family.robotRegular),
+
+                        loginController.passwordError.isEmpty
+                            ? const SizedBox()
+                            : Text(
+                          loginController.passwordError,
+                          style: const TextStyle(
+                              fontFamily: 'FontMedium',
+                              fontSize: 13,
+                              color: Colors.red),
+                        ),
+
+                        SizedBox(height: 40),
+
+                        SizedBox(
+                          height: 50,
+                          width:  width * 0.8,
+                          child: Obx(
+                                () => CommonPrimaryButton(
+
+                              text: 'Login'.tr,
+                              onTap: () async {
+                                FocusScope.of(context).unfocus();
+
+                                await loginController.emailValidation();
+                                await loginController
+                                    .passwordValidation();
+
+                                if (loginController
+                                    .emailError.isEmpty &&
+                                    loginController
+                                        .passwordError.isEmpty) {
+                                  await controller.loginWithEmailAndPassword();
+
+
+                                  // if(isSuccess)
+                                  //   {
+
+                                  // }
+                                }
+                              },
+
+                              isLoading: controller.loader.value,
+                            ),
                           ),
-                          // SizedBox(height: Get.height*0.07),
-                          Spacer(),
-                        ],
-                      ),
+                        )
+                      ],
                     ),
                   ),
-                )
-              ],
+
+                ],
+              ),
             ),
-          ),)
+          ),
+          )
         ),
       );
     });

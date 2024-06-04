@@ -27,7 +27,9 @@ class CommonTextFiled extends StatelessWidget {
         this.inputFormatter,
         this.onTap,
         this.contentPadding,
-        this.controller})
+        this.controller,
+        this.width
+      })
       : super(key: key);
   IconData? icons;
   final String hintext;
@@ -47,6 +49,7 @@ class CommonTextFiled extends StatelessWidget {
   var controller;
   var onsave;
   IconData? icon;
+  double? width;
 
   var validation;
 
@@ -55,6 +58,7 @@ ThemeController themeController = Get.find<ThemeController>();
   Widget build(BuildContext context) {
     return Container(
       height:maxLine != null && ((maxLine ?? 0) < 2) ? 45 : null,
+      width: width ?? double.infinity,
       decoration: BoxDecoration(
         color:themeController.textfieldBgColor.value,
         borderRadius: BorderRadius.circular(10)

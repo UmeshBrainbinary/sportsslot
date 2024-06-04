@@ -368,7 +368,9 @@ class PrimaryColors {
   // White
   Color get whiteA700 => Color(0XFFFFFFFE);
   ///---------------------------------------- Web--------------------------------------//////
-  Color get  webBgColor => Color(0xFFECF6F5);
+  //Color get  webBgColor => Color(0xFFECF6F5)
+  Color get  webBgColor => Color(0xFFfcf8f2);
+
 
 
 
@@ -376,7 +378,8 @@ class PrimaryColors {
 
   Color get  black => Color(0xFF000000);
   Color get  white => Color(0xFFFFFFFF);
-  Color get themeColor =>Color(0xFF0E795D);
+  //Color get themeColor =>Color(0xFF0E795D);
+  Color get themeColor =>Color(0xFFcf9757);
   Color get lightGrey => Color(0xFF818181);
   Color get Textfill => Color(0xFFF8F8F8);
   Color get lightgrey => Color(0xFF818181);
