@@ -99,6 +99,36 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/
+    - lib/presentation/ground_category_screen/models/
+    - assets/web/fonts/
+    - assets/web/icons/
+    - assets/web/image/
+  fonts:
+    - family: SF Pro Display
+      fonts:
+        - asset: assets/fonts/SFProDisplayBold.ttf
+          weight: 700
+        - asset: assets/fonts/SFProDisplayRegular.ttf
+          weight: 400
+        - asset: assets/fonts/SFProDisplaySemibold.ttf
+          weight: 600
+    - family: Manrope
+      fonts:
+        - asset: assets/fonts/ManropeSemiBold.ttf
+          weight: 600
+
+    - family: Roboto-Medium
+      fonts:
+        - asset: assets/web/fonts/Roboto-Medium.ttf
+    - family: Roboto-Regular
+      fonts:
+        - asset: assets/web/fonts/Roboto-Regular.ttf
+    - family: Roboto-Bold
+      fonts:
+        - asset: assets/web/fonts/Roboto-Bold.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -367,6 +367,8 @@ class ImageConstant {
   static String stadiumForRunning = 'assets/images/stadium-one-runner.jpg';
   static String cricketImage = 'assets/images/cricket.png';
 }
+
+
 ///---------------------------------------- Web--------------------------------------///
 
 class AssetRes {
@@ -398,8 +400,7 @@ class AssetRes {
   static const deleteIcon = "${icons}ic_delete.png";
 
   ///--------------------------------------------- images ---------------------------------------------
-  static const imgGroup2 = images + 'logo.jpg';
-  static const logo = images + 'logo.jpg';
+  static const logo = images + 'logo.png';
   static const Groups = images + 'Group.png';
   static const groundPhoto = images + 'static_ground.png';
   static const editImg = "${images}editImg.png";
@@ -410,16 +411,13 @@ class AssetRes {
   static const oneEvent = images+'oneEvent.png';
   static const memory = images+'memrory.png';
   static const mainGround = images+'MainGround.png';
-  static const checkIcon = icons + 'check.png';
+
   static const cameraIcon = icons + 'camera_icon.png';
   static const changingRoomIcon = icons + 'changing_room_icon.png';
   static const parkingIcon = icons + 'parking_icon.png';
   static const homeIcon = icons + 'home_icon.png';
-
-
-
-
-
+  static const moonIcon = icons + 'ic_moon.png';
+  static const sunIcon = icons + 'ic_sun.png';
 
 
 
