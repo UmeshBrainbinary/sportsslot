@@ -36,6 +36,13 @@ class ImageConstant {
   static String imgNavProfile = '$imagePath/img_nav_profile.svg';
   static String imgNavProfileSelected = '$imagePath/img_nav_profile_selected.svg';
 
+  static String calendar = '$imagePath/calendar.png';
+  static String email = '$imagePath/email.png';
+  static String iphone = '$imagePath/iphone.png';
+  static String padlock = '$imagePath/padlock.png';
+  static String user = '$imagePath/user.png';
+
+
   /// --------------- animation ------------------------
 
   static String splashAnimation = "$animationPath/splashAnimation.json";
@@ -418,6 +425,8 @@ class AssetRes {
   static const homeIcon = icons + 'home_icon.png';
   static const moonIcon = icons + 'ic_moon.png';
   static const sunIcon = icons + 'ic_sun.png';
+  static const checkIcon = icons + 'check.png';
+
 
 
 

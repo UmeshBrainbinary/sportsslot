@@ -45,7 +45,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                            alignment: Alignment.centerLeft,
                            child: Container(
                                width: 363.h, margin: EdgeInsets.only(right: 24.h),
-                               child: Text("msg_please_enter_your".tr,
+                               child: Text("msg_please_enter_your_sign_up".tr,
                                    maxLines: 2,
                                    overflow: TextOverflow.ellipsis,
                                    style: theme.textTheme.bodyLarge!.copyWith(color:appTheme.black900, height: 1.50)))),
@@ -97,6 +97,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   return CustomTextFormField(
       controller: controller.firstNameController,
       hintText: "lbl_first_name".tr,
+      prefix: Transform.scale(
+        scale: 0.4,
+        child: Image.asset(ImageConstant.user, color: appTheme.gray600, height: 20,),
+      ),
       validator: (value) {
        if (!isText(value) || value!.isEmpty) {
         return "err_msg_please_enter_valid_text".tr;
@@ -112,6 +116,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
        controller: controller.mobileNumberController,
        textInputType: TextInputType.phone,
        hintText: "lbl_mobile_number".tr,
+       prefix: Transform.scale(
+         scale: 0.4,
+         child: Image.asset(ImageConstant.iphone, color: appTheme.gray600, height: 20,),
+       ),
        validator: (value) {
          if (!isNumeric(value) || value!.isEmpty || value.length != 10) {
            return "err_msg_please_enter_valid_number".tr;
@@ -127,6 +135,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
        hintText: "lbl_date_of_birth".tr,
        enable: false,
        readOnly: true,
+       prefix: Transform.scale(
+         scale: 0.4,
+         child: Image.asset(ImageConstant.calendar, color: appTheme.gray600, height: 20,),
+       ),
        onTap: () {
          controller.onTapPickDatePlayer(context: context);
        },
@@ -143,6 +155,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   return CustomTextFormField(
       controller: controller.lastNameController,
       hintText: "lbl_last_name".tr,
+      prefix: Transform.scale(
+        scale: 0.4,
+        child: Image.asset(ImageConstant.user, color: appTheme.gray600, height: 20,),
+      ),
       validator: (value) {
        if (!isText(value) || value!.isEmpty) {
          return "err_msg_please_enter_valid_text".tr;
@@ -157,6 +173,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
       controller: controller.emailController,
       hintText: "lbl_email_address".tr,
       textInputType: TextInputType.emailAddress,
+      prefix: Transform.scale(
+        scale: 0.4,
+        child: Image.asset(ImageConstant.email, color: appTheme.gray600, height: 20,),
+      ),
       validator: (value) {
        if (value == null || (!isValidEmail(value, isRequired: true))) {
         return "err_msg_please_enter_valid_email".tr;
@@ -172,6 +192,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
       hintText: "lbl_password".tr,
       textInputAction: TextInputAction.done,
       textInputType: TextInputType.visiblePassword,
+      prefix: Transform.scale(
+        scale: 0.4,
+        child: Image.asset(ImageConstant.padlock, color: appTheme.gray600, height: 20,),
+      ),
       suffix: InkWell(
           onTap: () {
            controller.isShowPassword.value =

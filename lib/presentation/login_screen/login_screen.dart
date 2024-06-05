@@ -69,6 +69,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               controller: controller.emailController,
                               hintText: "lbl_email_address".tr,
                               textInputType: TextInputType.emailAddress,
+                              prefix: Transform.scale(
+                                scale: 0.4,
+                                child: Image.asset(ImageConstant.email, color: appTheme.gray600, height: 20,),
+                              ),
                               validator: (value) {
                                 if (value == null ||
                                     (!isValidEmail(value, isRequired: true))) {
@@ -82,6 +86,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               hintText: "lbl_password".tr,
                               textInputAction: TextInputAction.done,
                               textInputType: TextInputType.visiblePassword,
+                              prefix: Transform.scale(
+                                scale: 0.4,
+                                child: Image.asset(ImageConstant.padlock, color: appTheme.gray600, height: 20),
+                              ),
                               suffix: InkWell(
                                   onTap: () {
                                     controller.isShowPassword.value =

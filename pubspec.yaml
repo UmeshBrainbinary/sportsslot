@@ -102,9 +102,11 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - lib/presentation/ground_category_screen/models/
     - assets/web/fonts/
     - assets/web/icons/
     - assets/web/image/
+    - assets/animation/
   fonts:
     - family: SF Pro Display
       fonts:

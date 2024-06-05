@@ -536,6 +536,8 @@ final Map<String, String> enUs = {
   "msg_november_7_2017": "November 7, 2017",
   "msg_please_enter_your":
       "Please enter your email address and password details to sign in",
+  "msg_please_enter_your_sign_up":
+  "Please fill up details to sign up",
   "msg_procced_to_payment": "Procced to payment",
   "msg_qorem_ipsum_dolor":
       "Qorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.",
