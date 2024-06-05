@@ -130,6 +130,7 @@ class AllGroundDetailScreen extends StatelessWidget {
                                                   decoration: BoxDecoration(
                                                     color: themeController.c.value, // appTheme.white,
                                                     borderRadius: BorderRadius.all(Radius.circular(15)),
+                                                    border: Border.all(color: appTheme.themeColor),
                                                     boxShadow: controller.isHover.value[index]
                                                         ? [BoxShadow(color: Color(0xFF000000).withOpacity(0.08), offset: Offset(0, 16), blurRadius: 20, spreadRadius: 0)]
                                                         : null,
@@ -140,9 +141,18 @@ class AllGroundDetailScreen extends StatelessWidget {
                                                       mainAxisSize: MainAxisSize.min,
                                                       crossAxisAlignment: CrossAxisAlignment.start,
                                                       children: [
+                                                        SizedBox(height: 8),
                                                         Row(
-                                                          mainAxisAlignment: MainAxisAlignment.end,
+                                                          //mainAxisAlignment: MainAxisAlignment.end,
                                                           children: [
+                                                            Text(
+                                                              controller.groundDetailList.value[index].mainGround?.name ?? "",
+                                                              maxLines: 1,
+                                                              overflow: TextOverflow.ellipsis,
+                                                              style: boldFontStyle(size: 20, color: themeController.d.value//appTheme.black
+                                                              ),
+                                                            ),
+                                                            Spacer(),
                                                             Obx(
                                                                   () =>controller.loader.value
                                                                       ? Image(
@@ -181,20 +191,16 @@ class AllGroundDetailScreen extends StatelessWidget {
                                                             ),
                                                           ],
                                                         ),
+
+
+
+                                                        SizedBox(height: 20),
                                                         Container(
                                                           height: 118,
                                                           width: Get.width,
                                                           decoration: BoxDecoration(
                                                             borderRadius: BorderRadius.circular(10),
                                                             image: DecorationImage(image: NetworkImage(controller.groundDetailList.value[index].mainGround?.image?.first ?? ""), fit: BoxFit.cover),
-                                                          ),
-                                                        ),
-                                                        SizedBox(height: 20),
-                                                        Text(
-                                                          controller.groundDetailList.value[index].mainGround?.name ?? "",
-                                                          maxLines: 1,
-                                                          overflow: TextOverflow.ellipsis,
-                                                          style: boldFontStyle(size: 20, color: themeController.d.value//appTheme.black
                                                           ),
                                                         ),
                                                         SizedBox(height: 13),

@@ -137,6 +137,7 @@ class AllEventDetailScreen extends StatelessWidget {
                                                     color: themeController.c.value,//appTheme.white,
                                                     borderRadius: BorderRadius.all(
                                                         Radius.circular(15)),
+                                                    border: Border.all(color: appTheme.themeColor),
                                                     boxShadow: controller
                                                         .isHover.value[index]
                                                         ? [
@@ -157,10 +158,20 @@ class AllEventDetailScreen extends StatelessWidget {
                                                       crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                       children: [
+                                                        SizedBox(height: 11),
                                                         Row(
-                                                          mainAxisAlignment:
-                                                          MainAxisAlignment.end,
+                                                          //mainAxisAlignment: MainAxisAlignment.end,
                                                           children: [
+                                                            Text(
+                                                              controller.eventList.value[index].name,
+                                                              maxLines: 1,
+                                                              overflow: TextOverflow.ellipsis,
+                                                              style: boldFontStyle(
+                                                                  size: 20,
+                                                                  color: themeController.d.value//appTheme.black
+                                                              ),
+                                                            ),
+                                                            Spacer(),
                                                             Obx(
                                                                   () =>controller.loader.value ?Image(
                                                                   width: 20,
@@ -206,6 +217,17 @@ class AllEventDetailScreen extends StatelessWidget {
                                                             ),
                                                           ],
                                                         ),
+                                                        SizedBox(height: 5),
+
+
+                                                      Text(
+                                                        'Start date ${DateFormat("dd MMMM").format(controller.eventList.value[index].startDate)}',
+                                                        style: mediumFontStyle(
+                                                            color: appTheme.gray600,size: 14),
+                                                      ),
+
+
+                                                        SizedBox(height: 12),
                                                         Container(
                                                           height: 118,
                                                           width: Get.width,
@@ -223,23 +245,6 @@ class AllEventDetailScreen extends StatelessWidget {
                                                           ),
                                                         ),
                                                         SizedBox(height: 12),
-                                                        Text(
-                                                          controller.eventList
-                                                              .value[index].name,
-                                                          maxLines: 1,
-                                                          overflow: TextOverflow.ellipsis,
-                                                          style: boldFontStyle(
-                                                              size: 20,
-                                                              color: themeController.d.value//appTheme.black
-                                                          ),
-                                                        ),
-                                                        SizedBox(height: 5),
-                                                        Text(
-                                                          'Start date ${DateFormat("dd MMMM").format(controller.eventList.value[index].startDate)}',
-                                                          style: mediumFontStyle(
-                                                              color: appTheme.gray600,size: 14),
-                                                        ),
-                                                        SizedBox(height: 11),
                                                       ],
                                                     ),
                                                   ),

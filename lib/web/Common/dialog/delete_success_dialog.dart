@@ -26,7 +26,7 @@ void showDeleteSuccessDialog(
               borderRadius: BorderRadius.circular(10),
               color: themeController.c.value,          ),
             constraints:
-            BoxConstraints(maxWidth: width * 0.6, maxHeight: height * 0.4),
+            BoxConstraints(maxWidth: width * 0.6, maxHeight: height * 0.35),
             width: width * 0.49,
 
             alignment: Alignment.center,
@@ -55,7 +55,7 @@ void showDeleteSuccessDialog(
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(AssetRes.deleteImg, height: width*0.2, width:width*0.2),
+                      Image.asset(AssetRes.deleteImg, height: width*0.1, width:width*0.1),
                       SizedBox(height: width * 0.047),
                       // Spacer(),
                       Text(msg ?? "confirmDeleteIcon".tr,

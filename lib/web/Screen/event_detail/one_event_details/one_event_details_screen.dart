@@ -37,7 +37,7 @@ class OneEventDetailScreen extends StatelessWidget {
         return DashboardScreen(
           index: 2,
           child: Obx(() => Container(
-            color: themeController.bgColor.value,//appTheme.secondarybgcolor,
+            color: themeController.webBgColor.value,//appTheme.secondarybgcolor,
             child: Padding(
               padding:
               const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
@@ -68,6 +68,7 @@ class OneEventDetailScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: themeController.c.value,//appTheme.white,
                             borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: appTheme.themeColor)
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(

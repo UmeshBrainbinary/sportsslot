@@ -72,7 +72,8 @@ class _AddGroundDetailScreenState extends State<AddGroundDetailScreen> {
                     Obx(() =>  Container(
                       height: height,
                       width: width,
-                      color: themeController.bgColor.value,//appTheme.secondarybgcolor,
+                      color: themeController.webBgColor.value, //appTheme.secondarybgcolor,
+
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 30, vertical: 30),
@@ -87,6 +88,22 @@ class _AddGroundDetailScreenState extends State<AddGroundDetailScreen> {
                                     widget.isFromUpdate ==true ? "ground_details_edit".tr:   'ground_details'.tr,
                                     style: mediumFontStyle(
                                         size: 24),
+                                  ),
+                                  Spacer(),
+                                  GestureDetector(
+                                    onTap: (){
+                                      Get.back();
+                                    },
+                                    child: Container(
+                                      height: 30,
+                                      width: 30,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(color: appTheme.themeColor),
+                                      ),
+                                      child: Icon(Icons.close, color: appTheme.themeColor, size: 20),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -104,8 +121,7 @@ class _AddGroundDetailScreenState extends State<AddGroundDetailScreen> {
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: Get.width * 0.02, vertical: 30),
+                                      padding: EdgeInsets.symmetric(horizontal: Get.width * 0.02, vertical: 30),
                                       child: Column(
                                         children: [
 
@@ -281,167 +297,130 @@ class _AddGroundDetailScreenState extends State<AddGroundDetailScreen> {
 
                                                   SizedBox(height: Get.height * 0.03),
 
-                                                  Container(
-                                                    width: width * 0.32,
-                                                    height: height * 0.26,
-                                                    decoration: BoxDecoration(
-                                                        borderRadius:
-                                                        BorderRadius.circular(
-                                                            10)),
-                                                    child: DottedBorder(
-                                                      borderType: BorderType.Rect,
-                                                      borderPadding:
-                                                      EdgeInsets.symmetric(
-                                                          horizontal: 3),
-                                                      padding: EdgeInsets.symmetric(
-                                                          horizontal: 3),
-                                                      radius: Radius.circular(10),
-                                                      color: appTheme.dotted,
-                                                      dashPattern: [10, 6],
-                                                      strokeWidth: 1,
-                                                      child: Container(
-                                                        width: double.infinity,
-                                                        height: width * 0.30,
-                                                        decoration: BoxDecoration(
-                                                            color: themeController.textfieldBgColor.value,//appTheme.colorFAFAFA,
-                                                            borderRadius: BorderRadius.circular(10)),
-                                                        padding: EdgeInsets.only(top: width * 0.013, bottom: width * 0.013),
-                                                        child: Stack(
-                                                          alignment: Alignment.center,
+                                                  /// add image
+                                                  RichText(
+                                                    text: TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                            text: "addEventImage".tr,
+                                                            style: regularFontStyle(
+                                                                color: themeController.d.value,//appTheme.black,
+                                                                size: 18)),
+                                                        TextSpan(
+                                                            text: " *".tr,
+                                                            style: regularFontStyle(
+                                                                color: appTheme.red700, size: 18)),
+                                                      ],
+                                                    ),
+                                                    textAlign: TextAlign.left,
+                                                  ),
+                                                  SizedBox(height: height * 0.02),
+                                                  Row(
+                                                    children: [
+                                                      Container(
+                                                        width: width * 0.04,
+
+                                                        child: Column(
                                                           children: [
-                                                            Column(
-                                                              mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                              children: [
-                                                                // Text(
-                                                                //   "uploadHere".tr,
-                                                                //   style: boldFontStyle(size: 28, color: appTheme.color8B8B9A),
-                                                                // ),
-                                                                // SizedBox(height: 20),
-                                                                // Text("or".tr, style: regularFontStyle(size: 22, color: appTheme.color8B8B9A)),
-                                                                // SizedBox(height: 25),
-                                                                CommonPrimaryButton(
-                                                                  text: 'browse'.tr,
-                                                                  onTap: () async{
-                                                                    List<String> images = await pickMultiImage();
-                                                                    controller.mainGroundImageList.value.addAll(images);
-                                                                    controller.mainGroundImageList.value = controller.mainGroundImageList.value.toSet().toList();
-                                                                    controller.mainGroundImageList.refresh();
-                                                                  },
+                                                            DottedBorder(
+                                                              borderType: BorderType.Rect,
+                                                              borderPadding:
+                                                              EdgeInsets.symmetric(
+                                                                  horizontal: 3),
+                                                              padding:
+                                                              EdgeInsets.symmetric(
+                                                                  horizontal: 3),
+                                                              radius: Radius.circular(15),
+                                                              color: appTheme.dotted,
+                                                              dashPattern: [10, 6],
+                                                              strokeWidth: 1,
+                                                              child: InkWell(
+                                                                onTap: () async{
+                                                                  List<String> images = await pickMultiImage();
+                                                                  controller.mainGroundImageList.value.addAll(images);
+                                                                  controller.mainGroundImageList.value = controller.mainGroundImageList.value.toSet().toList();
+                                                                  controller.mainGroundImageList.refresh();
+                                                                },
+                                                                child: Container(
+                                                                  height: 60,
+                                                                  width: Get.width,
+                                                                  child: Image.asset(
+                                                                      AssetRes
+                                                                          .addImageIcon,
+                                                                      scale: 4, color: appTheme.themeColor),
                                                                 ),
-                                                              ],
+                                                              ),
                                                             ),
                                                           ],
                                                         ),
                                                       ),
-                                                    ),
-                                                  ),
-
-                                                  Obx(
-                                                        () =>
-                                                    controller.mainGroundImageList
-                                                        .value.isNotEmpty
-                                                        ? Padding(
-                                                      padding: EdgeInsets
-                                                          .symmetric(
-                                                          horizontal: 3,
-                                                          vertical: 12),
-                                                      child: SizedBox(
-                                                        height:
-                                                        sizingInformation
-                                                            .isDesktop
-                                                            ? 70
-                                                            : 50,
-                                                        width: width * 0.32,
-                                                        child: Scrollbar(
-                                                          controller:
-                                                          stadiumScrollController,
-                                                          child: ListView
-                                                              .separated(
-                                                            shrinkWrap:
-                                                            true,
-                                                            controller:
-                                                            stadiumScrollController,
-                                                            scrollDirection:
-                                                            Axis.horizontal,
-                                                            itemCount:
-                                                            controller
-                                                                .mainGroundImageList
-                                                                .value
-                                                                .length,
-                                                            separatorBuilder:
-                                                                (context,
-                                                                index) {
-                                                              return SizedBox(
-                                                                  width: sizingInformation
-                                                                      .isDesktop
-                                                                      ? 8
-                                                                      : 6);
-                                                            },
-                                                            itemBuilder:
-                                                                (context,
-                                                                index) {
-                                                              final data =
-                                                              controller
-                                                                  .mainGroundImageList
-                                                                  .value[index];
-                                                              return ClipRRect(
-                                                                borderRadius:
-                                                                BorderRadius
-                                                                    .circular(3),
-                                                                child:
-                                                                Stack(
-                                                                  alignment:
-                                                                  Alignment
-                                                                      .topRight,
-                                                                  children: [
-                                                                    Image.network(
-                                                                        data,
-                                                                        height: sizingInformation.isDesktop
-                                                                            ? 70
-                                                                            : 50,
-                                                                        width: sizingInformation.isDesktop
-                                                                            ? 70
-                                                                            : 50,
-                                                                        fit:
-                                                                        BoxFit.fill),
-                                                                    Align(
-                                                                      alignment:
-                                                                      Alignment.topRight,
-                                                                      child:
-                                                                      GestureDetector(
-                                                                        onTap:
-                                                                            () {
-                                                                          controller.mainGroundImageList.value.removeAt(index);
-                                                                          controller.mainGroundImageList.refresh();
-                                                                        },
-                                                                        child:
-                                                                        Container(
-                                                                          height: 14,
-                                                                          width: 14,
-                                                                          margin: EdgeInsets.only(top: 4, right: 5),
-                                                                          padding: EdgeInsets.all(2),
-                                                                          color: Colors.white,
-                                                                          child: Image.asset(AssetRes.deleteIcon),
+                                                      SizedBox(width: 30),
+                                                      Obx(
+                                                            () => controller.mainGroundImageList.value.isNotEmpty
+                                                            ? Padding(
+                                                          padding: EdgeInsets.symmetric(horizontal: 3, vertical: 12),
+                                                          child: SizedBox(
+                                                            height: sizingInformation.isDesktop ? 70 : 50,
+                                                            width: width * 0.32,
+                                                            child: ListView.separated(
+                                                              shrinkWrap: true,
+                                                              scrollDirection: Axis.horizontal,
+                                                              itemCount: controller.mainGroundImageList.value.length,
+                                                              separatorBuilder: (context, index) {
+                                                                return SizedBox(
+                                                                    width: sizingInformation.isDesktop ? 8 : 6);
+                                                              },
+                                                              itemBuilder: (context, index) {
+                                                                final data = controller.mainGroundImageList.value[index];
+                                                                return ClipRRect(
+                                                                  borderRadius: BorderRadius.circular(3),
+                                                                  child: Stack(
+                                                                    alignment: Alignment.topRight,
+                                                                    children: [
+                                                                      Image.network(data,
+                                                                          height:
+                                                                          sizingInformation.isDesktop ? 70 : 50,
+                                                                          width:
+                                                                          sizingInformation.isDesktop ? 70 : 50,
+                                                                          fit: BoxFit.fill),
+                                                                      Align(
+                                                                        alignment: Alignment.topRight,
+                                                                        child: GestureDetector(
+                                                                          onTap: () {
+                                                                            controller.mainGroundImageList.value
+                                                                                .removeAt(index);
+                                                                            controller.mainGroundImageList.refresh();
+                                                                          },
+                                                                          child: Container(
+                                                                            height: 14,
+                                                                            width: 14,
+                                                                            margin: EdgeInsets.only(top: 4, right: 5),
+                                                                            padding: EdgeInsets.all(2),
+                                                                            color: Colors.white,
+                                                                            child: Image.asset(AssetRes.deleteIcon),
+                                                                          ),
                                                                         ),
                                                                       ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              );
-                                                            },
+                                                                    ],
+                                                                  ),
+                                                                );
+                                                              },
+                                                            ),
                                                           ),
-                                                        ),
+                                                        )
+                                                            : controller.groundImgError.value.isNotEmpty
+                                                            ? Padding(
+                                                          padding: const EdgeInsets.only(top: 10),
+                                                          child: Text(controller.groundImgError.value,
+                                                              style: errorTextStyle()),
+                                                        )
+                                                            : SizedBox(),
                                                       ),
-                                                    )
-                                                        : controller.groundImgError.value.isNotEmpty ?
-                                                    Padding(
-                                                      padding: const EdgeInsets.only(top: 10),
-                                                      child: Text(controller.groundImgError.value,style: controller.errorTextStyle()),
-                                                    )
-                                                        :SizedBox(),
+                                                    ],
                                                   ),
+
+
+
 
                                                   SizedBox(height: Get.height * 0.04),
 
@@ -583,58 +562,9 @@ class _AddGroundDetailScreenState extends State<AddGroundDetailScreen> {
                                                           .errorTextStyle())
                                                       : SizedBox(),
 
-                                                  /// description
+
                                                   SizedBox(height: Get.height * 0.04),
-
-                                                  RichText(
-                                                    text: TextSpan(
-                                                      children: [
-                                                        TextSpan(
-                                                            text: "description".tr,
-                                                            style: regularFontStyle(
-                                                                color:  themeController.d.value,//appTheme.black,
-                                                                size: 18)),
-                                                        TextSpan(
-                                                            text: " *".tr,
-                                                            style: regularFontStyle(
-                                                                color:
-                                                                appTheme.red700,
-                                                                size: 18)),
-                                                      ],
-                                                    ),
-                                                    textAlign: TextAlign.left,
-                                                  ),
-                                                  SizedBox(
-                                                      height: Get.height * 0.015),
-
-                                                  SizedBox(
-                                                    width: width * 0.32,
-                                                    height: height * 0.18,
-                                                    child: CommonTextFiled(
-                                                        hintext:
-                                                        "enter_description".tr,
-                                                        controller: controller
-                                                            .descriptionController,
-                                                        maxLine: 5,
-                                                        hintHeight: 2,textHeight: 1.2),
-                                                  ),
-                                                  controller.descriptionError.isNotEmpty
-                                                      ? Text(
-                                                      controller.descriptionError,
-                                                      style: controller
-                                                          .errorTextStyle())
-                                                      : SizedBox(),
-                                                ],
-                                              ),
-                                              Container(
-                                                width: 0.8,
-                                                height: height,
-                                                color: themeController.d.value,//Colors.black
-                                              ),
-                                              Column(
-                                                crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                                children: [
+                                                  ///feature
                                                   SizedBox(
                                                     width: width * 0.32,
                                                     child: Row(
@@ -715,7 +645,7 @@ class _AddGroundDetailScreenState extends State<AddGroundDetailScreen> {
                                                             await controller.featuresValidation();
                                                           },
                                                           child: Obx(
-                                                            () =>  Container(
+                                                                () =>  Container(
                                                               height: 40,
                                                               width: 40,
                                                               alignment:
@@ -797,7 +727,7 @@ class _AddGroundDetailScreenState extends State<AddGroundDetailScreen> {
                                                                   .center,
                                                               children: [
                                                                 Obx(
-                                                                  () =>  Container(
+                                                                      () =>  Container(
                                                                     // width: width * 0.2,
                                                                     // height: 45,
                                                                     constraints:
@@ -849,7 +779,7 @@ class _AddGroundDetailScreenState extends State<AddGroundDetailScreen> {
                                                                   },
                                                                   child:
                                                                   Obx(
-                                                                    () =>  Container(
+                                                                        () =>  Container(
                                                                       height: height *
                                                                           0.0325,
                                                                       width: height *
@@ -878,22 +808,15 @@ class _AddGroundDetailScreenState extends State<AddGroundDetailScreen> {
                                                     )
                                                         : SizedBox(),
                                                   ),
-                                                  SizedBox(height: height * 0.03),
 
+                                                ],
+                                              ),
 
-                                                  // controller.priceError.isNotEmpty
-                                                  //     ? Padding(
-                                                  //         padding:
-                                                  //             const EdgeInsets.only(
-                                                  //                 left: 75),
-                                                  //         child: Text(
-                                                  //             controller.priceError,
-                                                  //             style: controller
-                                                  //                 .errorTextStyle()),
-                                                  //       )
-                                                  //     : SizedBox(),
-
-                                                  SizedBox(height: height * 0.03),
+                                              /// add sub ground
+                                              Column(
+                                                crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                                children: [
 
                                                   /// add sub ground
                                                   Container(
@@ -1612,18 +1535,61 @@ class _AddGroundDetailScreenState extends State<AddGroundDetailScreen> {
                                                     )
                                                         : SizedBox(),
                                                   ),
+
+
+                                                    /// description
+                                                  SizedBox(height: Get.height * 0.04),
+
+                                                  RichText(
+                                                    text: TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                            text: "description".tr,
+                                                            style: regularFontStyle(
+                                                                color:  themeController.d.value,//appTheme.black,
+                                                                size: 18)),
+                                                        TextSpan(
+                                                            text: " *".tr,
+                                                            style: regularFontStyle(
+                                                                color:
+                                                                appTheme.red700,
+                                                                size: 18)),
+                                                      ],
+                                                    ),
+                                                    textAlign: TextAlign.left,
+                                                  ),
+                                                  SizedBox(
+                                                      height: Get.height * 0.015),
+
+                                                  SizedBox(
+                                                    width: width * 0.32,
+                                                    height: height * 0.18,
+                                                    child: CommonTextFiled(
+                                                        hintext:
+                                                        "enter_description".tr,
+                                                        controller: controller
+                                                            .descriptionController,
+                                                        maxLine: 5,
+                                                        hintHeight: 2,textHeight: 1.2),
+                                                  ),
+                                                  controller.descriptionError.isNotEmpty
+                                                      ? Text(
+                                                      controller.descriptionError,
+                                                      style: controller
+                                                          .errorTextStyle())
+                                                      : SizedBox(),
                                                 ],
                                               ),
                                             ],
                                           ),
-                                          SizedBox(height: 25),
+                                          SizedBox(height: 45),
                                           Row(
                                             mainAxisAlignment:
                                             MainAxisAlignment.center,
                                             children: [
                                               Obx(
                                                     () =>  CommonPrimaryButton(
-                                                  text: "  ${'save'.tr}   ",
+                                                  text: "${'createStadium'.tr}",
                                                   isLoading: controller.loader.value,
                                                   onTap: () async {
                                                     await controller.categoryValidation();
@@ -1704,16 +1670,16 @@ class _AddGroundDetailScreenState extends State<AddGroundDetailScreen> {
                                                   },
                                                 ),
                                               ),
-                                              SizedBox(width: 15),
-                                              CommonPrimaryButton(
-                                                text: " ${'cancel'.tr} ",
-                                                textColor: themeController.d.value,
-                                                onTap: () {
-                                                  Get.back();
-                                                },
-                                                color: themeController.c.value,
-                                                //appTheme.white,
-                                              ),
+                                              // SizedBox(width: 15),
+                                              // CommonPrimaryButton(
+                                              //   text: " ${'cancel'.tr} ",
+                                              //   textColor: themeController.d.value,
+                                              //   onTap: () {
+                                              //     Get.back();
+                                              //   },
+                                              //   color: themeController.c.value,
+                                              //   //appTheme.white,
+                                              // ),
                                             ],
                                           ),
                                         ],

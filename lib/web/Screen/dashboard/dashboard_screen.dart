@@ -8,9 +8,11 @@ import 'package:sportsslot/web/Screen/dashboard/dashboard_controller.dart';
 import 'package:sportsslot/web/Screen/event_detail/all_event_detail/all_event_detail_screen.dart';
 import 'package:sportsslot/web/Screen/faqs/faq_screen.dart';
 import 'package:sportsslot/web/Screen/ground_detail/all_ground_detail/all_ground_detail_screen.dart';
+import 'package:sportsslot/web/Screen/legals/legals_screen.dart';
 import 'package:sportsslot/web/Screen/logo_icon/logo_icon_screen.dart';
 import 'package:sportsslot/web/Screen/notification/notification_screen.dart';
 import 'package:sportsslot/web/Screen/privacy_policy/privacy_policy_screen.dart';
+import 'package:sportsslot/web/Screen/setting/setting_screen.dart';
 import 'package:sportsslot/web/helper/theme/theme_controller.dart';
 import 'package:sportsslot/web/utils/style_res.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -48,22 +50,35 @@ class _DashboardScreenState extends State<DashboardScreen> {
     } else if (index == 3) {
       Get.offAll(
           transition: Transition.noTransition, () => AllGroundDetailScreen());
-    } else if (index == 4) {
+    }
+
+    ///
+    // else if (index == 4) {
+    //   Get.offAll(
+    //       transition: Transition.noTransition,
+    //       () => DashboardScreen(child: NotificationScreen(), index: 4));
+    // } else if (index == 5) {
+    //   Get.offAll(
+    //       transition: Transition.noTransition,
+    //       () => DashboardScreen(child: PrivacyPolicyScreen(), index: 5));
+    // } else if (index == 6) {
+    //   Get.offAll(
+    //       transition: Transition.noTransition,
+    //       () => DashboardScreen(child: FaqScreen(), index: 6));
+    // } else if (index == 7) {
+    //   Get.offAll(
+    //       transition: Transition.noTransition,
+    //       () => DashboardScreen(child: AboutScreen(), index: 7));
+    // }
+    ///
+    else if (index == 4) {
       Get.offAll(
           transition: Transition.noTransition,
-          () => DashboardScreen(child: NotificationScreen(), index: 4));
+              () => DashboardScreen(child: LegalsScreen(), index: 4));
     } else if (index == 5) {
       Get.offAll(
           transition: Transition.noTransition,
-          () => DashboardScreen(child: PrivacyPolicyScreen(), index: 5));
-    } else if (index == 6) {
-      Get.offAll(
-          transition: Transition.noTransition,
-          () => DashboardScreen(child: FaqScreen(), index: 6));
-    } else if (index == 7) {
-      Get.offAll(
-          transition: Transition.noTransition,
-          () => DashboardScreen(child: AboutScreen(), index: 7));
+              () => DashboardScreen(child: SettingScreen(), index: 5));
     }
   }
 
@@ -80,22 +95,22 @@ class _DashboardScreenState extends State<DashboardScreen> {
         } else if (sizingInformation.isMobile) {
           width = 350;
         }
-        return Scaffold(
-          backgroundColor: appTheme.white,
+        return Obx(()=>Scaffold(
+          backgroundColor: themeController.c.value,
           body: Row(
             children: [
               Expanded(
                 flex: sizingInformation.isDesktop
                     ? 1
                     : sizingInformation.isTablet
-                        ? 2
-                        : 2,
+                    ? 2
+                    : 2,
                 child: Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 0, vertical: 30),
+                  const EdgeInsets.symmetric(horizontal: 0, vertical: 30),
                   child: Column(
                     children: [
-                      Image.asset(AssetRes.logo, height: height*0.15),
+                      Image.asset(AssetRes.logo, height: height*0.1),
                       SizedBox(
                         height: 10,
                       ),
@@ -113,148 +128,93 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         itemCount: controller.items.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Container(
-                            height: 47,
-                            child:
-                           index != 8 ?
-                           Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Expanded(
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      indexWiseNavigation(index: index);
-                                    },
-                                    child: Obx(
-                                      () =>  Container(
-                                        margin: EdgeInsets.symmetric(vertical: 1),
-                                        height: 45,
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 20, vertical: 5),
-                                        decoration:themeController.isDarkMode.value ?
-                                        BoxDecoration(
-                                            color: widget.index == index
-                                                ?themeController.webBgColor.value
-                                                : Colors.transparent) : BoxDecoration(
-                                            color: widget.index == index
-                                                ?themeController.webBgColor.value
-                                                : Colors.transparent),
-                                        child: Align(
-                                          alignment: Alignment.centerLeft,
-                                          child: Text(
-                                            controller.items[index],
-                                            textAlign: TextAlign.start,
-                                            style: mediumFontStyle(
-                                                size: 20,
-                                                sizingInformation:
-                                                    sizingInformation),
+                              height: 47,
+                              child:
+
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        indexWiseNavigation(index: index);
+                                      },
+                                      child: Obx(
+                                            () =>  Container(
+                                          margin: EdgeInsets.symmetric(vertical: 1),
+                                          height: 45,
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 20, vertical: 5),
+                                          decoration:themeController.isDarkMode.value ?
+                                          BoxDecoration(
+                                              color: widget.index == index
+                                                  ?themeController.webBgColor.value
+                                                  : Colors.transparent) : BoxDecoration(
+                                              color: widget.index == index
+                                                  ?themeController.webBgColor.value
+                                                  : Colors.transparent),
+                                          child: Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              controller.items[index],
+                                              textAlign: TextAlign.start,
+                                              style: mediumFontStyle(
+                                                  size: 20,
+                                                  sizingInformation:
+                                                  sizingInformation),
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                widget.index == index && index != 8
-                                    ? Container(
-                                        width: 4,
-                                        height: 47,
-                                        alignment: Alignment.centerRight,
-                                        decoration: BoxDecoration(
-                                            color: appTheme.themeColor,
-                                            borderRadius:
-                                                BorderRadius.circular(3)),
-                                      )
-                                    : SizedBox(),
+                                  widget.index == index
+                                      ? Container(
+                                    width: 4,
+                                    height: 47,
+                                    alignment: Alignment.centerRight,
+                                    decoration: BoxDecoration(
+                                        color: appTheme.themeColor,
+                                        borderRadius:
+                                        BorderRadius.circular(3)),
+                                  )
+                                      : SizedBox(),
 
-                              ],
-                            ) :
-                           Row(
-                             mainAxisAlignment: MainAxisAlignment.start,
-                             children: [
-                               GestureDetector(
-                                 onTap: () {
-                                   indexWiseNavigation(index: index);
-                                 },
-                                 child: Container(
-                                   margin: EdgeInsets.symmetric(vertical: 1),
-                                   height: 45,
-                                   padding: EdgeInsets.symmetric(
-                                       horizontal: 20, vertical: 5),
-                                   decoration: BoxDecoration(
-                                       color: widget.index == index
-                                           ? appTheme.webBgColor
-                                           : Colors.transparent),
-                                   child: Align(
-                                     alignment: Alignment.centerLeft,
-                                     child: Text(
-                                       controller.items[index],
-                                       textAlign: TextAlign.start,
-                                       style: mediumFontStyle(
-                                           size: 20,
-                                           color: Color(0xFF969696),
-                                           sizingInformation:
-                                           sizingInformation),
-                                     ),
-                                   ),
-                                 ),
-                               ),
-                               widget.index == index && index != 8
-                                   ? Container(
-                                 width: 4,
-                                 height: 47,
-                                 alignment: Alignment.centerRight,
-                                 decoration: BoxDecoration(
-                                     color: appTheme.themeColor,
-                                     borderRadius:
-                                     BorderRadius.circular(3)),
-                               )
-                                   : SizedBox(),
-                               index == 8
-                                   ?  Obx(
-                                     () => CustomSwitch(
-                                   value: themeController.isDarkMode.value,
-                                   onChanged: (value) {
-                                     debugPrint("-=-=-=-=-=-: ${value}");
-                                     themeController.isDarkMode.value = value;
-                                     themeController.switchTheme();
-                                   },
-                                 ),
-                               )
+                                ],
+                              )
 
-                                   : SizedBox(),
-                             ],
-                           ),
                           );
                         },
                       ),
-                      Spacer(),
-                      GestureDetector(
-                        onTap: () {
-                          showLogoutSuccessDialog(
-                              context: context, width: width, height: width);
-                        },
-                        child: Container(
-                          color: Colors.transparent,
-                          child: Row(
-                            children: [
-                              SizedBox(width: 18),
-                              ImageIcon(
-                                AssetImage(AssetRes.logout),
-                                color: appTheme.themeColor,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                "Logout",
-                                style: TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w600,
-                                    fontFamily: Family.robotRegular),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
+                      // Spacer(),
+                      // GestureDetector(
+                      //   onTap: () {
+                      //     showLogoutSuccessDialog(
+                      //         context: context, width: width, height: width);
+                      //   },
+                      //   child: Container(
+                      //     color: Colors.transparent,
+                      //     child: Row(
+                      //       children: [
+                      //         SizedBox(width: 18),
+                      //         ImageIcon(
+                      //           AssetImage(AssetRes.logout),
+                      //           color: appTheme.themeColor,
+                      //         ),
+                      //         SizedBox(
+                      //           width: 10,
+                      //         ),
+                      //         Text(
+                      //           "Logout",
+                      //           style: TextStyle(
+                      //               fontSize: 13,
+                      //               fontWeight: FontWeight.w600,
+                      //               fontFamily: Family.robotRegular),
+                      //         ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // )
                     ],
                   ),
                 ),
@@ -266,13 +226,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 flex: sizingInformation.isDesktop
                     ? 4
                     : sizingInformation.isTablet
-                        ? 6
-                        : 8,
+                    ? 6
+                    : 8,
                 child: widget.child,
               ),
             ],
           ),
-        );
+        ));
       },
     );
   }

@@ -65,114 +65,7 @@ class _BookingHistoryScreenState extends State<BookingHistoryScreen> {
                           style: mediumFontStyle(
                               size: 24, sizingInformation: sizingInformation),
                         ),
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: sizingInformation.isDesktop ? 20 : 13,
-                              vertical: sizingInformation.isDesktop ? 15 : 12),
-                          constraints: BoxConstraints(maxWidth: width * 0.63),
-                          decoration: BoxDecoration(
-                              color: themeController.c.value,//appTheme.white,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              RichText(
-                                text: TextSpan(
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 18.0),
-                                  children: [
-                                    TextSpan(
-                                        text: "${"totalBooking".tr} : ",
-                                        style: regularFontStyle(
-                                            size: 20,
-                                            color: themeController.d.value,
-                                            sizingInformation:
-                                                sizingInformation)),
-                                    WidgetSpan(
-                                      alignment: PlaceholderAlignment.middle,
-                                      child: Obx(
-                                        () =>  Text(
-                                          controller.totalBooking.value.toString(),
-                                          style: regularFontStyle(
-                                              size: 20,
-                                              color: appTheme.themeColor,
-                                              sizingInformation: sizingInformation),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Divider(
-                                  thickness: 1,
-                                  color: appTheme.dotted,
-                                  height: 25),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  RichText(
-                                    text: TextSpan(
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 18.0),
-                                      children: [
-                                        TextSpan(
-                                            text: "upComingBooking".tr,
-                                            style: regularFontStyle(
-                                                size: 20,
-                                                color: themeController.d.value,
-                                                sizingInformation:
-                                                    sizingInformation)),
-                                        WidgetSpan(
-                                          alignment: PlaceholderAlignment.middle,
-                                          child: Obx(
-                                            () =>  Text(
-                                              controller.totalUpcomming.value.toString(),
-                                              style: regularFontStyle(
-                                                  size: 20,
-                                                  color: appTheme.themeColor,
-                                                  sizingInformation:
-                                                      sizingInformation),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(
-                                      width: sizingInformation.isDesktop
-                                          ? width * 0.04
-                                          : width * 0.02),
-                                  RichText(
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                            text: "previousBooking".tr,
-                                            style: regularFontStyle(
-                                                size: 20,
-                                                color: themeController.d.value,
-                                                sizingInformation:
-                                                    sizingInformation)),
-                                        WidgetSpan(
-                                          alignment: PlaceholderAlignment.middle,
-                                          child: Obx(
-                                            () =>  Text(
-                                              (controller.totalBooking.value-controller.totalUpcomming.value).toString(),
-                                              style: regularFontStyle(
-                                                  size: 20,
-                                                  color: appTheme.themeColor,
-                                                  sizingInformation:
-                                                      sizingInformation),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
+
                       ],
                     ),
                   ),
@@ -329,9 +222,11 @@ class _BookingHistoryScreenState extends State<BookingHistoryScreen> {
                             bottomLeft: Radius.circular(12)),
                       ),
                       child: Obx(
-                        () => controller.loader.value ? Center(
+                            () => controller.loader.value
+                                ? Center(
                           child: CommonLoader(),
-                        ): ListView.separated(
+                        )
+                                : ListView.separated(
                           shrinkWrap: true,
                           itemCount: controller.allStadiumDetails.value.length,
                           separatorBuilder:
@@ -375,94 +270,19 @@ class _BookingHistoryScreenState extends State<BookingHistoryScreen> {
                                               mainAxisAlignment:
                                               MainAxisAlignment.center,
                                               children: [
-                                                // Spacer(),
-                                                Container(
-                                                  height: 35,
-                                                  width: width * 0.21,
-                                                  alignment:
-                                                  Alignment.center,
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                      BorderRadius
-                                                          .circular(10),
-                                                      border: Border.all(
-                                                          color: appTheme
-                                                              .colorA8A8A8)),
-                                                  child: IntrinsicHeight(
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .center,
-                                                      children: [
-                                                        // Padding(
-                                                        //   padding: const EdgeInsets
-                                                        //       .symmetric(
-                                                        //       vertical: 5,
-                                                        //       horizontal: 8
-                                                        //   ),
-                                                        //   child: SizedBox(
-                                                        //     width: width * 0.20,
-                                                        // width: sizingInformation
-                                                        //     .isDesktop
-                                                        //     ? width * 0.13
-                                                        //     : width * 0.12,
-                                                        // child:
-                                                        Text(
-                                                          booking[0].toString(),
-                                                          textAlign:
-                                                          TextAlign
-                                                              .center,
-                                                          style: regularFontStyle(
-                                                              size: 19,
-                                                              sizingInformation:
-                                                              sizingInformation,
-                                                              height: 1.22),
-                                                        ),
-                                                        //   ),
-                                                        // ),
-                                                        // SizedBox(
-                                                        //   height: 35,
-                                                        //   child: VerticalDivider(
-                                                        //       thickness: 1,
-                                                        //       color:
-                                                        //       appTheme.colorA8A8A8),
-                                                        // ),
-                                                        // GestureDetector(
-                                                        //   onTap: () {
-                                                        //     controller
-                                                        //         .bookingViewDialog(
-                                                        //       context: context,
-                                                        //       //     width: width,
-                                                        //       //     height: height,
-                                                        //       // sizingInformation: sizingInformation
-                                                        //     );
-                                                        //   },
-                                                        //   child: Container(
-                                                        //     color: Colors.transparent,
-                                                        //     height: sizingInformation
-                                                        //         .isDesktop
-                                                        //         ? width * 0.055
-                                                        //         : width * 0.05,
-                                                        //     width: sizingInformation
-                                                        //         .isDesktop
-                                                        //         ? width * 0.055
-                                                        //         : width * 0.05,
-                                                        //     child: Padding(
-                                                        //       padding: EdgeInsets.all(
-                                                        //           sizingInformation
-                                                        //               .isDesktop
-                                                        //               ? 6.0
-                                                        //               : 5),
-                                                        //       child: Image.asset(
-                                                        //           AssetRes.eyeIcon),
-                                                        //     ),
-                                                        //   ),
-                                                        // ),
-                                                      ],
-                                                    ),
-                                                  ),
+
+                                                Text(
+                                                  booking[0].toString(),
+                                                  textAlign:
+                                                  TextAlign
+                                                      .center,
+                                                  style: regularFontStyle(
+                                                      size: 19,
+                                                      sizingInformation:
+                                                      sizingInformation,
+                                                      height: 1.22),
                                                 ),
-                                                // Spacer(),
+
                                               ],
                                             ),
                                           ),
@@ -472,87 +292,19 @@ class _BookingHistoryScreenState extends State<BookingHistoryScreen> {
                                               mainAxisAlignment:
                                               MainAxisAlignment.center,
                                               children: [
-                                                // Spacer(),
-                                                Container(
-                                                  height: 35,
-                                                  width: width * 0.21,
-                                                  alignment:
-                                                  Alignment.center,
-                                                  decoration: BoxDecoration(
-                                                      borderRadius:
-                                                      BorderRadius
-                                                          .circular(10),
-                                                      border: Border.all(
-                                                          color: appTheme
-                                                              .colorA8A8A8)),
-                                                  child: IntrinsicHeight(
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .center,
-                                                      children: [
-                                                        // Padding(
-                                                        //   padding: const EdgeInsets
-                                                        //       .symmetric(
-                                                        //       vertical: 5,
-                                                        //       horizontal: 8),
-                                                        //   child: SizedBox(
-                                                        //     width: sizingInformation
-                                                        //         .isDesktop
-                                                        //         ? width * 0.13
-                                                        //         : width * 0.12,
-                                                        //     child:
-                                                        Text(
-                                                          booking[1].toString(),
-                                                          textAlign:
-                                                          TextAlign
-                                                              .start,
-                                                          style: regularFontStyle(
-                                                              size: 19,
-                                                              sizingInformation:
-                                                              sizingInformation,
-                                                              height: 1.22),
-                                                        ),
-                                                        //   ),
-                                                        // ),
-                                                        // SizedBox(
-                                                        //   height: 35,
-                                                        //   child: VerticalDivider(
-                                                        //       thickness: 1,
-                                                        //       color:
-                                                        //       appTheme.colorA8A8A8),
-                                                        // ),
-                                                        // GestureDetector(
-                                                        //   onTap: () {
-                                                        //     controller.bookingViewDialog(
-                                                        //         context: context);
-                                                        //   },
-                                                        //   child: Container(
-                                                        //     color: Colors.transparent,
-                                                        //     height: sizingInformation
-                                                        //         .isDesktop
-                                                        //         ? width * 0.055
-                                                        //         : width * 0.05,
-                                                        //     width: sizingInformation
-                                                        //         .isDesktop
-                                                        //         ? width * 0.055
-                                                        //         : width * 0.05,
-                                                        //     child: Padding(
-                                                        //       padding: EdgeInsets.all(
-                                                        //           sizingInformation
-                                                        //               .isDesktop
-                                                        //               ? 6.0
-                                                        //               : 5),
-                                                        //       child: Image.asset(
-                                                        //           AssetRes.eyeIcon),
-                                                        //     ),
-                                                        //   ),
-                                                        // ),
-                                                      ],
-                                                    ),
-                                                  ),
+
+                                                Text(
+                                                  booking[1].toString(),
+                                                  textAlign:
+                                                  TextAlign
+                                                      .start,
+                                                  style: regularFontStyle(
+                                                      size: 19,
+                                                      sizingInformation:
+                                                      sizingInformation,
+                                                      height: 1.22),
                                                 ),
-                                                // Spacer(),
+
                                               ],
                                             ),
                                           ),
@@ -566,7 +318,7 @@ class _BookingHistoryScreenState extends State<BookingHistoryScreen> {
                                                   height: 34,
                                                   child:
                                                   CommonPrimaryButton(
-                                                    height: 34,
+                                                      height: 34,
                                                       text:
                                                       'viewDetails'.tr,
                                                       textStyle: regularFontStyle(
@@ -574,7 +326,7 @@ class _BookingHistoryScreenState extends State<BookingHistoryScreen> {
                                                           sizingInformation:
                                                           sizingInformation,
                                                           color: appTheme.white,
-                                                        height: 0.59
+                                                          height: 0.59
                                                       ),
                                                       onTap: () {
                                                         controller.isShowSubGround.value[index] = !controller.isShowSubGround.value[index];
@@ -753,11 +505,11 @@ class _BookingHistoryScreenState extends State<BookingHistoryScreen> {
                                                                     GestureDetector(
                                                                       onTap: () async{
                                                                         if(booking[0] > 0)
-                                                                          {
-                                                                            List<String> bookingIdList = controller.getTotalUpcomingBookingAndId(data2);
-                                                                            controller.filterBookingList.value =controller.allBookingRecord.where((booking) => bookingIdList.contains(booking["id"])).toList();
-                                                                            await  controller.bookingViewDialog(context: context, users: data2.users ?? [], bookingIdList: controller.bookingIdList.value,);
-                                                                          }
+                                                                        {
+                                                                          List<String> bookingIdList = controller.getTotalUpcomingBookingAndId(data2);
+                                                                          controller.filterBookingList.value =controller.allBookingRecord.where((booking) => bookingIdList.contains(booking["id"])).toList();
+                                                                          await  controller.bookingViewDialog(context: context, users: data2.users ?? [], bookingIdList: controller.bookingIdList.value,);
+                                                                        }
                                                                         else{
                                                                           errorToast("no booking record found");
                                                                         }
@@ -803,7 +555,7 @@ class _BookingHistoryScreenState extends State<BookingHistoryScreen> {
                                                                       child: SizedBox(
                                                                         width: sizingInformation.isDesktop ? width * 0.13 : width * 0.12,
                                                                         child: Text(
-                                                                            booking[1].toString(),
+                                                                          booking[1].toString(),
                                                                           textAlign: TextAlign.start,
                                                                           style: regularFontStyle(size: 18, sizingInformation: sizingInformation, height: 1.12),
                                                                         ),
@@ -861,6 +613,117 @@ class _BookingHistoryScreenState extends State<BookingHistoryScreen> {
                             );
                           },
                         ),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: sizingInformation.isDesktop ? 20 : 13,
+                          vertical: sizingInformation.isDesktop ? 15 : 12),
+                      constraints: BoxConstraints(maxWidth: width * 0.63),
+                      decoration: BoxDecoration(
+                          color: themeController.c.value,//appTheme.white,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          RichText(
+                            text: TextSpan(
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 18.0),
+                              children: [
+                                TextSpan(
+                                    text: "${"totalBooking".tr} : ",
+                                    style: regularFontStyle(
+                                        size: 20,
+                                        color: themeController.d.value,
+                                        sizingInformation:
+                                        sizingInformation)),
+                                WidgetSpan(
+                                  alignment: PlaceholderAlignment.middle,
+                                  child: Obx(
+                                        () =>  Text(
+                                      controller.totalBooking.value.toString(),
+                                      style: regularFontStyle(
+                                          size: 20,
+                                          color: appTheme.themeColor,
+                                          sizingInformation: sizingInformation),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Divider(
+                              thickness: 1,
+                              color: appTheme.dotted,
+                              height: 25),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              RichText(
+                                text: TextSpan(
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 18.0),
+                                  children: [
+                                    TextSpan(
+                                        text: "upComingBooking".tr,
+                                        style: regularFontStyle(
+                                            size: 20,
+                                            color: themeController.d.value,
+                                            sizingInformation:
+                                            sizingInformation)),
+                                    WidgetSpan(
+                                      alignment: PlaceholderAlignment.middle,
+                                      child: Obx(
+                                            () =>  Text(
+                                          controller.totalUpcomming.value.toString(),
+                                          style: regularFontStyle(
+                                              size: 20,
+                                              color: appTheme.themeColor,
+                                              sizingInformation:
+                                              sizingInformation),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                  width: sizingInformation.isDesktop
+                                      ? width * 0.04
+                                      : width * 0.02),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                        text: "previousBooking".tr,
+                                        style: regularFontStyle(
+                                            size: 20,
+                                            color: themeController.d.value,
+                                            sizingInformation:
+                                            sizingInformation)),
+                                    WidgetSpan(
+                                      alignment: PlaceholderAlignment.middle,
+                                      child: Obx(
+                                            () =>  Text(
+                                          (controller.totalBooking.value-controller.totalUpcomming.value).toString(),
+                                          style: regularFontStyle(
+                                              size: 20,
+                                              color: appTheme.themeColor,
+                                              sizingInformation:
+                                              sizingInformation),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),

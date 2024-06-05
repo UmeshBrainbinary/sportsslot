@@ -31,7 +31,7 @@ void showLogoutSuccessDialog(
               color: themeController.c.value
             ),
             constraints:
-            BoxConstraints(maxWidth: width * 0.6, maxHeight: height * 0.45),
+            BoxConstraints(maxWidth: width * 0.6, maxHeight: height * 0.4),
             width: width * 0.47,
             // height: width * 0.47,
             alignment: Alignment.center,
@@ -59,7 +59,7 @@ void showLogoutSuccessDialog(
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(AssetRes.logOutIng, height: width*0.197, width:width*0.197),
+                    Image.asset(AssetRes.logOutIng, height: width*0.1, width:width*0.1),
                     SizedBox(height: width * 0.047),
                     Text("areYouSureLogOut".tr,
 

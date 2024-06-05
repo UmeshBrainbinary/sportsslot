@@ -400,6 +400,7 @@ class AssetRes {
   static const deleteIcon = "${icons}ic_delete.png";
 
   ///--------------------------------------------- images ---------------------------------------------
+
   static const logo = images + 'logo.png';
   static const Groups = images + 'Group.png';
   static const groundPhoto = images + 'static_ground.png';
@@ -411,7 +412,6 @@ class AssetRes {
   static const oneEvent = images+'oneEvent.png';
   static const memory = images+'memrory.png';
   static const mainGround = images+'MainGround.png';
-
   static const cameraIcon = icons + 'camera_icon.png';
   static const changingRoomIcon = icons + 'changing_room_icon.png';
   static const parkingIcon = icons + 'parking_icon.png';

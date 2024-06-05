@@ -103,7 +103,7 @@ class Assets {
   static const String controllerMyGroundsController = 'lib/presentation/my_grounds_screen/controller/my_grounds_controller.dart';
   static const String controllerMyProfileController = 'lib/presentation/my_profile_screen/controller/my_profile_controller.dart';
   static const String controllerNearbyYouController = 'lib/presentation/nearby_you_screen/controller/nearby_you_controller.dart';
-  static const String controllerNotificationController = 'lib/presentation/notification_screen/controller/notification_controller.dart';
+  static const String controllerNotificationController = 'lib/presentation/notification_screen/controller/legals_controller.dart';
   static const String controllerOnboardingOneController = 'lib/presentation/onboarding_one_screen/controller/onboarding_one_controller.dart';
   static const String controllerOrderPlacedController = 'lib/presentation/order_placed_screen/controller/order_placed_controller.dart';
   static const String controllerPasswordChangedPopupController = 'lib/presentation/password_changed_popup_screen/controller/password_changed_popup_controller.dart';
@@ -429,7 +429,7 @@ class Assets {
   static const String myProfileScreenMyProfileScreen = 'lib/presentation/my_profile_screen/my_profile_screen.dart';
   static const String nearbyYouScreenNearbyYouScreen = 'lib/presentation/nearby_you_screen/nearby_you_screen.dart';
   static const String networkNetworkInfo = 'lib/core/network/network_info.dart';
-  static const String notificationScreenNotificationScreen = 'lib/presentation/notification_screen/notification_screen.dart';
+  static const String notificationScreenNotificationScreen = 'lib/presentation/notification_screen/legals_screen.dart';
   static const String onboardingOneScreenOnboardingOneScreen = 'lib/presentation/onboarding_one_screen/onboarding_one_screen.dart';
   static const String orderPlacedScreenOrderPlacedScreen = 'lib/presentation/order_placed_screen/order_placed_screen.dart';
   static const String passwordChangedPopupScreenPasswordChangedPopupScreen = 'lib/presentation/password_changed_popup_screen/password_changed_popup_screen.dart';

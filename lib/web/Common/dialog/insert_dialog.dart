@@ -3,6 +3,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:sportsslot/core/utils/image_constant.dart';
 import 'package:sportsslot/core/utils/toast_message.dart';
 import 'package:sportsslot/theme/theme_helper.dart';
 import 'package:sportsslot/web/Common/CommonTextfile.dart';
@@ -69,6 +70,21 @@ void showInsertDialog(
               SizedBox(
                 height: width * 0.032,
               ),
+              Row(
+                children: [
+                  SizedBox(width: width * 0.02),
+                  Text(
+                    "name".tr,
+                    style: regularFontStyle(size: 18),
+                  ),
+                  SizedBox(width: width * 0.027),
+                  Expanded(
+                    child: CommonTextFiled(hintext: "enterName".tr,controller: textController,inputFormatter: [CustomInputFormatterTextOnly()],),
+                  ),
+                  SizedBox(width: width * 0.02),
+                ],
+              ),
+              Spacer(),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: width * 0.02),
                 child: DottedBorder(
@@ -80,7 +96,7 @@ void showInsertDialog(
                   strokeWidth: 1,
                   child: Container(
                     width: double.infinity,
-                    height: width * 0.26,
+                    height: width * 0.2,
                     decoration: BoxDecoration(
                       color: themeController.c.value//appTheme.colorFAFAFA,
                     ),
@@ -113,23 +129,25 @@ void showInsertDialog(
                           : Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                // Text(
-                                //   "uploadHere".tr,
-                                //   style: boldFontStyle(
-                                //       size: 28, color: appTheme.color8B8B9A),
+
+                                // CommonPrimaryButton(
+                                //   text: 'browse'.tr,
+                                //   onTap: () {
+                                //     pickImage(imageUrl);
+                                //   },
                                 // ),
-                                // SizedBox(height: 20),
-                                // Text("or".tr,
-                                //     style: regularFontStyle(
-                                //         size: 22, color: appTheme.color8B8B9A)),
-                                // SizedBox(
-                                //   height: 25,
-                                // ),
-                                CommonPrimaryButton(
-                                  text: 'browse'.tr,
-                                  onTap: () {
+                                GestureDetector(
+                                  onTap: (){
                                     pickImage(imageUrl);
                                   },
+                                  child: Container(
+                                    height: 60,
+                                    width: Get.width,
+                                    child: Image.asset(
+                                        AssetRes
+                                            .addImageIcon,
+                                        scale: 4, color: appTheme.themeColor),
+                                  ),
                                 ),
                               ],
                             ),
@@ -137,23 +155,10 @@ void showInsertDialog(
                   ),
                 ),
               ),
-              // SizedBox(height: width*0.032),
-              Spacer(),
 
-              Row(
-                children: [
-                  SizedBox(width: width * 0.02),
-                  Text(
-                    "name".tr,
-                    style: regularFontStyle(size: 18),
-                  ),
-                  SizedBox(width: width * 0.027),
-                  Expanded(
-                    child: CommonTextFiled(hintext: "enterName".tr,controller: textController,inputFormatter: [CustomInputFormatterTextOnly()],),
-                  ),
-                  SizedBox(width: width * 0.02),
-                ],
-              ),
+
+
+
               Spacer(),
               // SizedBox(height: width*0.032),
               Row(
@@ -176,15 +181,15 @@ void showInsertDialog(
                       isLoading: isLoading.value,
                     ),
                   ),
-                  SizedBox(width: width * 0.02),
-                  CommonPrimaryButton(
-                      text: "lbl_cancel".tr,
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      color: themeController.c.value,//appTheme.white,
-                      textColor: themeController.d.value//appTheme.black
-                  ),
+                  // SizedBox(width: width * 0.02),
+                  // CommonPrimaryButton(
+                  //     text: "lbl_cancel".tr,
+                  //     onTap: () {
+                  //       Navigator.pop(context);
+                  //     },
+                  //     color: themeController.c.value,//appTheme.white,
+                  //     textColor: themeController.d.value//appTheme.black
+                  // ),
                 ],
               )
             ],

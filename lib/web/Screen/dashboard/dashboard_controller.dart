@@ -9,11 +9,12 @@ class DashboardController extends GetxController {
     "bookingHistory".tr,
     'Event',
     'Stadium',
-    'notification'.tr,
-    "privacyPolicy".tr,
-    "faqs".tr,
-    "lbl_about_us".tr,
-    "Change Mode"
+    // 'notification'.tr,
+    // "privacyPolicy".tr,
+    // "faqs".tr,
+    // "lbl_about_us".tr,
+    "lbl_legals".tr,
+    "lbl_settings".tr,
   ];
 
   RxInt currentIndex = 0.obs;

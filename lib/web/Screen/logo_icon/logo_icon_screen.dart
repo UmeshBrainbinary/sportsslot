@@ -177,6 +177,7 @@ ThemeController themeController = Get.find<ThemeController>();
                                                           borderRadius: BorderRadius.all(
                                                             Radius.circular(15),
                                                           ),
+                                                          border: Border.all(color: appTheme.themeColor),
                                                           boxShadow: controller
                                                                   .isHover.value[index]
                                                               ? [
@@ -207,7 +208,8 @@ ThemeController themeController = Get.find<ThemeController>();
                                                                     MainAxisAlignment.end,
                                                                 children: [
                                                                    Obx(
-                                                                     () => controller.loader.value ?Image(
+                                                                     () => controller.loader.value
+                                                                         ? Image(
                                                                          width: 20,
                                                                          height: 20,
                                                                          image: AssetImage(AssetRes.dot)):

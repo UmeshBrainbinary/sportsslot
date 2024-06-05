@@ -1,6 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sportsslot/core/app_export.dart';
 import 'package:sportsslot/core/utils/toast_message.dart';
 import 'package:sportsslot/theme/theme_helper.dart';
 import 'package:sportsslot/web/Common/CommonTextfile.dart';
@@ -58,6 +59,21 @@ void showEditDialog(
               SizedBox(
                 height: width * 0.0325,
               ),
+              Row(
+                children: [
+                  SizedBox(width: width * 0.02),
+                  Text(
+                    "name".tr,
+                    style: regularFontStyle(size: 18),
+                  ),
+                  SizedBox(width: width * 0.027),
+                  Expanded(
+                    child: CommonTextFiled(hintext: "enterName".tr,controller: textController,inputFormatter: [CustomInputFormatterTextOnly()],),
+                  ),
+                  SizedBox(width: width * 0.02),
+                ],
+              ),
+              Spacer(),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: width * 0.02),
                 child: DottedBorder(
@@ -69,7 +85,7 @@ void showEditDialog(
                   strokeWidth: 1,
                   child: Container(
                     width: double.infinity,
-                    height: width * 0.26,
+                    height: width * 0.2,
                     decoration: BoxDecoration(
                       color: themeController.c.value//appTheme.colorFAFAFA,
                     ),
@@ -84,19 +100,20 @@ void showEditDialog(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
 
-                              // Text(
-                              //   "uploadHere".tr,
-                              //   style: boldFontStyle(
-                              //       size: 28, color: appTheme.color8B8B9A),
-                              // ),
-                              // SizedBox(height: 20),
-                              // Text("or".tr,
-                              //     style: regularFontStyle(
-                              //         size: 22, color: appTheme.color8B8B9A)),
-                              // SizedBox(
-                              //   height: 25,
-                              // ),
-                              CommonPrimaryButton(text: 'browse'.tr, onTap: () {pickImage(imageUrl);}),
+                              GestureDetector(
+                                onTap: (){
+                                  pickImage(imageUrl);
+                                },
+                                child: Container(
+                                  height: 60,
+                                  width: Get.width,
+                                  child: Image.asset(
+                                      AssetRes
+                                          .addImageIcon,
+                                      scale: 4, color: appTheme.themeColor),
+                                ),
+                              ),
+
                             ],
                           ),
                         ),
@@ -136,21 +153,6 @@ void showEditDialog(
                   ),
                 ),
               ),
-             Spacer(),
-              Row(
-                children: [
-                  SizedBox(width: width * 0.02),
-                  Text(
-                    "name".tr,
-                    style: regularFontStyle(size: 18),
-                  ),
-                  SizedBox(width: width * 0.027),
-                  Expanded(
-                    child: CommonTextFiled(hintext: "enterName".tr,controller: textController,inputFormatter: [CustomInputFormatterTextOnly()],),
-                  ),
-                  SizedBox(width: width * 0.02),
-                ],
-              ),
               Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -174,15 +176,15 @@ void showEditDialog(
                       isLoading: isLoading.value,
                     ),
                   ),
-                  SizedBox(width: width * 0.02),
-                  CommonPrimaryButton(
-                      text: "lbl_cancel".tr,
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      color: themeController.c.value,//appTheme.white,
-                      textColor: themeController.d.value,//appTheme.black
-                  ),
+                  // SizedBox(width: width * 0.02),
+                  // CommonPrimaryButton(
+                  //     text: "lbl_cancel".tr,
+                  //     onTap: () {
+                  //       Navigator.pop(context);
+                  //     },
+                  //     color: themeController.c.value,//appTheme.white,
+                  //     textColor: themeController.d.value,//appTheme.black
+                  // ),
                 ],
               ),
             ],

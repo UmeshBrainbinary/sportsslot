@@ -27,8 +27,8 @@ void showUploadSuccessDialog(
                .copyWith(top: width * 0.012),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: themeController.c.value,          ),
-            constraints: BoxConstraints(maxWidth: width * 0.6, maxHeight: width * 0.46),
+              color: themeController.c.value ),
+            constraints: BoxConstraints(maxWidth: width * 0.6, maxHeight: width * 0.4),
             width: width * 0.445,
             // height: width * 0.45,
             alignment: Alignment.center,
@@ -55,13 +55,15 @@ void showUploadSuccessDialog(
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(AssetRes.editImg, height: width*0.2, width:  width*0.2),
+                    Image.asset(AssetRes.editImg, height: width*0.1, width:  width*0.1),
                     SizedBox(height: width * 0.04),
                     Text(
                      text != null ? text : isUpdate == true
                           ? "iconUpdatedSuccessfully".tr
                           : "iconUploadedSuccessfully".tr,
+                      textAlign: TextAlign.center,
                       style: regularFontStyle(size: 19),
+
                     ),
                     SizedBox(height: width * 0.035),
                     CommonPrimaryButton(
