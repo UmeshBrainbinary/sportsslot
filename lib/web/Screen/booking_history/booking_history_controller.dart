@@ -1,4 +1,4 @@
-import 'dart:html' as html;
+//import 'dart:html' as html;
 import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:excel/excel.dart';
@@ -497,16 +497,16 @@ class bookingHistoryController extends GetxController {
     // await file.writeAsBytes(bytes);
 
     // Save file
-    var bytes = excel.encode();
-    final blob = html.Blob([bytes],
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    final url = html.Url.createObjectUrlFromBlob(blob);
-
-    final anchor = html.AnchorElement(href: url)
-      ..setAttribute('download', '$fileName.xlsx')
-      ..click();
-
-    html.Url.revokeObjectUrl(url);
+    // var bytes = excel.encode();
+    // final blob = html.Blob([bytes],
+    //     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    // final url = html.Url.createObjectUrlFromBlob(blob);
+    //
+    // final anchor = html.AnchorElement(href: url)
+    //   ..setAttribute('download', '$fileName.xlsx')
+    //   ..click();
+    //
+    // html.Url.revokeObjectUrl(url);
 
     // print('Excel file saved to: ${file.path}');
   }
