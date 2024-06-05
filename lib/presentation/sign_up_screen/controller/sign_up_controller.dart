@@ -125,9 +125,9 @@ class SignUpController extends GetxController {
         await PrefUtils.setValue(PrefKey.dob, dateOfBirthController.text.trim());
 
 
-        // Get.toNamed(
-        //   AppRoutes.homeContainerScreen,
-        // );
+        Get.toNamed(
+          AppRoutes.homeContainerScreen,
+        );
 
         isSuccess = true;
       }

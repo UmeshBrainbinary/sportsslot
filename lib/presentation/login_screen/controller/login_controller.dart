@@ -79,9 +79,9 @@ Map<String, dynamic> loginUserData = {
 
 
 
-          // Get.offAllNamed(
-          //   AppRoutes.homeContainerScreen
-          // );
+          Get.offAllNamed(
+            AppRoutes.homeContainerScreen
+          );
 
         } else{
           errorToast("Invalid credential");
