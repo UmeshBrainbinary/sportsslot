@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
       },
       child: Scaffold(
           backgroundColor: appTheme.bgColor,
-          resizeToAvoidBottomInset: false,
+         // resizeToAvoidBottomInset: false,
           body: SafeArea(
             child: Stack(
               children: [
@@ -44,118 +44,126 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Container(
                         width: double.maxFinite,
                         padding: EdgeInsets.symmetric(horizontal: 20.h, vertical: 36.v),
-                        child: Column(children: [
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text("lbl_log_in".tr,
-                                  style: theme.textTheme.headlineMedium!.copyWith(
-                                      color:appTheme.black900
-                                  ))),
-                          SizedBox(height: 10.v),
-                          Align(
-                              alignment: Alignment.centerLeft,
-                              child: Container(
-                                  width: 363.h,
-                                  margin: EdgeInsets.only(right: 24.h),
-                                  child: Text("msg_please_enter_your".tr,
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: theme.textTheme.bodyLarge!
-                                          .copyWith(
-                                          color:appTheme.black900,
-                                          height: 1.50)))),
-                          SizedBox(height: 45.v),
-                          CustomTextFormField(
-                              controller: controller.emailController,
-                              hintText: "lbl_email_address".tr,
-                              textInputType: TextInputType.emailAddress,
-                              prefix: Transform.scale(
-                                scale: 0.4,
-                                child: Image.asset(ImageConstant.email, color: appTheme.gray600, height: 20,),
-                              ),
-                              validator: (value) {
-                                if (value == null ||
-                                    (!isValidEmail(value, isRequired: true))) {
-                                  return "Please enter valid email address.";
-                                }
-                                return null;
-                              }),
-                          SizedBox(height: 25.v),
-                          Obx(() => CustomTextFormField(
-                              controller: controller.passwordController,
-                              hintText: "lbl_password".tr,
-                              textInputAction: TextInputAction.done,
-                              textInputType: TextInputType.visiblePassword,
-                              prefix: Transform.scale(
-                                scale: 0.4,
-                                child: Image.asset(ImageConstant.padlock, color: appTheme.gray600, height: 20),
-                              ),
-                              suffix: InkWell(
-                                  onTap: () {
-                                    controller.isShowPassword.value =
-                                    !controller.isShowPassword.value;
-                                  },
-                                  child: Container(
-                                      margin: EdgeInsets.fromLTRB(
-                                          30.h, 18.v, 18.h, 18.v),
-                                      child: CustomImageView(
-                                          color: appTheme.black900,
-                                          imagePath: !controller.isShowPassword.value?ImageConstant.imgIcEye:ImageConstant.imgIcEyeClose,
-                                          height: 20.adaptSize,
-                                          width: 20.adaptSize))),
-                              suffixConstraints: BoxConstraints(maxHeight: 56.v),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Please enter valid password.";
-                                }
-                                return null;
-                              },
-                              obscureText: controller.isShowPassword.value,
-                              contentPadding: EdgeInsets.only(
-                                  left: 16.h, top: 18.v, bottom: 18.v))),
-                          SizedBox(height: 20.v),
-                          Align(
-                              alignment: Alignment.centerRight,
-                              child: GestureDetector(
-                                  onTap: () {
-                                    onTapTxtForgotPassword();
-                                  },
-                                  child: Text("msg_forgot_password".tr,
-                                      style: theme.textTheme.bodyLarge!.copyWith(
-                                          color:appTheme.black900
-
-                                      )))),
-                          SizedBox(height: 48.v),
-
-                        Obx(() =>   CustomElevatedButton(
-                            text: "lbl_log_in".tr,
-                            onPressed: controller.loader.value ? (){} : () async{
-
-                              FocusScope.of(context).unfocus();
-
-                              if (_formKey.currentState!.validate()) {
-                                PrefUtils.setIsSignIn(false);
-                                await controller.loginWithEmailAndPassword();
-                              }
-
-                            }),),
-                          Spacer(),
-                          SizedBox(height: 11.v),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                        child: SingleChildScrollView(
+                          physics: BouncingScrollPhysics(),
+                          child: Column(
                               children: [
-                                Padding(
-                                    padding: EdgeInsets.only(bottom: 1.v),
-                                    child: Text("msg_don_t_have_an_account".tr, style: CustomTextStyles.bodyLargeGray60001)),
-                                GestureDetector(
+                            SizedBox(height: 20.v),
+                            Image.asset(AssetRes.logo, height: Get.height*0.12),
+                            SizedBox(height: 60.v),
+                            Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text("lbl_log_in".tr,
+                                    style: theme.textTheme.headlineMedium!.copyWith(
+                                        color:appTheme.black900
+                                    ))),
+                            SizedBox(height: 10.v),
+                            Align(
+                                alignment: Alignment.centerLeft,
+                                child: Container(
+                                    width: 363.h,
+                                    margin: EdgeInsets.only(right: 24.h),
+                                    child: Text("msg_please_enter_your".tr,
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: theme.textTheme.bodyLarge!
+                                            .copyWith(
+                                            color:appTheme.black900,
+                                            height: 1.50)))),
+                            SizedBox(height: 45.v),
+                            CustomTextFormField(
+                                controller: controller.emailController,
+                                hintText: "lbl_email_address".tr,
+                                textInputType: TextInputType.emailAddress,
+                                prefix: Transform.scale(
+                                  scale: 0.4,
+                                  child: Image.asset(ImageConstant.email, color: appTheme.gray600, height: 20,),
+                                ),
+                                validator: (value) {
+                                  if (value == null ||
+                                      (!isValidEmail(value, isRequired: true))) {
+                                    return "Please enter valid email address.";
+                                  }
+                                  return null;
+                                }),
+                            SizedBox(height: 25.v),
+                            Obx(() => CustomTextFormField(
+                                controller: controller.passwordController,
+                                hintText: "lbl_password".tr,
+                                textInputAction: TextInputAction.done,
+                                textInputType: TextInputType.visiblePassword,
+                                prefix: Transform.scale(
+                                  scale: 0.4,
+                                  child: Image.asset(ImageConstant.padlock, color: appTheme.gray600, height: 20),
+                                ),
+                                suffix: InkWell(
                                     onTap: () {
-                                      onTapTxtSignUp();
+                                      controller.isShowPassword.value =
+                                      !controller.isShowPassword.value;
                                     },
-                                    child: Padding(
-                                        padding: EdgeInsets.only(left: 4.h),
-                                        child: Text("lbl_sign_up".tr, style: CustomTextStyles.titleMediumPrimary)))
-                              ])
-                        ]))),
+                                    child: Container(
+                                        margin: EdgeInsets.fromLTRB(
+                                            30.h, 18.v, 18.h, 18.v),
+                                        child: CustomImageView(
+                                            color: appTheme.black900,
+                                            imagePath: !controller.isShowPassword.value?ImageConstant.imgIcEye:ImageConstant.imgIcEyeClose,
+                                            height: 20.adaptSize,
+                                            width: 20.adaptSize))),
+                                suffixConstraints: BoxConstraints(maxHeight: 56.v),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Please enter valid password.";
+                                  }
+                                  return null;
+                                },
+                                obscureText: controller.isShowPassword.value,
+                                contentPadding: EdgeInsets.only(
+                                    left: 16.h, top: 18.v, bottom: 18.v))),
+                            SizedBox(height: 20.v),
+                            Align(
+                                alignment: Alignment.centerRight,
+                                child: GestureDetector(
+                                    onTap: () {
+                                      onTapTxtForgotPassword();
+                                    },
+                                    child: Text("msg_forgot_password".tr,
+                                        style: theme.textTheme.bodyLarge!.copyWith(
+                                            color:appTheme.black900
+
+                                        )))),
+                            SizedBox(height: 48.v),
+
+                          Obx(() =>   CustomElevatedButton(
+                              text: "lbl_log_in".tr,
+                              onPressed: controller.loader.value ? (){} : () async{
+
+                                FocusScope.of(context).unfocus();
+
+                                if (_formKey.currentState!.validate()) {
+                                  PrefUtils.setIsSignIn(false);
+                                  await controller.loginWithEmailAndPassword();
+                                }
+
+                              }),),
+                            //Spacer(),
+                                SizedBox(height: 49.v),
+                            SizedBox(height: 11.v),
+                            Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                      padding: EdgeInsets.only(bottom: 1.v),
+                                      child: Text("msg_don_t_have_an_account".tr, style: CustomTextStyles.bodyLargeGray60001)),
+                                  GestureDetector(
+                                      onTap: () {
+                                        onTapTxtSignUp();
+                                      },
+                                      child: Padding(
+                                          padding: EdgeInsets.only(left: 4.h),
+                                          child: Text("lbl_sign_up".tr, style: CustomTextStyles.titleMediumPrimary)))
+                                ])
+                          ]),
+                        ))),
                 Obx(() => controller.loader.value ? Center(child: CircularProgressIndicator()) : SizedBox())
               ],
             )

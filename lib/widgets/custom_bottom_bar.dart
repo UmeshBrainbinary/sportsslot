@@ -116,6 +116,7 @@ class CustomBottomBar extends StatelessWidget {
                         imagePath: bottomMenuList[index].activeIcon,
                         height: 24.adaptSize,
                         width: 24.adaptSize,
+                        color: appTheme.themeColor,
                       ),
                       Padding(
                         padding: EdgeInsets.only(

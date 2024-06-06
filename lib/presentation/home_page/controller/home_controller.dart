@@ -217,6 +217,22 @@ class HomeController extends GetxController {
 
   double rating2 = 1.0;
 
+  String getGreetingBasedOnTime() {
+    final now = DateTime.now();
+    final hour = now.hour;
+
+    if (hour >= 0 && hour < 12) {
+      return 'lbl_good_morning'.tr;
+    } else if (hour >= 12 && hour < 17) {
+      return 'lbl_good_afternoon'.tr;
+    } else if (hour >= 17 && hour < 21) {
+      return 'lbl_good_evening'.tr;
+    } else {
+      return 'lbl_good_night'.tr;
+    }
+  }
+
+
   Future<Position?> getCurrentLocation() async {
     loader.value = true;
     bool permissionGranted = await handleLocationPermission();

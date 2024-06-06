@@ -21,7 +21,9 @@ class HomeContainerScreen extends StatefulWidget {
 }
 
 class _HomeContainerScreenState extends State<HomeContainerScreen> {
+
   HomeContainerController controller = Get.put(HomeContainerController());
+
   List<Widget> screen = [
     HomePage(),
     MyBookingUpcomingTabContainerScreen(),

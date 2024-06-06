@@ -147,12 +147,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     "lbl_rate_us".tr, ImageConstant.imgStar120x20,
                   ),
                   SizedBox(height: 16.v),
+
                   _buildProfile1((){
 
                     ThemeHelper().changeTheme();
                     setSafeAreaColor();
                   },
-                    ImageConstant.imgThemeIcon, "Theme mode",  PrefUtils().getThemeData() == "primary"?ImageConstant.imgSwitchOff:ImageConstant.imgSwitchOn,),
+                    ImageConstant.imgThemeIcon,
+                    "Theme mode",
+                    PrefUtils().getThemeData() == "primary"?ImageConstant.imgSwitchOff:ImageConstant.imgSwitchOn),
 
                   SizedBox(height: 16.v),
 
@@ -226,8 +229,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             InkWell(
               onTap: function,
               child: CustomImageView(
-
                 imagePath: suffixIcon,
+                //color: PrefUtils().getThemeData() == "primary" ? null : appTheme.themeColor,
               ),
             )
           ],

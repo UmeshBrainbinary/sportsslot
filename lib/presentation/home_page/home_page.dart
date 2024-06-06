@@ -7,12 +7,11 @@ import 'package:sportsslot/core/utils/prefKeys.dart';
 
 import 'package:sportsslot/presentation/detail_screen/controller/detail_controller.dart';
 import 'package:sportsslot/presentation/detail_screen/models/detail_model.dart';
-import 'package:sportsslot/presentation/detail_screen/models/detailscreen_item_model.dart';
+
 import 'package:sportsslot/presentation/detail_screen/models/ground_list_model.dart';
 import 'package:sportsslot/presentation/events_page/models/events_item_model.dart';
 import 'package:sportsslot/presentation/filter_screen/controller/filter_controller.dart';
-import 'package:sportsslot/presentation/foot_ball_screen/controller/foot_ball_controller.dart';
-import 'package:sportsslot/presentation/foot_ball_screen/models/foot_ball_model.dart';
+
 import 'package:sportsslot/presentation/search_screen/controller/search_controller.dart';
 import 'package:sportsslot/widgets/app_bar/appbar_subtitle.dart';
 import 'package:sportsslot/widgets/app_bar/appbar_subtitle_one.dart';
@@ -22,16 +21,15 @@ import 'package:sportsslot/widgets/custom_icon_button.dart';
 import 'package:sportsslot/widgets/custom_search_view.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
-import 'package:permission_handler/permission_handler.dart';
+
 import '../categories_screen/controller/categories_controller.dart';
 import '../categories_screen/models/categories_item_model.dart';
 import '../categories_screen/widgets/categories_item_widget.dart';
 import '../nearby_you_screen/controller/nearby_you_controller.dart';
-import '../popular_ground_screen/controller/popular_ground_controller.dart';
-import '../popular_ground_screen/models/popularground_item_model.dart';
+
 import 'controller/home_controller.dart';
 import 'models/home_model.dart';
-import 'package:geocoding/geocoding.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -813,7 +811,7 @@ class _HomePageState extends State<HomePage> {
                       " ")[0]}",
                   margin: EdgeInsets.only(right: 79.h)),
               SizedBox(height: 5.v),
-              AppbarSubtitle(text: "lbl_good_morning".tr)
+              AppbarSubtitle(text: controller.getGreetingBasedOnTime())
             ]),
         actions: [
           getCustomIconButton(ImageConstant.imgGroup9, () {

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sportsslot/core/app_export.dart';
 import 'package:sportsslot/core/utils/validation_functions.dart';
+import 'package:sportsslot/widgets/app_bar/appbar_leading_image.dart';
 import 'package:sportsslot/widgets/custom_elevated_button.dart';
 import 'package:sportsslot/widgets/custom_text_form_field.dart';
 import 'controller/sign_up_controller.dart';
@@ -36,8 +37,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                  child: Column(
                      children: [
                        Align(
+                         alignment: Alignment.topLeft,
+                         child: AppbarLeadingImage(
+                           onTap: () {
+                             Get.back();
+                           },
+                           imagePath: ImageConstant.imgIcDown,
+                           margin: EdgeInsets.only( bottom: 23.v),
+                         ),
+                       ),
+                       SizedBox(height: 10.v),
+                       Align(
                            alignment: Alignment.centerLeft,
-                           child: Text("lbl_sign_up".tr,
+                           child: Text("lbl_create_account".tr,
                              style: theme.textTheme.headlineMedium!.copyWith(color:appTheme.black900),
                            )),
                        SizedBox(height: 10.v),

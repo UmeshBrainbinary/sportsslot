@@ -27,7 +27,7 @@ class SplashController extends GetxController {
       } else if (!isSignIn) {
         Get.toNamed(AppRoutes.loginScreen);
       } else {
-        //Get.toNamed(AppRoutes.homeContainerScreen);
+        Get.toNamed(AppRoutes.homeContainerScreen);
       }
     });
   }

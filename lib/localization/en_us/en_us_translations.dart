@@ -1,6 +1,7 @@
 final Map<String, String> enUs = {
   // Splash screen Screen
-  "msg_playground_booking": "Playground Booking",
+  "msg_sportsslot": "Sportsslot",
+  "msg_s": "Playground Booking",
 
   // Onboarding One Screen
   "msg_one_step_solution": "One-step solution to book",
@@ -52,11 +53,15 @@ final Map<String, String> enUs = {
       "Your password has been changed successfully use your new password to login",
 
   // Home Screen
-  "lbl_good_morning": "Hope you have a nice day 🌞",
+  "lbl_good_morning": "Good morning! 🌞",
+"lbl_good_night": "Good night! ☪︎",
+"lbl_good_afternoon": "Good afternoon! 🌞",
+"lbl_good_evening": "Good evening! 🌞",
   "lbl_hello_jane": "Hello, Jane ",
   "msg_stadium_in_lights": "Stadium in lights and flashes, fo",
   "no_data": "No Data found near by you",
   "no_data_found": "No Data found",
+
 
   // Notification empty Screen
   "msg_no_notifications": "No notifications yet!",
@@ -506,6 +511,7 @@ final Map<String, String> enUs = {
   "lbl_settings": "Settings",
   "lbl_legals": "Legals",
   "lbl_sign_up": "Sign up",
+  "lbl_create_account": "Create account",
   "lbl_skip": "Skip",
   "lbl_special_ground": "Special ground",
   "lbl_sport_ground": "Sport ground",
@@ -537,7 +543,7 @@ final Map<String, String> enUs = {
   "msg_please_enter_your":
       "Please enter your email address and password details to sign in",
   "msg_please_enter_your_sign_up":
-  "Please fill up details to sign up",
+  "Please fill up details to create account",
   "msg_procced_to_payment": "Procced to payment",
   "msg_qorem_ipsum_dolor":
       "Qorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.",

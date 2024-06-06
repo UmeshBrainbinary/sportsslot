@@ -46,27 +46,28 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // CustomImageView(
-                //   imagePath: AssetRes.imgGroup2,
-                //   height: 100,
-                //   width: 95,
-                // ),
-                Center(
-                  child: Lottie.asset(
-                    ImageConstant.splashAnimation,
-                    controller: _controller,
-                    onLoaded: (composition) {
-                      _controller
-                        ..duration = composition.duration
-                        ..repeat();
-                    },
-                  ),
+                CustomImageView(
+                  imagePath: AssetRes.logo,
+                    height: Get.height*0.15
                 ),
+
+                // Center(
+                //   child: Lottie.asset(
+                //     ImageConstant.splashAnimation,
+                //     controller: _controller,
+                //     onLoaded: (composition) {
+                //       _controller
+                //         ..duration = composition.duration
+                //         ..repeat();
+                //     },
+                //   ),
+                // ),
                 SizedBox(height: 20.v),
                 Text(
-                  "msg_playground_booking".tr,
+                  "msg_sportsslot".tr,
                   style: theme.textTheme.titleMedium!.copyWith(
                     color: appTheme.black900,
+                    fontSize: 20
                   ),
                 ),
                 SizedBox(height: 5.v),
