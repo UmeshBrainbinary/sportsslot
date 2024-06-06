@@ -81,19 +81,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                     Get.toNamed(AppRoutes.editProfileScreen);
                   },
-                    "lbl_my_profile".tr, ImageConstant.imgLightProfile,
+                    "lbl_account".tr, ImageConstant.imgLightProfile,
                   ),
 
                   SizedBox(height: 16.v),
 
+                  Divider(height: 0.5, color: Colors.grey.withOpacity(0.2),),
+
                   /// settings
-                  // buildIcAboutUs(() {
-                  //   Get.toNamed(AppRoutes.settingsScreen);
-                  // },
-                  //   "lbl_settings".tr, ImageConstant.imgIcSettings,
-                  // ),
-                  //
-                  // SizedBox(height: 16.v),
+                  buildIcAboutUs(() {
+                    Get.toNamed(AppRoutes.settingsScreen);
+                  },
+                    "lbl_settings".tr, ImageConstant.imgIcSettings,
+                  ),
+
+                  SizedBox(height: 16.v),
+
+                  /// legals
+                  buildIcAboutUs(() {
+                    Get.toNamed(AppRoutes.settingsScreen);
+                  },
+                    "lbl_legals".tr, ImageConstant.legals,
+                  ),
+
+                  SizedBox(height: 16.v),
 
                   buildIcAboutUs(() {
                     Get.toNamed(AppRoutes.privacyPolicyScreen);

@@ -229,6 +229,8 @@ class ImageConstant {
   // Profile images
   static String imgStar120x20 = '$imagePath/img_star_1_20x20.svg';
 
+  static String legals = '$imagePath/legals.png';
+
   // My profile images
   static String imgIcEdit = '$imagePath/img_ic_edit.svg';
 

@@ -493,6 +493,7 @@ final Map<String, String> enUs = {
   "lbl_my_booking": "My booking",
   "lbl_my_grounds": "My grounds",
   "lbl_my_profile": "My profile",
+  "lbl_account": "Account",
   "lbl_nearby_you": "Nearby you",
   "lbl_stadium": "Stadium",
   "lbl_next": "Next",
@@ -509,6 +510,7 @@ final Map<String, String> enUs = {
   "lbl_reviews": "Reviews",
   "lbl_search": "Search",
   "lbl_settings": "Settings",
+
   "lbl_legals": "Legals",
   "lbl_sign_up": "Sign up",
   "lbl_create_account": "Create account",
