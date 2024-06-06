@@ -29,6 +29,7 @@ class _LogOutDialogueState extends State<LogOutDialogue> {
               "Are you sure you want to Log out?",
               style: theme.textTheme.titleMedium!.copyWith(
                 color: appTheme.black900,
+                  fontFamily: 'Montserrat-Medium'
               ),
             ),
             SizedBox(height: 24.v),

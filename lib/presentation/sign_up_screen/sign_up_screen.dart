@@ -42,7 +42,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                            onTap: () {
                              Get.back();
                            },
-                           imagePath: ImageConstant.imgIcDown,
+                           imagePath: ImageConstant.backArrow,
                            margin: EdgeInsets.only( bottom: 23.v),
                          ),
                        ),
@@ -50,7 +50,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                        Align(
                            alignment: Alignment.centerLeft,
                            child: Text("lbl_create_account".tr,
-                             style: theme.textTheme.headlineMedium!.copyWith(color:appTheme.black900),
+                             style: theme.textTheme.headlineMedium!.copyWith(color:appTheme.black900, fontFamily: 'Montserrat-Medium'),
                            )),
                        SizedBox(height: 10.v),
                        Align(
@@ -60,7 +60,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                child: Text("msg_please_enter_your_sign_up".tr,
                                    maxLines: 2,
                                    overflow: TextOverflow.ellipsis,
-                                   style: theme.textTheme.bodyLarge!.copyWith(color:appTheme.black900, height: 1.50)))),
+                                   style: theme.textTheme.bodyLarge!.copyWith(color:appTheme.black900, height: 1.50, fontFamily: 'Montserrat-Medium')))),
                        SizedBox(height: 45.v),
                    Expanded(child:  SingleChildScrollView(
                      child: Column(

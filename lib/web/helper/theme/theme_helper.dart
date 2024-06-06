@@ -505,7 +505,7 @@ getViewAllRow(title, onTap) {
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       Text(title,
-          style: theme.textTheme.titleLarge!.copyWith(color: appTheme.black900)),
+          style: theme.textTheme.titleLarge!.copyWith(color: appTheme.black900, fontFamily: 'Montserrat-Medium')),
       GestureDetector(
         onTap: onTap,
         child: Text("lbl_view_all".tr, style: CustomTextStyles.bodyLargeGray60001.copyWith(color: appTheme.gray60001)),

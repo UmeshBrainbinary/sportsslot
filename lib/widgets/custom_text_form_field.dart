@@ -101,7 +101,7 @@ class CustomTextFormField extends StatelessWidget {
             controller: controller,
             enabled: enable ?? true,
             readOnly: readOnly ?? false,
-            style: textStyle ?? theme.textTheme.bodyLarge!.copyWith(color:appTheme.black900),
+            style: textStyle ?? theme.textTheme.bodyLarge!.copyWith(color:appTheme.black900, fontFamily: 'Montserrat-Medium'),
             obscureText: obscureText!,
             textInputAction: textInputAction,
             keyboardType: textInputType,

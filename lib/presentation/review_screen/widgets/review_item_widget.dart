@@ -79,7 +79,8 @@ class ReviewItemWidget extends StatelessWidget {
                    child: Text(
                      data["star"].toString(),
                      style: theme.textTheme.bodyLarge!.copyWith(
-                         color:appTheme.black900
+                         color:appTheme.black900,
+                         fontFamily: 'Montserrat-Medium'
                      ),
                    ),
                  ),
@@ -97,6 +98,7 @@ class ReviewItemWidget extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: theme.textTheme.bodyLarge!.copyWith(
                 color: appTheme.black900,
+                fontFamily: 'Montserrat-Medium',
                 height: 1.50,
               ),
             ),

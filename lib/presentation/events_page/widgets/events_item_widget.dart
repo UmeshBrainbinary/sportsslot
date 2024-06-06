@@ -52,13 +52,14 @@ class EventsItemWidget extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: theme.textTheme.titleMedium!.copyWith(
                         color: appTheme.black900,
+                          fontFamily: 'Montserrat-Medium'
                       ),
                     ),
                   ),
                   SizedBox(height: 9.v),
                   Text(
                     eventsItemModelObj.date!,
-                    style: theme.textTheme.bodyMedium,
+                    style: theme.textTheme.bodyMedium?.copyWith(fontFamily: 'Montserrat-Medium'),
                   ),
                   SizedBox(height: 9.v),
                   CustomElevatedButton(

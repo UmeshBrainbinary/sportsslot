@@ -59,6 +59,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                             ImageConstant.imgAvtar1,
                                             height: 80.adaptSize,
                                             width: 80.adaptSize,
+
                                             radius:
                                             BorderRadius.circular(40.h),
                                             alignment: Alignment.center),
@@ -84,12 +85,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                             style:
                                             theme.textTheme.titleLarge!.copyWith(
                                               color: appTheme.black900,
+                                                fontFamily: 'Montserrat-Medium'
                                             )
                                         ),
                                         SizedBox(height: 14.v),
                                         Text(profileController.email.value,
                                             style: theme.textTheme.bodyLarge!.copyWith(
                                               color: appTheme.black900,
+                                                fontFamily: 'Montserrat-Medium'
                                             )
                                         )
                                       ]))
@@ -118,6 +121,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       padding: EdgeInsets.symmetric(horizontal: 20.h),
       child: CustomTextFormField(
           controller: controller.masterInputController,
+          prefix: Transform.scale(
+            scale: 0.4,
+            child: Image.asset(ImageConstant.user, color: appTheme.gray600, height: 20),
+          ),
           hintText: "First name"));
  }
 
@@ -127,6 +134,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       padding: EdgeInsets.symmetric(horizontal: 20.h),
       child: CustomTextFormField(
           controller: controller.masterInputController1,
+          prefix: Transform.scale(
+            scale: 0.4,
+            child: Image.asset(ImageConstant.user, color: appTheme.gray600, height: 20),
+          ),
           hintText: "Last name"));
  }
 
@@ -139,6 +150,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           hintText: "Email address",
           enable: false,
           textInputAction: TextInputAction.done,
+          prefix: Transform.scale(
+            scale: 0.4,
+            child: Image.asset(ImageConstant.email, color: appTheme.gray600, height: 20),
+          ),
           textInputType: TextInputType.emailAddress,
           fillColor: PrefUtils().getThemeData() == "primary" ? appTheme.gray300 : Color(0XFF6e6e6e),
           validator: (value) {

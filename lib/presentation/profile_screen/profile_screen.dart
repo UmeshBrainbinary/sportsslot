@@ -1,5 +1,6 @@
 import 'package:sportsslot/presentation/my_profile_screen/controller/my_profile_controller.dart';
 import 'package:sportsslot/presentation/rate_us_experirnce_screen/rate_us_experirnce_screen.dart';
+import 'package:sportsslot/widgets/custom_elevated_button.dart';
 import 'package:sportsslot/widgets/custom_icon_button.dart';
 import 'package:in_app_review/in_app_review.dart';
 import '../log_out_dialogue/log_out_dialogue.dart';
@@ -55,6 +56,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             controller.fullName.value??"",
                             style: theme.textTheme.titleLarge!.copyWith(
                               color: appTheme.black900,
+                                fontFamily: 'Montserrat-Medium'
                             ),
                           ),
                           SizedBox(height: 6.v),
@@ -62,6 +64,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             controller.email.value??"",
                             style: theme.textTheme.bodyLarge!.copyWith(
                               color: appTheme.black900,
+                                fontFamily: 'Montserrat-Medium'
                             ),
                           ),
                         ],
@@ -84,27 +87,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     "lbl_account".tr, ImageConstant.imgLightProfile,
                   ),
 
-                  SizedBox(height: 16.v),
 
-                  Divider(height: 0.5, color: Colors.grey.withOpacity(0.2),),
 
-                  /// settings
-                  buildIcAboutUs(() {
-                    Get.toNamed(AppRoutes.settingsScreen);
-                  },
-                    "lbl_settings".tr, ImageConstant.imgIcSettings,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Divider(height: 0.5, color: Colors.grey.withOpacity(0.25)
+                      )
                   ),
 
-                  SizedBox(height: 16.v),
 
-                  /// legals
-                  buildIcAboutUs(() {
-                    Get.toNamed(AppRoutes.settingsScreen);
-                  },
-                    "lbl_legals".tr, ImageConstant.legals,
-                  ),
 
-                  SizedBox(height: 16.v),
 
                   buildIcAboutUs(() {
                     Get.toNamed(AppRoutes.privacyPolicyScreen);
@@ -112,7 +104,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     "Privacy policy".tr, ImageConstant.imgIcPrivacyPolicy,
                   ),
 
-                  SizedBox(height: 16.v),
+                  Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Divider(height: 0.5, color: Colors.grey.withOpacity(0.25))),
 
                   buildIcAboutUs(() {
                     Get.toNamed(AppRoutes.helpScreen);
@@ -120,7 +114,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     "lbl_faq".tr, ImageConstant.imgIcHelp,
                   ),
 
-                  SizedBox(height: 16.v),
+                  Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Divider(height: 0.5, color: Colors.grey.withOpacity(0.25))),
 
                   buildIcAboutUs(() {
                     Get.toNamed(AppRoutes.aboutUsScreen);
@@ -128,7 +124,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     "lbl_about_us".tr, ImageConstant.imgIcAboutUs,
                   ),
 
-                  SizedBox(height: 16.v),
+                  Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Divider(height: 0.5, color: Colors.grey.withOpacity(0.25))),
 
                   buildIcAboutUs(()   {
 
@@ -157,7 +155,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   },
                     "lbl_rate_us".tr, ImageConstant.imgStar120x20,
                   ),
-                  SizedBox(height: 16.v),
+                  Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Divider(height: 0.5, color: Colors.grey.withOpacity(0.25))),
 
                   _buildProfile1((){
 
@@ -165,29 +165,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     setSafeAreaColor();
                   },
                     ImageConstant.imgThemeIcon,
-                    "Theme mode",
+                    "Theme",
                     PrefUtils().getThemeData() == "primary"?ImageConstant.imgSwitchOff:ImageConstant.imgSwitchOn),
 
-                  SizedBox(height: 16.v),
+                  SizedBox(height: 32.v),
 
                   Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        showDialog(
-                          barrierDismissible: false,
-                          context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                                insetPadding: EdgeInsets.all(16),
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                contentPadding: EdgeInsets.zero,
-                                content: LogOutDialogue());
-                          },
-                        );
-                      },
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 4.h),
-                          child: Text("Logout", style: CustomTextStyles.titleMediumPrimary700)),
+                    child:
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: CustomElevatedButton(
+                          text: "Logout",
+                          onPressed: controller.loader.value ? (){} : () async{
+
+                            showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                    insetPadding: EdgeInsets.all(16),
+                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                    contentPadding: EdgeInsets.zero,
+                                    content: LogOutDialogue());
+                              },
+                            );
+
+                          }),
                     ),
                   ),
                   SizedBox(height: 16.v),
@@ -208,20 +211,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: Container(
         padding: EdgeInsets.all(8.h),
         decoration: AppDecoration.fillGray.copyWith(
-          color: appTheme.textfieldFillColor,
+          color: Colors.transparent,//appTheme.textfieldFillColor,
           borderRadius: BorderRadiusStyle.roundedBorder16,
         ),
         child: Row(
           children: [
-            CustomIconButton(
-              height: 48.adaptSize,
-              width: 48.adaptSize,
-              padding: EdgeInsets.all(12.h),
-              decoration: IconButtonStyleHelper.fillPrimaryContainerTL24,
-              child: CustomImageView(
-                color: appTheme.black900,
-                imagePath: prefixicon,
-              ),
+            CustomImageView(
+              color: appTheme.black900,
+              imagePath: prefixicon,
+              height: 20,
             ),
             Padding(
               padding: EdgeInsets.only(
@@ -233,6 +231,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 title,
                 style: theme.textTheme.bodyLarge!.copyWith(
                   color: appTheme.black900,
+                    fontFamily: 'Montserrat-Medium'
                 ),
               ),
             ),
@@ -262,7 +261,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           SizedBox(height: 8.v),
           Text(
             "lbl_profile".tr,
-            style: theme.textTheme.headlineMedium!.copyWith(color: appTheme.black900),
+            style: theme.textTheme.headlineMedium!.copyWith(color: appTheme.black900, fontFamily: 'Montserrat-Medium'),
           ),
         ],
       ),
@@ -278,35 +277,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Container(
           padding: EdgeInsets.all(8.h),
           decoration: AppDecoration.fillGray.copyWith(
-            color: appTheme.textfieldFillColor,
+            color: Colors.transparent,  //appTheme.textfieldFillColor,
             borderRadius: BorderRadiusStyle.roundedBorder16,
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                height: 48.adaptSize,
-                width: 48.adaptSize,
-                padding: EdgeInsets.all(12.h),
-                decoration: AppDecoration.white.copyWith(
-                  color: PrefUtils().getThemeData() == "primary"
-                      ? appTheme.whiteA700
-                      : appTheme.lightgraynightMode,
-                  borderRadius: BorderRadiusStyle.circleBorder24,
-                ),
-                child: CustomImageView(
-                  color: appTheme.black900,
-                  imagePath: icon,
-                  height: 24.adaptSize,
-                  width: 24.adaptSize,
-                  alignment: Alignment.center,
-                ),
+              CustomImageView(
+                color: appTheme.black900,
+                imagePath: icon,
+                height: 24.adaptSize,
+                width: 24.adaptSize,
+                alignment: Alignment.center,
               ),
               Padding(
                 padding: EdgeInsets.only(left: 16.h, top: 14.v, bottom: 13.v),
                 child: Text(
                   title,
-                  style: theme.textTheme.bodyLarge!.copyWith(color: appTheme.black900),
+                  style: theme.textTheme.bodyLarge!.copyWith(color: appTheme.black900, fontFamily: 'Montserrat-Medium'),
                 ),
               ),
               Spacer(),

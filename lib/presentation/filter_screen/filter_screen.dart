@@ -62,38 +62,40 @@ class _FilterScreenState extends State<FilterScreen> {
                      children: [
                        Padding(
                          padding: EdgeInsets.only(left: 20.h, right: 20.h),
-                         child: getViewAllRow("lbl_categories".tr, () {
+                         child: getViewAllRow("sportIcon".tr, () {
                            Get.toNamed(AppRoutes.categoriesScreen, arguments: {
                              "isFilter" : true
                            });
                          }),
                        ),
                        SizedBox(height: 16.v),
-                       GridView.builder(
-                           padding: EdgeInsets.symmetric(horizontal: 20.h),
-                           shrinkWrap: true,
-                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                               mainAxisExtent: 120.v,
-                               crossAxisCount: 4,
-                               mainAxisSpacing: 16.h,
-                               crossAxisSpacing: 16.h),
-                           physics: NeverScrollableScrollPhysics(),
-                           itemCount: categoriesController.categoriesData.length > 4
-                               ? 4
-                               : categoriesController.categoriesData.length,
-                           itemBuilder: (context, index) {
-                             CategoriesItemModel model =
-                             categoriesController.categoriesData[index];
-                             return animationfunction(
-                                 index,
-                                 CategoriesItemWidget(
-                                     model,
-                                     isFilter: true,
-                                     onTapFootball: () {
-                                       controller.categoryId = categoriesController.categoriesData[index].id;
-                                       controller.update();
-                                     }));
-                           }),
+
+
+                        SizedBox(
+                          height: 50.v,
+                          child: Padding(
+                                            padding: EdgeInsets.only(left: 20.h, right: 20.h),
+                                            child: ListView.builder(
+                                                scrollDirection: Axis.horizontal,
+                                                itemCount: categoriesController.categoriesData.length,
+                                                itemBuilder: (context, index){
+
+                                                  CategoriesItemModel model =
+                                                  categoriesController.categoriesData[index];
+
+                          return animationfunction(
+                              index,
+                              index < 4
+                                  ? CategoriesItemWidget(model,
+                                  isFilter: true,
+                                  onTapFootball: () {
+                                    controller.categoryId = categoriesController.categoriesData[index].id;
+                                    controller.update();
+                                  })
+                                  : SizedBox());
+                                                }),
+                                          ),
+                        ),
                        SizedBox(height: 28.v),
                        Align(
                            alignment: Alignment.centerLeft,
@@ -101,7 +103,7 @@ class _FilterScreenState extends State<FilterScreen> {
                                padding: EdgeInsets.only(left: 20.h),
                                child: Text("lbl_price_range".tr,
                                    style: theme.textTheme.titleLarge!.copyWith(
-                                     color: appTheme.black900,
+                                     color: appTheme.black900,fontFamily: 'Montserrat-Medium'
                                    )))),
                        SizedBox(height: 17.v),
                        Padding(
@@ -143,7 +145,7 @@ class _FilterScreenState extends State<FilterScreen> {
                                padding: EdgeInsets.only(left: 20.h),
                                child: Text("lbl_location2".tr,
                                    style: theme.textTheme.titleLarge!.copyWith(
-                                     color: appTheme.black900,
+                                     color: appTheme.black900,fontFamily: 'Montserrat-Medium'
                                    )))),
                        SizedBox(height: 17.v),
                        Padding(

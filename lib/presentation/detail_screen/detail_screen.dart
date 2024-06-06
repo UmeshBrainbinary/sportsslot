@@ -235,11 +235,11 @@ class _DetailScreenState extends State<DetailScreen> {
                                   maxLines: 3,
                                   linkColor: appTheme.buttonColor,
                                   style: theme.textTheme.bodyLarge!
-                                      .copyWith(color: appTheme.black900),
+                                      .copyWith(color: appTheme.black900,  fontFamily: 'Montserrat-Medium',),
                                   linkStyle: theme.textTheme.titleMedium!
                                       .copyWith(
                                           color: appTheme.buttonColor,
-                                          fontSize: 16.fSize),
+                                          fontSize: 16.fSize,  fontFamily: 'Montserrat-Medium',),
                                 ),
 
                                 SizedBox(height: 24.v),
@@ -304,7 +304,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 Text(
                                   "lbl_ground_list".tr,
                                   style: theme.textTheme.titleLarge!
-                                      .copyWith(color: appTheme.black900),
+                                      .copyWith(color: appTheme.black900,  fontFamily: 'Montserrat-Medium',),
                                 ),
                                 SizedBox(height: 19.v),
                                 GridView.builder(
@@ -381,7 +381,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 Text(
                                   "msg_our_popular_features".tr,
                                   style: theme.textTheme.titleLarge!
-                                      .copyWith(color: appTheme.black900),
+                                      .copyWith(color: appTheme.black900,  fontFamily: 'Montserrat-Medium',),
                                 ),
 
                                 SizedBox(height: 19.v),

@@ -38,7 +38,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         body: SafeArea(
           child: Column(
             children: [
-              getCommonAppBar("lbl_categories".tr),
+              getCommonAppBar("sportIcon".tr),
               SizedBox(height: 16.v),
               _buildCategories()
             ],
@@ -52,16 +52,15 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   Widget _buildCategories() {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.h),
-        child: GridView.builder(
-            shrinkWrap: true,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                mainAxisExtent: 140.v,
-                crossAxisCount: 4,
-                mainAxisSpacing: 16.h,
-                crossAxisSpacing: 16.h),
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: controller.categoriesData.length,
-            itemBuilder: (context, index) {
+        child: Align(
+          alignment: Alignment.topLeft,
+          child: Wrap(
+            alignment: WrapAlignment.start,
+            direction: Axis.horizontal,
+            spacing: 5,
+            runSpacing: 5,
+            children: List.generate(
+                controller.categoriesData.length, (index){
               CategoriesItemModel model = controller.categoriesData[index];
               return animationfunction(
                   index,
@@ -86,7 +85,12 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
                       }
                   ));
-            }));
+            })
+          ),
+        ),
+
+
+    );
   }
 
   /// Navigates to the footBallScreen when the action is triggered.

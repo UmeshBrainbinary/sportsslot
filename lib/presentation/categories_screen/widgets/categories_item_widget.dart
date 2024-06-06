@@ -25,39 +25,50 @@ class CategoriesItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<FilterController>(
 
-        builder: ( controller){
-      return Column(
-        children: [
-          GestureDetector(
-            onTap: () {
-              onTapFootball!.call();
-            },
-            child: Container(
-                height: 85.adaptSize,
-                width: 85.adaptSize,
-
-                decoration: AppDecoration.fillOrange.copyWith(
-                  //color: categoriesItemModelObj.bgColor,
-                    borderRadius: BorderRadiusStyle.roundedBorder42,
-                    border: Border.all(color:  (isFilter && filterController.categoryId == categoriesItemModelObj.id) ? appTheme.buttonColor : Colors.transparent)
+        builder: (controller) {
+      return GestureDetector(
+        onTap: () {
+          onTapFootball!.call();
+        },
+        child: Container(
+          height: 50.v,
+          margin: EdgeInsets.only(right: 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: (isFilter && filterController.categoryId == categoriesItemModelObj.id) ? appTheme.themeColor : appTheme.boxBorder)
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                    categoriesItemModelObj.title!,
+                    style: theme.textTheme.bodyLarge!.copyWith(
+                      color: (isFilter && filterController.categoryId == categoriesItemModelObj.id) ? appTheme.buttonColor : appTheme.black900,
+                      fontFamily: 'Montserrat-Medium',
+                    )
                 ),
-                child: CustomImageView(
-                  radius: BorderRadius.circular(45),
-                  imagePath: categoriesItemModelObj.icon,
-                  height: 85.adaptSize,
-                  width: 85.adaptSize,
-                  alignment: Alignment.center,
-                )
+                SizedBox(width: 10.v),
+                Container(
+                    height: 35.adaptSize,
+                    width: 35.adaptSize,
+                    decoration: AppDecoration.fillOrange.copyWith(
+                      //color: categoriesItemModelObj.bgColor,
+                      borderRadius: BorderRadiusStyle.roundedBorder42,
+                    ),
+                    child: CustomImageView(
+                      radius: BorderRadius.circular(45),
+                      imagePath: categoriesItemModelObj.icon,
+                      height: 85.adaptSize,
+                      width: 85.adaptSize,
+                      alignment: Alignment.center,
+                    )
+                ),
+              ],
             ),
-          ),
-          SizedBox(height: 10.v),
-          Text(
-              categoriesItemModelObj.title!,
-              style: theme.textTheme.bodyLarge!.copyWith(
-                color: (isFilter && filterController.categoryId == categoriesItemModelObj.id) ? appTheme.buttonColor : appTheme.black900,
-              )
-          ),
-        ],
+          )
+        ),
       );
     });
 

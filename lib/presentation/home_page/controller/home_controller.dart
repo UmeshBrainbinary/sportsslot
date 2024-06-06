@@ -361,7 +361,8 @@ class HomeController extends GetxController {
                        "Stadium: $groundName",
                        style: theme.textTheme.headlineMedium!.copyWith(
                            color: appTheme.gray600,
-                           fontSize: 14
+                           fontSize: 14,
+                           fontFamily: 'Montserrat-Medium'
                        ),
                      ),
                    ],

@@ -68,7 +68,7 @@ class _HomeContainerScreenState extends State<HomeContainerScreen> {
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.left,
                             style: theme.textTheme.titleMedium!
-                                .copyWith(color: appTheme.black900),
+                                .copyWith(color: appTheme.black900,fontFamily: 'Montserrat-Medium'),
                           ),
                           Padding(
                             padding: EdgeInsets.only(

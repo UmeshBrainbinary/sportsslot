@@ -163,6 +163,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                    },
                                    style: theme.textTheme.bodyLarge!.copyWith(
                                      color: appTheme.black900,
+                                       fontFamily: 'Montserrat-Medium'
                                    ),
 
                                    maxLines:  1,
@@ -243,6 +244,7 @@ class _SearchScreenState extends State<SearchScreen> {
                              child: Text("Refresh",//"lbl_recent".tr,
                                  style: theme.textTheme.titleMedium!.copyWith(
                                    color: appTheme.buttonColor,
+                                     fontFamily: 'Montserrat-Medium'
                                  )),
                            ))),
 
@@ -303,7 +305,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                        width: 375.h,
                                                        child: Text(model.title,
                                                            overflow: TextOverflow.ellipsis,
-                                                           style: theme.textTheme.titleMedium!.copyWith(color: appTheme.black900)
+                                                           style: theme.textTheme.titleMedium!.copyWith(color: appTheme.black900, fontFamily: 'Montserrat-Medium')
                                                        ),
                                                      ),
                                                    ),
@@ -322,7 +324,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                            padding: EdgeInsets.only(left: 8.h),
                                                            child: Text(cityName.data.toString(),
                                                                //controller.locationList[index],
-                                                               style: theme.textTheme.bodyMedium!.copyWith(color: appTheme.black900)),
+                                                               style: theme.textTheme.bodyMedium!.copyWith(color: appTheme.black900, fontFamily: 'Montserrat-Medium')),
                                                          ),
                                                        ],
                                                      ),
@@ -390,7 +392,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                    SizedBox(height: 12.v),
                                                    Padding(
                                                      padding: EdgeInsets.symmetric(horizontal: 8.h),
-                                                     child: Text(model.title, style: theme.textTheme.titleMedium!.copyWith(color: appTheme.black900)),
+                                                     child: Text(model.title, style: theme.textTheme.titleMedium!.copyWith(color: appTheme.black900, fontFamily: 'Montserrat-Medium')),
                                                    ),
                                                    SizedBox(height: 5.v),
                                                    Padding(
@@ -407,7 +409,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                            padding: EdgeInsets.only(left: 8.h),
                                                            child: Text(cityName.data.toString(),
                                                                //controller.locationList[index],
-                                                               style: theme.textTheme.bodyMedium!.copyWith(color: appTheme.black900)),
+                                                               style: theme.textTheme.bodyMedium!.copyWith(color: appTheme.black900, fontFamily: 'Montserrat-Medium')),
                                                          ),
                                                        ],
                                                      ),
@@ -474,7 +476,7 @@ class _SearchScreenState extends State<SearchScreen> {
                      .copyWith(borderRadius: BorderRadiusStyle.circleBorder10),
                  child: Text(distance,
                      style: theme.textTheme.bodySmall!.copyWith(
-                         color: theme.colorScheme.onErrorContainer))))
+                         color: theme.colorScheme.onErrorContainer, fontFamily: 'Montserrat-Medium'))))
        ]));
  }
 

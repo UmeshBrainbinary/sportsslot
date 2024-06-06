@@ -75,7 +75,8 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Padding(
                                 padding: EdgeInsets.only(left: 20.h, right: 20.h),
-                                child: getViewAllRow("lbl_categories".tr, () {
+
+                                child: getViewAllRow("sportIcon".tr, () {
                                   Get.toNamed(
                                       AppRoutes.categoriesScreen, arguments: {
                                     "isFilter": false
@@ -86,7 +87,7 @@ class _HomePageState extends State<HomePage> {
 
                               /// categories
                               SizedBox(
-                                height: 120.v,
+                                height: 50.v,
                                 child: StreamBuilder<QuerySnapshot<Map<
                                     String,
                                     dynamic>>>(
@@ -95,58 +96,53 @@ class _HomePageState extends State<HomePage> {
                                     builder: (context, snapshot) {
                                       categoriesController.categoriesData.clear();
                                       if (snapshot.hasData) {
-                                        return GridView.builder(
-                                            padding:
-                                            EdgeInsets.symmetric(horizontal: 20.h),
-                                            shrinkWrap: true,
-                                            gridDelegate:
-                                            SliverGridDelegateWithFixedCrossAxisCount(
-                                                mainAxisExtent: 120.v,
-                                                crossAxisCount: 4,
-                                                mainAxisSpacing: 16.h,
-                                                crossAxisSpacing: 16.h),
-                                            physics: NeverScrollableScrollPhysics(),
-                                            itemCount: snapshot.data?.docs.length,
-                                            itemBuilder: (context, index) {
-                                              categoriesController.categoriesData
-                                                  .add(
-                                                  CategoriesItemModel(
-                                                      snapshot.data
-                                                          ?.docs[index]["id"],
-                                                      snapshot.data
-                                                          ?.docs[index]["image"],
-                                                      snapshot.data
-                                                          ?.docs[index]["name"],
-                                                      appTheme.footBollColor));
-                                              CategoriesItemModel model =
-                                              CategoriesItemModel(
-                                                  snapshot.data?.docs[index]["id"],
-                                                  snapshot.data
-                                                      ?.docs[index]["image"],
-                                                  snapshot.data
-                                                      ?.docs[index]["name"],
-                                                  appTheme.footBollColor);
+                                        return  Padding(
+                                            padding: EdgeInsets.only(left: 20.h, right: 20.h),
+                                          child: ListView.builder(
+                                              scrollDirection: Axis.horizontal,
+                                              itemCount: snapshot.data?.docs.length,
+                                              itemBuilder: (context, index){
 
+                                                categoriesController.categoriesData
+                                                    .add(
+                                                    CategoriesItemModel(
+                                                        snapshot.data
+                                                            ?.docs[index]["id"],
+                                                        snapshot.data
+                                                            ?.docs[index]["image"],
+                                                        snapshot.data
+                                                            ?.docs[index]["name"],
+                                                        appTheme.footBollColor));
+                                                CategoriesItemModel model =
+                                                CategoriesItemModel(
+                                                    snapshot.data?.docs[index]["id"],
+                                                    snapshot.data
+                                                        ?.docs[index]["image"],
+                                                    snapshot.data
+                                                        ?.docs[index]["name"],
+                                                    appTheme.footBollColor);
 
-                                              return animationfunction(
-                                                  index,
-                                                  index < 4
-                                                      ? CategoriesItemWidget(model,
-                                                      isFilter: false,
-                                                      onTapFootball: () {
-                                                        Get.toNamed(
-                                                            AppRoutes
-                                                                .footBallScreen,
-                                                            arguments: {
-                                                              "title": snapshot.data
-                                                                  ?.docs[index]["name"],
-                                                              "categoryId": snapshot
-                                                                  .data
-                                                                  ?.docs[index]["id"]
-                                                            });
-                                                      })
-                                                      : SizedBox());
-                                            });
+                                                return animationfunction(
+                                                    index,
+                                                    index < 4
+                                                        ? CategoriesItemWidget(model,
+                                                        isFilter: false,
+                                                        onTapFootball: () {
+                                                          Get.toNamed(
+                                                              AppRoutes
+                                                                  .footBallScreen,
+                                                              arguments: {
+                                                                "title": snapshot.data
+                                                                    ?.docs[index]["name"],
+                                                                "categoryId": snapshot
+                                                                    .data
+                                                                    ?.docs[index]["id"]
+                                                              });
+                                                        })
+                                                        : SizedBox());
+                                              }),
+                                        );
+
                                       } else {
                                         return SizedBox();
                                         //   Center(
@@ -459,15 +455,15 @@ class _HomePageState extends State<HomePage> {
                                                                     },
                                                                     child:
                                                                     Container(
-                                                                        width: 298
-                                                                            .h,
+                                                                        width: 190.h,
                                                                         decoration: AppDecoration
                                                                             .fillGray
                                                                             .copyWith(
-                                                                            color: appTheme
-                                                                                .textfieldFillColor,
-                                                                            borderRadius: BorderRadiusStyle
-                                                                                .roundedBorder16),
+                                                                            color: appTheme.boxWhite,
+                                                                            borderRadius: BorderRadiusStyle.roundedBorder16,
+                                                                           border: Border.all(color: appTheme.boxBorder)
+
+                                                                        ),
                                                                         child: Column(
                                                                             mainAxisSize:
                                                                             MainAxisSize
@@ -481,31 +477,47 @@ class _HomePageState extends State<HomePage> {
                                                                                   distance: model
                                                                                       .km),
                                                                               SizedBox(
-                                                                                  height: 12
+                                                                                  height: 18
                                                                                       .v),
                                                                               Padding(
                                                                                 padding: EdgeInsets
                                                                                     .symmetric(
                                                                                     horizontal: 8
                                                                                         .h),
-                                                                                child: SizedBox(
-                                                                                  width: 280
-                                                                                      .h,
-                                                                                  child: Text(
-                                                                                      model
-                                                                                          .title,
-                                                                                      overflow: TextOverflow
-                                                                                          .ellipsis,
-                                                                                      style: theme
-                                                                                          .textTheme
-                                                                                          .titleMedium!
-                                                                                          .copyWith(
-                                                                                          color: appTheme
-                                                                                              .black900)),
+                                                                                child: Row(
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                  children: [
+                                                                                    SizedBox(
+                                                                                      width: 110
+                                                                                          .h,
+                                                                                      child: Text(
+                                                                                          model
+                                                                                              .title,
+                                                                                          overflow: TextOverflow
+                                                                                              .ellipsis,
+                                                                                          style: theme
+                                                                                              .textTheme
+                                                                                              .titleMedium!
+                                                                                              .copyWith(
+                                                                                              color: appTheme
+                                                                                                  .black900)),
+                                                                                    ),
+                                                                                    Container(
+
+                                                                                        padding: EdgeInsets.symmetric(horizontal: 8.h, vertical: 2.v),
+                                                                                        decoration: AppDecoration.white
+                                                                                            .copyWith(borderRadius: BorderRadiusStyle.circleBorder10),
+                                                                                        child: Text(model
+                                                                                            .km,
+                                                                                            style: theme.textTheme.bodySmall!.copyWith(
+                                                                                                color: theme.colorScheme.onErrorContainer,
+                                                                                              fontFamily: 'Montserrat-Medium',
+                                                                                            )))
+                                                                                  ],
                                                                                 ),
                                                                               ),
                                                                               SizedBox(
-                                                                                  height: 5
+                                                                                  height: 10
                                                                                       .v),
                                                                               Padding(
                                                                                 padding: EdgeInsets
@@ -580,6 +592,7 @@ class _HomePageState extends State<HomePage> {
                                       // );
                                     }
                                   }),
+
                               SizedBox(height: 27.v),
 
                               Padding(
@@ -678,15 +691,19 @@ class _HomePageState extends State<HomePage> {
                                                               },
                                                               child:
                                                               Container(
-                                                                  width: 298
+                                                                  width: 190
                                                                       .h,
                                                                   decoration: AppDecoration
                                                                       .fillGray
                                                                       .copyWith(
                                                                       color: appTheme
-                                                                          .textfieldFillColor,
+                                                                          .boxWhite,
+                                                                      border: Border.all(color: appTheme.boxBorder),
                                                                       borderRadius: BorderRadiusStyle
-                                                                          .roundedBorder16),
+                                                                          .roundedBorder16,
+
+                                                                  ),
+
                                                                   child: Column(
                                                                       mainAxisSize:
                                                                       MainAxisSize
@@ -807,11 +824,10 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppbarSubtitleOne(
-                  text: "Hello ${PrefUtils.getString(PrefKey.fullName).split(
-                      " ")[0]}",
+                  text: controller.getGreetingBasedOnTime(),
                   margin: EdgeInsets.only(right: 79.h)),
               SizedBox(height: 5.v),
-              AppbarSubtitle(text: controller.getGreetingBasedOnTime())
+              AppbarSubtitle(text: "Hello ${PrefUtils.getString(PrefKey.fullName).split(" ")[0]}")
             ]),
         actions: [
           getCustomIconButton(ImageConstant.imgGroup9, () {
@@ -826,30 +842,13 @@ class _HomePageState extends State<HomePage> {
   Widget _buildSearchbar() {
     return Padding(
         padding: EdgeInsets.only(right: 20.h, left: 20.h),
-        child: Row(children: [
-          Expanded(
-              child: CustomSearchView(
-                  onTap: () {
-                    Get.toNamed(AppRoutes.searchScreen);
-                  },
-                  textInputType: TextInputType.none,
-                  controller: controller.searchController,
-                  hintText: "lbl_search".tr)),
-          Padding(
-              padding: EdgeInsets.only(left: 16.h),
-              child: CustomIconButton(
-                  height: 56.adaptSize,
-                  width: 56.adaptSize,
-                  padding: EdgeInsets.all(16.h),
-                  decoration: IconButtonStyleHelper.fillPrimary,
-                  onTap: () {
-                    //onTapBtnIconButton();
-
-                    Get.toNamed(AppRoutes.searchScreen);
-                  },
-                  child: CustomImageView(
-                      imagePath: ImageConstant.imgGroup1171275017)))
-        ]));
+        child: CustomSearchView(
+            onTap: () {
+              Get.toNamed(AppRoutes.searchScreen);
+            },
+            textInputType: TextInputType.none,
+            controller: controller.searchController,
+            hintText: "lbl_search".tr));
   }
 
   /// Common widget
@@ -861,7 +860,7 @@ class _HomePageState extends State<HomePage> {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       Text(popularGround,
           style: theme.textTheme.titleLarge!
-              .copyWith(color: theme.colorScheme.onErrorContainer)),
+              .copyWith(color: theme.colorScheme.onErrorContainer,  fontFamily: 'Montserrat-Medium',)),
       GestureDetector(onTap: () {
         onTapViewAll!.call();
       }),
@@ -913,28 +912,29 @@ class _HomePageState extends State<HomePage> {
     required String distance,
   }) {
     return SizedBox(
-        height: 163.v,
+        height: 135.v,
         width: double.infinity,
         child: Stack(alignment: Alignment.topRight, children: [
           Hero(
             tag: image,
             child: CustomImageView(
                 imagePath: image,
-                height: 163.v,
+                height: 135.v,
                 width: double.infinity,
                 radius: BorderRadius.circular(16.h),
                 alignment: Alignment.center),
           ),
-          Align(
-              alignment: Alignment.topRight,
-              child: Container(
-                  margin: EdgeInsets.only(top: 12.v, right: 12.h),
-                  padding: EdgeInsets.symmetric(horizontal: 8.h, vertical: 2.v),
-                  decoration: AppDecoration.white
-                      .copyWith(borderRadius: BorderRadiusStyle.circleBorder10),
-                  child: Text(distance,
-                      style: theme.textTheme.bodySmall!.copyWith(
-                          color: theme.colorScheme.onErrorContainer))))
+          // Align(
+          //     alignment: Alignment.topRight,
+          //     child: Container(
+          //         margin: EdgeInsets.only(top: 12.v, right: 12.h),
+          //         padding: EdgeInsets.symmetric(horizontal: 8.h, vertical: 2.v),
+          //         decoration: AppDecoration.white
+          //             .copyWith(borderRadius: BorderRadiusStyle.circleBorder10),
+          //         child: Text(distance,
+          //             style: theme.textTheme.bodySmall!.copyWith(
+          //                 color: theme.colorScheme.onErrorContainer)))
+          // )
         ]));
   }
 
@@ -942,13 +942,13 @@ class _HomePageState extends State<HomePage> {
     required String image,
   }) {
     return SizedBox(
-        height: 163.v,
+        height: 135.v,
         width: double.infinity,
         child: Hero(
           tag: image,
           child: CustomImageView(
               imagePath: image,
-              height: 163.v,
+              height: 135.v,
               width: double.infinity,
               radius: BorderRadius.circular(16.h),
               alignment: Alignment.center),

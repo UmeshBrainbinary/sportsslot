@@ -63,7 +63,7 @@ class ThemeHelper {
     return ThemeData(
       visualDensity: VisualDensity.standard,
       colorScheme: colorScheme,
-      textTheme: TextThemes.textTheme(colorScheme),
+      textTheme: TextThemes.textTheme(colorScheme, ),
       scaffoldBackgroundColor: colorScheme.primaryContainer,
       bottomSheetTheme: BottomSheetThemeData(
           surfaceTintColor: PrefUtils().getThemeData() == "primary"
@@ -303,6 +303,14 @@ class PrimaryColors {
       ? Color(0XFFF8F8F8)
       : Color(0XFF1D201F);
 
+  Color get boxWhite => PrefUtils().getThemeData() == "primary"
+      ? Color(0XFFFFFFFF)
+      : Color(0XFF1D201F);
+
+  Color get boxBorder => PrefUtils().getThemeData() == "primary"
+      ? appTheme.gray300
+      : Color(0XFF1D201F);
+
   Color get gray300 => Color(0XFFDBDBDB);
 
   Color get lightgraynightMode => PrefUtils().getThemeData() == "primary"
@@ -466,8 +474,8 @@ getCommonAppBar(title, {Widget? actionwidget}) {
       onTap: () {
         Get.back();
       },
-      imagePath: ImageConstant.imgIcDown,
-      margin: EdgeInsets.only(left: 20.h, top: 23.v, bottom: 23.v),
+      imagePath: ImageConstant.backArrow,
+      margin: EdgeInsets.only(left: 20.h, top: 20.v, bottom: 20.v),
     ),
     title: AppbarTitle(text: title, margin: EdgeInsets.only(left: 16.h)),
     actions: [actionwidget ?? SizedBox()],
@@ -480,7 +488,7 @@ getCustomIconButton(icon, onTap) {
     onTap: onTap,
     child: Container(
       decoration: BoxDecoration(
-        shape: BoxShape.circle,
+        borderRadius: BorderRadius.circular(10.h),
         color: appTheme.textfieldFillColor,
       ),
       child: Padding(
@@ -496,7 +504,7 @@ getViewAllRow(title, onTap) {
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       Text(title,
-          style: theme.textTheme.titleLarge!.copyWith(color: appTheme.black900)),
+          style: theme.textTheme.titleLarge!.copyWith(color: appTheme.black900,  fontFamily: 'Montserrat-Medium',)),
       GestureDetector(
         onTap: onTap,
         child: Text("lbl_view_all".tr, style: CustomTextStyles.bodyLargeGray60001.copyWith(color: appTheme.gray60001)),

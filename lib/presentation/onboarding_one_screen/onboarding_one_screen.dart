@@ -62,7 +62,8 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
                           data.title!,
                           style: theme.textTheme.headlineMedium!.copyWith(
                               color: appTheme.black900,
-                              fontWeight: FontWeight.w700
+                              fontWeight: FontWeight.w700,
+                              fontFamily: 'Montserrat-Medium'
                           ),
                         ),
                         SizedBox(height: 16.v),
@@ -77,6 +78,7 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
                               textAlign: TextAlign.center,
                               style: theme.textTheme.bodyLarge!.copyWith(
                                 color: appTheme.black900,
+                                fontFamily: 'Montserrat-Medium',
                                 height: 1.50,
                               ),
                             ),
@@ -143,7 +145,8 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
                           controller.onboardingList.length - 1
                           ? "":"lbl_skip".tr,
                           style: theme.textTheme.bodyLarge!.copyWith(
-                              color: appTheme.black900
+                              color: appTheme.black900,
+                              fontFamily: 'Montserrat-Medium'
                           ))),
                 ],
               ),

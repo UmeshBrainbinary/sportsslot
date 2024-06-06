@@ -6,5 +6,5 @@ class Family{
   static String montserratBold ="Montserrat-Bold";
   static String montserratMedium ="Montserrat-Medium";
   static String montserratRegular ="Montserrat-Regular";
-  static String montserratSemiBold ="Montserrat-SemiBold";
+  static String montserratSemiBold ="Montserrat-Medium";
 }

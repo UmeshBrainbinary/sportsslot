@@ -101,6 +101,7 @@ class CustomBottomBar extends StatelessWidget {
                           bottomMenuList[index].title ?? "",
                           style: theme.textTheme.bodyMedium!.copyWith(
                             color: appTheme.gray60001,
+                              fontFamily: 'Montserrat-Medium'
                           ),
                         ),
                       ),

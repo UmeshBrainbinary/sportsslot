@@ -42,7 +42,7 @@ class _EventsPageState extends State<EventsPage> {
                       padding: EdgeInsets.only(top: 16.v, left: 20.h, right: 20.h),
                       child: Align(
                         alignment: Alignment.topLeft,
-                        child: Text("lbl_events".tr, style: theme.textTheme.headlineMedium!.copyWith(color: appTheme.black900)),
+                        child: Text("lbl_events".tr, style: theme.textTheme.headlineMedium!.copyWith(color: appTheme.black900, fontFamily: 'Montserrat-Medium')),
                       ),
                     ),
                     Column(
@@ -70,7 +70,7 @@ class _EventsPageState extends State<EventsPage> {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.center,
-                            style: theme.textTheme.bodyLarge!.copyWith(color: appTheme.black900, height: 1.50),
+                            style: theme.textTheme.bodyLarge!.copyWith(color: appTheme.black900, height: 1.50, fontFamily: 'Montserrat-Medium'),
                           ),
                         ),
                       ],
@@ -83,7 +83,7 @@ class _EventsPageState extends State<EventsPage> {
                   SizedBox(height: 16.v),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.h),
-                    child: Text("lbl_events".tr, style: theme.textTheme.headlineMedium!.copyWith(color: appTheme.black900)),
+                    child: Text("lbl_events".tr, style: theme.textTheme.headlineMedium!.copyWith(color: appTheme.black900, fontFamily: 'Montserrat-Medium')),
                   ),
                   SizedBox(height: 16.v),
                   Expanded(

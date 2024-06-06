@@ -92,7 +92,7 @@ class _HelpScreenState extends State<HelpScreen> {
             children: [
               TextSpan(
                 text: whatIsPlayground,
-                style: theme.textTheme.titleMedium!.copyWith(color: appTheme.black900),
+                style: theme.textTheme.titleMedium!.copyWith(color: appTheme.black900, fontFamily: 'Montserrat-Medium'),
               ),
             ],
           ),
@@ -109,7 +109,7 @@ class _HelpScreenState extends State<HelpScreen> {
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.left,
-                style: theme.textTheme.bodyLarge!.copyWith(color: appTheme.black900),
+                style: theme.textTheme.bodyLarge!.copyWith(color: appTheme.black900, fontFamily: 'Montserrat-Medium'),
               ),
             ),
           )

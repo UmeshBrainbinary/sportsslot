@@ -67,6 +67,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   "msg_sportsslot".tr,
                   style: theme.textTheme.titleMedium!.copyWith(
                     color: appTheme.black900,
+                      fontFamily: 'Montserrat-Medium',
                     fontSize: 20
                   ),
                 ),

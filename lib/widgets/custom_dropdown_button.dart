@@ -81,7 +81,7 @@ class CustomDropDown extends StatelessWidget {
             child: Text(
               item.title,
               overflow: TextOverflow.ellipsis,
-              style: theme.textTheme.bodyLarge!.copyWith(color:appTheme.black900),
+              style: theme.textTheme.bodyLarge!.copyWith(color:appTheme.black900, fontFamily: 'Montserrat-Medium'),
             ),
           );
         }).toList(),

@@ -93,6 +93,7 @@ class CustomSearchView extends StatelessWidget {
           controller: controller,
           style: textStyle ??theme.textTheme.bodyLarge!.copyWith(
             color: appTheme.black900,
+              fontFamily: 'Montserrat-Medium'
           ),
           keyboardType: textInputType,
           maxLines: maxLines ?? 1,

@@ -80,7 +80,7 @@ class DetailscreenItemWidget extends StatelessWidget {
 
                 child: Text(
                   detailscreenItemModelObj.title!,
-                  style: theme.textTheme.titleSmall,
+                  style: theme.textTheme.titleSmall?.copyWith( fontFamily: 'Montserrat-Medium',),
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
                 ),
@@ -88,12 +88,12 @@ class DetailscreenItemWidget extends StatelessWidget {
               SizedBox(height: 6.v),
               Text(
                 detailscreenItemModelObj.time!,
-                style: theme.textTheme.bodyMedium,
+                style: theme.textTheme.bodyMedium?.copyWith( fontFamily: 'Montserrat-Medium',),
               ),
               SizedBox(height: 6.v),
               Text(
                 "₹ ${detailscreenItemModelObj.price.toString()??""}/hour",
-                style: theme.textTheme.bodyMedium,
+                style: theme.textTheme.bodyMedium?.copyWith( fontFamily: 'Montserrat-Medium',),
               ),
               SizedBox(height: 6.v),
             ],

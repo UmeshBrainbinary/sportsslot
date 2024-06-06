@@ -57,7 +57,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                            padding: EdgeInsets.only(left: 16.h, top: 19.v, bottom: 16.v),
                            child: Text(data.title!,
                                style: theme.textTheme.bodyLarge!
-                                   .copyWith(color: appTheme.black900))),
+                                   .copyWith(color: appTheme.black900, fontFamily: 'Montserrat-Medium'))),
                        Spacer(),
                        CustomImageView(
                            imagePath: controller.selectedPaymentMethod == index?ImageConstant.imgRadioButtonSelected:
@@ -88,7 +88,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                        width: 24.adaptSize)),
                buttonStyle: CustomButtonStyles.none,
                buttonTextStyle: theme.textTheme.bodyLarge!.copyWith(
-                 color: appTheme.black900
+                 color: appTheme.black900,
+                   fontFamily: 'Montserrat-Medium'
                ),
                onPressed: () {
                 onTapAddNewCard();

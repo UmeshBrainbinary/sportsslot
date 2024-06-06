@@ -51,7 +51,7 @@ class ImageConstant {
 
 
 // setting screen icons
-  static String imgGroup9 = '$imagePath/img_group_9.svg';
+  static String imgGroup9 = '$imagePath/bell.png';
   static String imgThemeIcon = '$imagePath/theme_icon.svg';
   static String imgSwitchOn = '$imagePath/switch_on_icon.svg';
   static String imgSwitchOff = '$imagePath/switch_off_icon.svg';
@@ -62,6 +62,9 @@ class ImageConstant {
   static String imgRectangle3463279126x260 = '$imagePath/img_rectangle_3463279_126x260.png';
   static String imgRectangle34632791 = '$imagePath/img_rectangle_3463279_1.png';
   static String imgRectangle34632792 = '$imagePath/img_rectangle_3463279_2.png';
+
+  static String backArrow = '$imagePath/backArrow.png';
+
 
 
 

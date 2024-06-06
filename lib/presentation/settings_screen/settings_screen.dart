@@ -95,7 +95,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Text(
                 title,
                 style: theme.textTheme.bodyLarge!.copyWith(
-                  color: appTheme.black900,
+                  color: appTheme.black900,fontFamily: 'Montserrat-Medium'
                 ),
               ),
             ),

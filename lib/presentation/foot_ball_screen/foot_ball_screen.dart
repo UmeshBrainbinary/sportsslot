@@ -179,7 +179,7 @@ class _FootBallScreenState extends State<FootBallScreen> {
                                                padding: EdgeInsets.symmetric(horizontal: 8.h),
                                                child: Text(model.title!,
                                                    style: theme.textTheme.titleMedium!.copyWith(
-                                                       color: appTheme.black900
+                                                       color: appTheme.black900,fontFamily: 'Montserrat-Medium'
                                                    ))),
                                            SizedBox(height: 5.v),
                                            Padding(

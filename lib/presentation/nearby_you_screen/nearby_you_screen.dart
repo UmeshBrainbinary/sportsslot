@@ -77,8 +77,10 @@ class _NearbyYouScreenState extends State<NearbyYouScreen> {
                             child: Container(
                                 margin: EdgeInsets.symmetric(horizontal: 20.h),
                                 decoration: AppDecoration.fillGray.copyWith(
-                                    color: appTheme.textfieldFillColor,
-                                    borderRadius: BorderRadiusStyle.roundedBorder16),
+                                    color: appTheme.boxWhite,
+                                    borderRadius: BorderRadiusStyle.roundedBorder16,
+                                  border: Border.all(color: appTheme.boxBorder)
+                                ),
                                 child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,

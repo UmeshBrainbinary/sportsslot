@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 alignment: Alignment.centerLeft,
                                 child: Text("lbl_log_in".tr,
                                     style: theme.textTheme.headlineMedium!.copyWith(
-                                        color:appTheme.black900
+                                        color:appTheme.black900,fontFamily: 'Montserrat-Medium'
                                     ))),
                             SizedBox(height: 10.v),
                             Align(
@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         style: theme.textTheme.bodyLarge!
                                             .copyWith(
                                             color:appTheme.black900,
-                                            height: 1.50)))),
+                                            height: 1.50, fontFamily: 'Montserrat-Medium')))),
                             SizedBox(height: 45.v),
                             CustomTextFormField(
                                 controller: controller.emailController,
@@ -128,12 +128,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                     },
                                     child: Text("msg_forgot_password".tr,
                                         style: theme.textTheme.bodyLarge!.copyWith(
-                                            color:appTheme.black900
+                                            color:appTheme.black900,
+                                            fontFamily: 'Montserrat-Medium'
 
                                         )))),
                             SizedBox(height: 48.v),
 
-                          Obx(() =>   CustomElevatedButton(
+                          Obx(() =>
+                              CustomElevatedButton(
                               text: "lbl_log_in".tr,
                               onPressed: controller.loader.value ? (){} : () async{
 
@@ -144,7 +146,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   await controller.loginWithEmailAndPassword();
                                 }
 
-                              }),),
+                              }),
+                          ),
                             //Spacer(),
                                 SizedBox(height: 49.v),
                             SizedBox(height: 11.v),
