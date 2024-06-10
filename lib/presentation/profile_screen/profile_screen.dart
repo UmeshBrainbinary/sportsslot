@@ -42,6 +42,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       imagePath: ImageConstant.imgAvtar1,
                       height: 80.adaptSize,
                       width: 80.adaptSize,
+                      fit: BoxFit.contain,
+                      radius:
+                      BorderRadius.circular(40.h),
                     ),
                     Obx(() =>  Padding(
                       padding: EdgeInsets.only(

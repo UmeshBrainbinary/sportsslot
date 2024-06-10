@@ -480,15 +480,12 @@ class _HomePageState extends State<HomePage> {
                                                                                   height: 18
                                                                                       .v),
                                                                               Padding(
-                                                                                padding: EdgeInsets
-                                                                                    .symmetric(
-                                                                                    horizontal: 8
-                                                                                        .h),
+                                                                                padding: EdgeInsets.symmetric(horizontal: 8.h),
                                                                                 child: Row(
                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                   children: [
                                                                                     SizedBox(
-                                                                                      width: 110
+                                                                                      width: 100
                                                                                           .h,
                                                                                       child: Text(
                                                                                           model

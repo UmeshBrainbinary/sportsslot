@@ -25,16 +25,28 @@ class ImageConstant {
 
 
 // bottomBar icons
+//   static String imgNavHome = '$imagePath/img_nav_home.svg';
+//   static String imgNavHomeSelected = '$imagePath/img_nav_home_selected.svg';
+//   static String imgNavBooking = '$imagePath/img_nav_booking.svg';
+//   static String imgNavBookingSelected = '$imagePath/img_nav_booking_selected.svg';
+//   static String imgNavEvent = '$imagePath/img_nav_event.svg';
+//   static String imgNavEventSelected = '$imagePath/img_nav_event_selected.svg';
+//   static String imgNavHistory = '$imagePath/img_nav_history.svg';
+//   static String imgNavHistorySelected = '$imagePath/img_nav_history_primary.svg';
+//   static String imgNavProfile = '$imagePath/img_nav_profile.svg';
+//   static String imgNavProfileSelected = '$imagePath/img_nav_profile_selected.svg';
+
   static String imgNavHome = '$imagePath/img_nav_home.svg';
-  static String imgNavHomeSelected = '$imagePath/img_nav_home_selected.svg';
+  static String imgNavHomeSelected = '$imagePath/booking.png';
   static String imgNavBooking = '$imagePath/img_nav_booking.svg';
-  static String imgNavBookingSelected = '$imagePath/img_nav_booking_selected.svg';
+  static String imgNavBookingSelected = '$imagePath/bookingSelected.png';
   static String imgNavEvent = '$imagePath/img_nav_event.svg';
   static String imgNavEventSelected = '$imagePath/img_nav_event_selected.svg';
   static String imgNavHistory = '$imagePath/img_nav_history.svg';
   static String imgNavHistorySelected = '$imagePath/img_nav_history_primary.svg';
-  static String imgNavProfile = '$imagePath/img_nav_profile.svg';
-  static String imgNavProfileSelected = '$imagePath/img_nav_profile_selected.svg';
+  static String imgNavProfile = '$imagePath/profile.png';
+  static String imgNavProfileSelected = '$imagePath/profileSelected.png';
+
 
   static String calendar = '$imagePath/calendar.png';
   static String email = '$imagePath/email.png';
@@ -348,7 +360,7 @@ class ImageConstant {
 
   static String imgRectangle3957 = '$imagePath/img_rectangle_395_7.png';
 
-  static String imgAvtar1 = '$imagePath/img_avtar_1.svg';
+  static String imgAvtar1 = '$imagePath/img_avtar_1.png';
 
   static String imgLightProfile = '$imagePath/img_light_profile.svg';
 

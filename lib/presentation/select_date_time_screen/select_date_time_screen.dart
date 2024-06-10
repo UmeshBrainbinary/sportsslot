@@ -1,6 +1,3 @@
-
-import 'dart:ffi';
-
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
@@ -35,9 +32,9 @@ class _SelectDateTimeScreenState extends State<SelectDateTimeScreen> {
  List<DateTime?> _dates = [];
  List<String> day = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
- late GroundDetailListModel groundDetailListModel ;
-late GroundListModel subGround;
-var cityName = "";
+ late GroundDetailListModel groundDetailListModel;
+ late GroundListModel subGround;
+ var cityName = "";
  List<QueryDocumentSnapshot> allBookingData = [];
 
 
@@ -46,7 +43,6 @@ var cityName = "";
 
    groundDetailListModel = Get.arguments["data"];
    subGround = Get.arguments["subGround"];
-
 
    getLocationName();
 
