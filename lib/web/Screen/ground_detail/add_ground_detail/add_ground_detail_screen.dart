@@ -302,7 +302,7 @@ class _AddGroundDetailScreenState extends State<AddGroundDetailScreen> {
                                                     text: TextSpan(
                                                       children: [
                                                         TextSpan(
-                                                            text: "addEventImage".tr,
+                                                            text: "addImage".tr,
                                                             style: regularFontStyle(
                                                                 color: themeController.d.value,//appTheme.black,
                                                                 size: 18)),

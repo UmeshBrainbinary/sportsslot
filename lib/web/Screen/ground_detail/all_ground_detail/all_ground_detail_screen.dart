@@ -29,7 +29,7 @@ class AllGroundDetailScreen extends StatelessWidget {
     return
 
       DashboardScreen(
-      index: 1,
+      index: 3,
       child: ResponsiveBuilder(
         builder: (BuildContext context, SizingInformation sizingInformation) {
           if (sizingInformation.isDesktop) {
