@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:sportsslot/core/service/firebase_service.dart';
-import 'package:sportsslot/core/utils/firebaseKeys.dart';
 import 'package:intl/intl.dart';
-
 import '../events_page/widgets/events_item_widget.dart';
 import 'controller/events_controller.dart';
 import 'models/events_item_model.dart';

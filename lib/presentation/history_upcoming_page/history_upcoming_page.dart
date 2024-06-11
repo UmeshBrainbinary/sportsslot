@@ -91,8 +91,8 @@ class _HistoryUpcomingPageState extends State<HistoryUpcomingPage> {
                                           padding: EdgeInsets.all(4.h),
                                           decoration: AppDecoration.fillGray
                                               .copyWith(
-                                                  color: appTheme
-                                                      .textfieldFillColor,
+                                                  color: appTheme.boxWhite,
+                                                  border: Border.all(color: appTheme.boxBorder),
                                                   borderRadius:
                                                       BorderRadiusStyle
                                                           .roundedBorder16),
@@ -169,13 +169,6 @@ class _HistoryUpcomingPageState extends State<HistoryUpcomingPage> {
                                                             .copyWith(
                                                                 color: appTheme
                                                                     .black900))),
-                                                Text("lbl_canceled".tr,
-                                                    style: theme
-                                                        .textTheme.titleMedium!
-                                                        .copyWith(
-                                                            color:
-                                                                appTheme.red300,
-                                                            fontSize: 12))
                                               ],
                                             ),
                                           ]))),
@@ -183,46 +176,12 @@ class _HistoryUpcomingPageState extends State<HistoryUpcomingPage> {
                           });
                     },
                   )
-                : Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 116.adaptSize,
-                        width: 116.adaptSize,
-                        padding: EdgeInsets.all(30.h),
-                        decoration: AppDecoration.fillPrimary.copyWith(
-                          borderRadius: BorderRadiusStyle.circleBorder58,
-                        ),
-                        child: CustomImageView(
-                          imagePath: ImageConstant.imgEdit1,
-                          height: 56.adaptSize,
-                          width: 56.adaptSize,
-                          alignment: Alignment.center,
-                        ),
-                      ),
-                      SizedBox(height: 20.v),
-                      Text(
-                        "lbl_no_booking_yet".tr,
-                        style: CustomTextStyles.titleLarge22,
-                      ),
-                      SizedBox(height: 20.v),
-                      Container(
-                        width: 346.h,
-                        margin: EdgeInsets.symmetric(horizontal: 40.h),
-                        child: Text(
-                          "msg_when_you_book_an".tr,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          textAlign: TextAlign.center,
-                          style: theme.textTheme.bodyLarge!.copyWith(
-                            color: appTheme.black900,
-                            height: 1.50,
-                          ),
-                        ),
-                      ),
-                    ],
-                  );
+                : Center(
+                  child: Text(
+                    "lbl_no_booking_yet".tr,
+                    style: CustomTextStyles.titleMedium16.copyWith(color: appTheme.themeColor),
+                  ),
+                );
           } else {
             return Center(
               child: CircularProgressIndicator(),

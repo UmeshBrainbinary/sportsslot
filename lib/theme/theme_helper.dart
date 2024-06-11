@@ -301,15 +301,15 @@ class PrimaryColors {
 
   Color get textfieldFillColor => PrefUtils().getThemeData() == "primary"
       ? Color(0XFFF8F8F8)
-      : Color(0XFF1D201F);
+      : Color(0XFF211f1c);
 
   Color get boxWhite => PrefUtils().getThemeData() == "primary"
       ? Color(0XFFFFFFFF)
-      : Color(0XFF1D201F);
+      : Color(0XFF211f1c);
 
   Color get boxBorder => PrefUtils().getThemeData() == "primary"
       ? appTheme.gray300
-      : Color(0XFF1D201F);
+      : Color(0XFF575757);
 
   Color get gray300 => Color(0XFFDBDBDB);
 

@@ -155,7 +155,7 @@ class _HistryUpcomingCompletedTabState extends State<HistryUpcomingCompletedTab>
             Padding(
               padding: EdgeInsets.only(left: 20.h, right: 20.h),
               child: Text(
-                  "History",
+                  "Cancel Booking",
                   style: theme.textTheme.headlineMedium!.copyWith(
                       color: appTheme.black900
                   )

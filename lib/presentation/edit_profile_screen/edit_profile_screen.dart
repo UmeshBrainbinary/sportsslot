@@ -59,9 +59,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                             ImageConstant.imgAvtar1,
                                             height: 80.adaptSize,
                                             width: 80.adaptSize,
-
-                                            radius:
-                                            BorderRadius.circular(40.h),
+                                            radius: BorderRadius.circular(40.h),
                                             alignment: Alignment.center),
                                         CustomIconButton(
                                             height: 40.adaptSize,

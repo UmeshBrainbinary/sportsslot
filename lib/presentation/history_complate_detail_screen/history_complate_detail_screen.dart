@@ -47,7 +47,7 @@ late MyBookingUpcomingModel historyUpcomingModel;
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              getCommonAppBar("lbl_history_detail".tr),
+              getCommonAppBar("lbl_canceled_booking".tr),
               SizedBox(height: 16.v),
               Padding(
                 padding:  EdgeInsets.symmetric(horizontal: 20.h),
@@ -194,8 +194,9 @@ late MyBookingUpcomingModel historyUpcomingModel;
           vertical: 17.v,
         ),
         decoration: AppDecoration.fillGray.copyWith(
-          color: appTheme.textfieldFillColor,
+          color: appTheme.boxWhite,
           borderRadius: BorderRadiusStyle.roundedBorder16,
+          border: Border.all(color: appTheme.boxBorder)
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,

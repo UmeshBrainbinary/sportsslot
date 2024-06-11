@@ -22,13 +22,11 @@ class NearbyYouScreen extends StatefulWidget {
 }
 
 class _NearbyYouScreenState extends State<NearbyYouScreen> {
+
  NearbyYouController controller = Get.put(NearbyYouController());
  PopularGroundController popularGroundController = Get.put(PopularGroundController());
  HomeController homeController = Get.put(HomeController(HomeModel().obs));
  DetailController detailController = Get.put(DetailController());
-
-
-
 
  @override
  Widget build(BuildContext context) {
@@ -43,9 +41,8 @@ class _NearbyYouScreenState extends State<NearbyYouScreen> {
         backgroundColor: appTheme.bgColor,
         body: SafeArea(
           child: Column(
-
               children: [
-          getCommonAppBar("lbl_nearby_you".tr,),
+           getCommonAppBar("lbl_nearby_you".tr),
            SizedBox(height: 16.v),
              Expanded(
               child:
@@ -165,7 +162,6 @@ class _NearbyYouScreenState extends State<NearbyYouScreen> {
        Align(
            alignment: Alignment.topRight,
            child: Container(
-
                margin: EdgeInsets.only(top: 12.v, right: 12.h),
                padding: EdgeInsets.symmetric(horizontal: 8.h, vertical: 2.v),
                decoration: AppDecoration.white

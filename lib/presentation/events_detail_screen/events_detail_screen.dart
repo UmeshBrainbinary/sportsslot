@@ -43,6 +43,7 @@ class _EventsDetailScreenState extends State<EventsDetailScreen> {
       },
       child: Scaffold(
         backgroundColor: appTheme.bgColor,
+
         body: SafeArea(
           child: GetBuilder<EventsDetailController>(
             init: EventsDetailController(),
@@ -51,6 +52,7 @@ class _EventsDetailScreenState extends State<EventsDetailScreen> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    getCommonAppBar(eventsItemModel.tournamentName.toString()),
                     Expanded(
                         child: CustomScrollView(
                           shrinkWrap: true,
@@ -64,25 +66,7 @@ class _EventsDetailScreenState extends State<EventsDetailScreen> {
                               backgroundColor: Colors.transparent,
                               expandedHeight: 285.v,
                               leadingWidth: 68.h,
-                              leading: Padding(
-                                  padding: EdgeInsets.only(left: 20.h, top: 16.v),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Get.back();
-                                      },
-                                    child: Container(
-                                      height: 48.v,
-                                      width: 48.h,
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(12.h),
-                                          color: appTheme.whiteA700.withOpacity(0.20)),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(12.h),
-                                        child: CustomImageView(imagePath: ImageConstant.imgGroup1171274870),
-                                      ),
-                                    ),
-                                  ),
-                              ),
+                              leading: SizedBox(),
                               centerTitle: true,
                               flexibleSpace: FlexibleSpaceBar(
                                 background: Container(
@@ -125,6 +109,7 @@ class _EventsDetailScreenState extends State<EventsDetailScreen> {
                                     ),
                                 ),
                               ),
+
                             ),
                             SliverList(
                               delegate: SliverChildListDelegate([
@@ -135,40 +120,6 @@ class _EventsDetailScreenState extends State<EventsDetailScreen> {
                                   physics: NeverScrollableScrollPhysics(),
                                   children: [
                                     SizedBox(height: 16.v),
-
-                                    // RichText(
-                                    //   text: TextSpan(
-                                    //     children: [
-                                    //       TextSpan(
-                                    //           text: eventsItemModel.tournamentName.toString(),
-                                    //           style: CustomTextStyles.titleLarge22),
-                                    //
-                                    //       TextSpan(
-                                    //           text: "  ${eventsItemModel.ticketPrice.toString()}",
-                                    //           style: CustomTextStyles.titleLargePrimary),
-                                    //     ],
-                                    //   ),
-                                    //   textAlign: TextAlign.left,
-                                    // ),
-
-                                    SizedBox(
-                                      width: 300.h,
-                                      child: Text(eventsItemModel.tournamentName.toString(),
-                                          overflow: TextOverflow.ellipsis,
-                                          style: CustomTextStyles.titleLarge22),
-                                    ),
-
-                                    SizedBox(height: 12.v),
-                                    ExpandableText(
-                                      eventsItemModel.description??"",
-                                      expandText: "lbl_read_more".tr,
-                                      collapseText: 'Read less',
-                                      maxLines: 3,
-                                      linkColor: appTheme.buttonColor,
-                                      style: theme.textTheme.bodyLarge!.copyWith(color: appTheme.black900),
-                                      linkStyle: theme.textTheme.titleMedium!.copyWith(color: appTheme.buttonColor, fontSize: 16.fSize),
-                                    ),
-                                    SizedBox(height: 28.v),
                                     /// main ground
                                     // Align(
                                     //   alignment: Alignment.centerLeft,
@@ -201,36 +152,51 @@ class _EventsDetailScreenState extends State<EventsDetailScreen> {
                                     //   ),
                                     // ),
                                     ///
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "lbl_location".tr,
-                                          style: theme.textTheme.titleLarge!.copyWith(color: appTheme.black900),
-                                        ),
-                                        SizedBox(width: 10.h),
-                                        SizedBox(
-                                          width: Get.width / 1.45,
-                                          child: GestureDetector(
-                                            onTap: () async{
-                                              await launchUrl(Uri.parse(eventsItemModel.url ?? ""));
-                                            },
-                                            child: Text(
-                                              eventsItemModel.url ?? "",
-                                              overflow: TextOverflow.ellipsis,
-
-                                              style: theme.textTheme.titleMedium!.copyWith(color: Colors.blue),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                                    ExpandableText(
+                                      eventsItemModel.description??"",
+                                      expandText: "lbl_read_more".tr,
+                                      collapseText: 'Read less',
+                                      maxLines: 3,
+                                      linkColor: appTheme.buttonColor,
+                                      style: theme.textTheme.bodyLarge!.copyWith(color: appTheme.black900),
+                                      linkStyle: theme.textTheme.titleMedium!.copyWith(color: appTheme.buttonColor, fontSize: 16.fSize),
                                     ),
                                     SizedBox(height: 24.v),
+
                                     buildDetails(
                                       lastDayOfRegistration: eventsItemModel.lastDayOfRegistration.toString(),
                                       entryFee: eventsItemModel.entryFee.toString(),
                                       tournamentStartDate: eventsItemModel.matchDate.toString(),
                                       tournamentTime: eventsItemModel.tournamentTime.toString(),
                                     ),
+                                    SizedBox(height: 24.v),
+
+                                    /// location
+                                    // Row(
+                                    //   children: [
+                                    //     Text(
+                                    //       "lbl_location".tr,
+                                    //       style: theme.textTheme.titleLarge!.copyWith(color: appTheme.black900),
+                                    //     ),
+                                    //     SizedBox(width: 10.h),
+                                    //     SizedBox(
+                                    //       width: Get.width / 1.45,
+                                    //       child: GestureDetector(
+                                    //         onTap: () async{
+                                    //           await launchUrl(Uri.parse(eventsItemModel.url ?? ""));
+                                    //         },
+                                    //         child: Text(
+                                    //           eventsItemModel.url ?? "",
+                                    //           overflow: TextOverflow.ellipsis,
+                                    //
+                                    //           style: theme.textTheme.titleMedium!.copyWith(color: Colors.blue),
+                                    //         ),
+                                    //       ),
+                                    //     ),
+                                    //   ],
+                                    // ),
+                                    ///
+
                                     SizedBox(height: 24.v),
                                     Text(
                                       "lbl_previous_memory".tr,
@@ -302,8 +268,9 @@ class _EventsDetailScreenState extends State<EventsDetailScreen> {
         vertical: 17.v,
       ),
       decoration: AppDecoration.fillGray.copyWith(
-        color: appTheme.textfieldFillColor,
+        color: appTheme.boxWhite,
         borderRadius: BorderRadiusStyle.roundedBorder16,
+        border: Border.all(color: appTheme.boxBorder)
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -311,20 +278,22 @@ class _EventsDetailScreenState extends State<EventsDetailScreen> {
         children: [
           SizedBox(height: 2.v),
           _buildEntryFee(
-           // entryFee: "msg_last_day_of_registration".tr,
-             entryFee: "msg_tournament_end".tr,
-            price: lastDayOfRegistration ?? "",//"lbl_15_may_2023".tr,
-          ),
-          SizedBox(height: 18.v),
-          _buildEntryFee(
             entryFee: "lbl_entry_fee".tr,
             price: entryFee ?? "",//"lbl_120_00".tr,
           ),
           SizedBox(height: 18.v),
+
           _buildEntryFee(
             entryFee: "msg_tournament_start".tr,
             price: tournamentStartDate ?? "",//"lbl_25_may_2023".tr,
           ),
+          SizedBox(height: 18.v),
+          _buildEntryFee(
+           // entryFee: "msg_last_day_of_registration".tr,
+             entryFee: "msg_tournament_end".tr,
+            price: lastDayOfRegistration ?? "",//"lbl_15_may_2023".tr,
+          ),
+
           SizedBox(height: 18.v),
           _buildEntryFee(
             entryFee: "lbl_time".tr,

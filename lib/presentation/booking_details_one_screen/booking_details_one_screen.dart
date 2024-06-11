@@ -207,9 +207,12 @@ class _BookingDetailsOneScreenState extends State<BookingDetailsOneScreen> {
     return Container(
         margin: EdgeInsets.symmetric(horizontal: 20.h),
         padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 17.v),
+
         decoration: AppDecoration.fillGray
             .copyWith(borderRadius: BorderRadiusStyle.roundedBorder16,
-            color: appTheme.textfieldFillColor),
+            color: appTheme.boxWhite, 
+            border: Border.all(color: appTheme.boxBorder)),
+
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           Padding(
               padding: EdgeInsets.only(right: 3.h),
@@ -421,23 +424,27 @@ class _BookingDetailsOneScreenState extends State<BookingDetailsOneScreen> {
                   await controller.addBookingData(bookingModel, docRef);
 
                   await sendNotification(
-                    title: "Ground Booked successfully",
+                    title: "Stadium Booked successfully",
                     body: "${groundDetailListModel.title}, ${controller.subGroundName}",
                     dateTime: "${DateFormat('E, d MMMM yyyy').format(bookingModel.selectDate)} - ${controller.bookingTime}"
                   );
 
 
-                  showDialog(
-                    barrierDismissible: false,
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                          insetPadding: EdgeInsets.all(16.h),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.h)),
-                          contentPadding: EdgeInsets.zero,
-                          content: confirmAddBooking());
-                    },
-                  );
+                  // showDialog(
+                  //   barrierDismissible: false,
+                  //   context: context,
+                  //   builder: (context) {
+                  //     return AlertDialog(
+                  //         insetPadding: EdgeInsets.all(16.h),
+                  //         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.h)),
+                  //         contentPadding: EdgeInsets.zero,
+                  //         content: confirmAddBooking());
+                  //   },
+                  // );
+                  CustomBottomBarController customBottomBarController = Get.put(CustomBottomBarController());
+                  customBottomBarController.selectedIndex = 1;
+                  customBottomBarController.getIndex(1);
+                  Get.offAllNamed(AppRoutes.homeContainerScreen);
 
                   controller.loader.value = false;
                 }
@@ -499,14 +506,14 @@ class _BookingDetailsOneScreenState extends State<BookingDetailsOneScreen> {
                     alignment: Alignment.center,
                     decoration: AppDecoration.fillPrimary
                         .copyWith(shape: BoxShape.circle),
-                    child: //Icon(Icons.check, size: 50, color: appTheme.white)
-                    CustomImageView(
-                        imagePath: AssetRes.checkIcon,
-                        color: appTheme.white,
-                        height: 30,
-                        alignment: Alignment.center,
-                        fit: BoxFit.cover,
-                    )
+                    child: Icon(Icons.check, size: 50, color: appTheme.white),
+                    // CustomImageView(
+                    //     imagePath: AssetRes.checkIcon,
+                    //     color: appTheme.white,
+                    //     height: 30,
+                    //     alignment: Alignment.center,
+                    //     fit: BoxFit.cover,
+                    // )
                 ),
                 SizedBox(height: 19.v),
                 Container(

@@ -693,8 +693,7 @@ class _HomePageState extends State<HomePage> {
                                                                   decoration: AppDecoration
                                                                       .fillGray
                                                                       .copyWith(
-                                                                      color: appTheme
-                                                                          .boxWhite,
+                                                                      color: appTheme.boxWhite,
                                                                       border: Border.all(color: appTheme.boxBorder),
                                                                       borderRadius: BorderRadiusStyle
                                                                           .roundedBorder16,

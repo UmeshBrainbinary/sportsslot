@@ -31,52 +31,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
         Column(
           children: [
             buildComponentOne(),
-            SizedBox(height: 24.v),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: EdgeInsets.only(left: 20.h),
-                child: Row(
-                  children: [
-                    CustomImageView(
-                      imagePath: ImageConstant.imgAvtar1,
-                      height: 80.adaptSize,
-                      width: 80.adaptSize,
-                      fit: BoxFit.contain,
-                      radius:
-                      BorderRadius.circular(40.h),
-                    ),
-                    Obx(() =>  Padding(
-                      padding: EdgeInsets.only(
-                        left: 15.h,
-                        top: 16.v,
-                        bottom: 13.v,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            controller.fullName.value??"",
-                            style: theme.textTheme.titleLarge!.copyWith(
-                              color: appTheme.black900,
-                                fontFamily: 'Montserrat-Medium'
-                            ),
-                          ),
-                          SizedBox(height: 6.v),
-                          Text(
-                            controller.email.value??"",
-                            style: theme.textTheme.bodyLarge!.copyWith(
-                              color: appTheme.black900,
-                                fontFamily: 'Montserrat-Medium'
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),),
-                  ],
-                ),
+            SizedBox(height: 18.v),
+            Obx(() =>  Padding(
+              padding: EdgeInsets.only(
+                left: 15.h,
+                top: 16.v,
+                bottom: 13.v,
               ),
-            ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomImageView(
+                    imagePath: ImageConstant.imgAvtar1,
+                    height: 100.adaptSize,
+                    width: 100.adaptSize,
+                    fit: BoxFit.contain,
+                    radius:
+                    BorderRadius.circular(50.h),
+                  ),
+                  SizedBox(height: 12.v),
+                  Text(
+                    controller.fullName.value??"",
+                    style: theme.textTheme.titleLarge!.copyWith(
+                        color: appTheme.black900,
+                        fontFamily: 'Montserrat-Medium'
+                    ),
+                  ),
+
+
+                ],
+              ),
+            ),),
+
+
             SizedBox(height: 32.v),
             Expanded(
               child: ListView(

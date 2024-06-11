@@ -81,7 +81,8 @@ class CustomBottomBar extends StatelessWidget {
             elevation: 0,
             currentIndex: controller.selectedIndex,
             type: BottomNavigationBarType.fixed,
-            items: List.generate(bottomMenuList.length, (index) {
+            items: List.generate(
+                bottomMenuList.length, (index) {
               return BottomNavigationBarItem(
                 icon: Container(
                   child: Column(
@@ -92,6 +93,7 @@ class CustomBottomBar extends StatelessWidget {
                         imagePath: bottomMenuList[index].icon,
                         height: 24.adaptSize,
                         width: 24.adaptSize,
+                        color: appTheme.lightGrey,
                       ),
                       Padding(
                         padding: EdgeInsets.only(

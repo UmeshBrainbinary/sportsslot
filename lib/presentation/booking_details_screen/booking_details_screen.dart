@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sportsslot/core/app_export.dart';
+import 'package:sportsslot/presentation/confirm_delete_popup_screen/confirm_delete_popup_screen.dart';
 import 'package:sportsslot/presentation/events_page/models/events_item_model.dart';
 import 'package:sportsslot/presentation/my_booking_upcoming_page/models/my_booking_upcoming_model.dart';
 import 'package:sportsslot/presentation/my_booking_upcoming_tab_container_screen/controller/my_booking_upcoming_tab_container_controller.dart';
@@ -22,6 +23,7 @@ class BookingDetailsScreen extends StatefulWidget {
 }
 
 class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
+
   BookingDetailsController controller = Get.put(BookingDetailsController());
   DetailController detailController = Get.put(DetailController());
   late MyBookingUpcomingModel data;
@@ -229,7 +231,9 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
         padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 17.v),
         decoration: AppDecoration.fillGray.copyWith(
             borderRadius: BorderRadiusStyle.roundedBorder16,
-            color: appTheme.textfieldFillColor),
+            color: appTheme.boxWhite,
+          border: Border.all(color: appTheme.boxBorder)
+        ),
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           Padding(
               padding: EdgeInsets.only(right: 3.h),
@@ -274,15 +278,16 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
           child: CustomElevatedButton(
               text: "lbl_cancel".tr,
               onPressed: () {
-                showModalBottomSheet(
-
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(16.h),
-                          topLeft: Radius.circular(16.h))),
+                showDialog(
+                  barrierDismissible: false,
                   context: context,
                   builder: (context) {
-                    return ReasonToCancelPopupScreen();
+                    return AlertDialog(
+                        insetPadding: EdgeInsets.all(16.h),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.h)),
+                        contentPadding: EdgeInsets.zero,
+                        content: ConfirmDeletePopupScreen());
                   },
                 );
               }),

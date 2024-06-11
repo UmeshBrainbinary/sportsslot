@@ -51,81 +51,75 @@ class _MyBookingUpcomingPageState extends State<MyBookingUpcomingPage> {
                       });
                     },
                     child: Container(
-                      padding: EdgeInsets.all(4.h),
+                      padding: EdgeInsets.all(8.h),
                       decoration: AppDecoration.fillGray.copyWith(
-                        color: appTheme.textfieldFillColor,
+                        color: appTheme.boxWhite,
                         borderRadius: BorderRadiusStyle.roundedBorder16,
+                        border: Border.all(color: appTheme.boxBorder)
                       ),
                       child: Row(
                         children: [
                           CustomImageView(
                             imagePath: data.image,
-                            height: 90.adaptSize,
-                            width: 90.adaptSize,
+                            height: 110.adaptSize,
+                            width: 110.adaptSize,
                             radius: BorderRadius.circular(
                               16.h,
                             ),
                             margin: EdgeInsets.only(top: 2.v),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                              left: 16.h,
-                              top: 23.v,
-                              bottom: 17.v,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                              SizedBox(
-                              width: 260.h,
-                                child: Text(
-                                  data.title??"",
-                                  overflow: TextOverflow.ellipsis,
-                                  style: theme.textTheme.titleMedium!.copyWith(
-                                    color: appTheme.black900,
-                                  ),
+                          SizedBox(width: 10),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                            SizedBox(
+                            width: 250.h,
+                              child: Text(
+                                data.title??"",
+                                overflow: TextOverflow.ellipsis,
+                                style: theme.textTheme.titleMedium!.copyWith(
+                                  color: appTheme.black900,
                                 ),
                               ),
-                                SizedBox(height: 9.v),
-                                Row(
-                                  children: [
-                                    CustomImageView(
-                                      imagePath: ImageConstant.imgIcLocationGray60001,
-                                      height: 20.adaptSize,
-                                      width: 20.adaptSize,
-                                    ),
-                                    SizedBox(
-                                      width: 70.h,
-                                      child: Padding(
-                                        padding: EdgeInsets.only(left: 8.h),
-                                        child: Text(
-                                          cityName.data.toString(),
-                                          overflow: TextOverflow.ellipsis,
-                                          style: theme.textTheme.bodyMedium,
-                                        ),
-                                      ),
-                                    ),
-                                    CustomImageView(
-                                      imagePath: ImageConstant.imgIcBooking,
-                                      height: 20.adaptSize,
-                                      width: 20.adaptSize,
-                                      margin: EdgeInsets.only(left: 16.h),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        left: 8.h,
-                                        top: 2.v,
-                                      ),
+                            ),
+                              SizedBox(height: 9.v),
+                              Row(
+                                children: [
+                                  CustomImageView(
+                                    imagePath: ImageConstant.imgIcLocationGray60001,
+                                    height: 20.adaptSize,
+                                    width: 20.adaptSize,
+                                  ),
+                                  SizedBox(
+                                    width: 120.h,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(left: 8.h),
                                       child: Text(
-                                        data.registerDateTime??"",
+                                        cityName.data.toString(),
+                                        overflow: TextOverflow.ellipsis,
                                         style: theme.textTheme.bodyMedium,
                                       ),
                                     ),
-                                  ],
-                                ),
-                                //Text(data.selectedDate??""),
-                              ],
-                            ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 9.v),
+                              Row(
+                                children: [
+                                  CustomImageView(
+                                    imagePath: ImageConstant.imgIcBooking,
+                                    height: 20.adaptSize,
+                                    width: 20.adaptSize,
+                                  ),
+                                  SizedBox(width: 5),
+                                  Text(
+                                    data.registerDateTime??"",
+                                    style: theme.textTheme.bodyMedium,
+                                  ),
+                                ],
+                              ),
+                              //Text(data.selectedDate??""),
+                            ],
                           ),
                         ],
                       ),

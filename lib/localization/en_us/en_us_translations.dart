@@ -154,7 +154,7 @@ final Map<String, String> enUs = {
   "lbl_miniature_field": "Miniature field",
   "msg_4_5_140_reviews": "4.5 (140 Reviews)",
   "msg_natural_grass_pitch": "Natural grass pitch",
-  "msg_our_popular_features": "Our popular features",
+  "msg_our_popular_features": "Features",
   "msg_outdoor_indoor": "Outdoor / indoor",
   "msg_stadium_in_lights4": "Elevate Your Game Day Experience",
 
@@ -331,8 +331,10 @@ final Map<String, String> enUs = {
   "msg_5_min_venenatis": "5 Min, | venenatis",
   "msg_football_tournament2": "Football tournament",
   "msg_last_day_of_registration": "Last day of registration",
-  "msg_tournament_start": "Tournament start ",
-  "msg_tournament_end": "Tournament end ",
+  "msg_tournament_start": "End date",
+  "msg_tournament_end": "Start date",
+  "msg_tournament_name": "Tournament name",
+  "msg_description": "Description",
 
   // Events detail Two Screen
   "lbl_31_team": "31 Team", "lbl_50_match": "50 Match",
@@ -356,7 +358,7 @@ final Map<String, String> enUs = {
   "lbl_guest_user": "Guest user",
 
   // Edit profile Screen
-  "lbl_edit_profile": "Edit profile", "lbl_save": "Save",
+  "lbl_edit_profile": "Edit account", "lbl_save": "Save",
 
   // Settings Screen
   "lbl_face_id": "Face ID", "lbl_message": "Message",
@@ -473,15 +475,16 @@ final Map<String, String> enUs = {
   "lbl_futsal_ground2": "Futsal Ground",
   "lbl_gr0175": "GR0175",
   "lbl_greece": "Greece",
-  "lbl_ground": "Ground",
+  "lbl_ground": "Sub ground",
   "lbl_ground2": "ground ",
   "lbl_ground_01": "Ground 01",
-  "lbl_ground_list": "Ground list",
+  "lbl_ground_list": "Sub ground",
   "lbl_haiti": "Haiti",
   "lbl_help": "Help",
   "lbl_faq": "FAQ",
   "lbl_history": "History",
   "lbl_history_detail": "History detail",
+  "lbl_canceled_booking": "Canceled booking details",
   "lbl_home": "Home",
   "lbl_hover_ground": "Hover ground",
   "lbl_john": "John",
@@ -524,7 +527,7 @@ final Map<String, String> enUs = {
   "lbl_tenis_ground": "Tenis ground",
   "lbl_time": "Time",
   "lbl_price" : "Price",
-  "lbl_member" : "Member",
+  "lbl_member" : "Participant",
   "lbl_viet_nam": "Viet nam",
   "lbl_view_all": "See all",
   "lbl_volly_ball": "Volly ball",
@@ -546,7 +549,7 @@ final Map<String, String> enUs = {
       "Please enter your email address and password details to sign in",
   "msg_please_enter_your_sign_up":
   "Please fill up details to create account",
-  "msg_procced_to_payment": "Procced to payment",
+  "msg_procced_to_payment": "Payment",
   "msg_qorem_ipsum_dolor":
       "Qorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.",
   "msg_shot_smiley_girl": "Shot smiley girl jumping rope",

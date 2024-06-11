@@ -33,18 +33,19 @@ class DetailscreenItemWidget extends StatelessWidget {
           controller.selectGroundList = detailscreenItemModelObj;
         },
         child: Container(
-          padding: EdgeInsets.all(3.h),
+          padding: EdgeInsets.all(6.h),
+          margin: EdgeInsets.only(bottom: 5.h),
           decoration: AppDecoration.outlinePrimary.copyWith(
-            color: appTheme.textfieldFillColor,
+            color: appTheme.boxWhite,
             border: Border.all(
                 color: controller.currentGround == index
                     ? appTheme.buttonColor
-                    : Colors.transparent),
+                    : appTheme.boxBorder),
             borderRadius: BorderRadiusStyle.roundedBorder16,
           ),
-          width: 118.h,
-          child: Column(
+          child: Row(
             mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               GestureDetector(
                 onTap: (){
@@ -66,36 +67,39 @@ class DetailscreenItemWidget extends StatelessWidget {
                 },
                 child: CustomImageView(
                   imagePath: detailscreenItemModelObj.image?[0],
-                  height: 107.v,
-                  width: 110.h,
+                  height: 80.v,
+                  width: 80.h,
                   radius: BorderRadius.circular(
                     16.h,
                   ),
                 ),
               ),
-              SizedBox(height: 10.v),
-
-              SizedBox(
-                width: 100.h,
-
-                child: Text(
-                  detailscreenItemModelObj.title!,
-                  style: theme.textTheme.titleSmall?.copyWith( fontFamily: 'Montserrat-Medium',),
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                ),
+              SizedBox(width: 20.v),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 100.h,
+                    child: Text(
+                      detailscreenItemModelObj.title!,
+                      style: theme.textTheme.titleSmall?.copyWith( fontFamily: 'Montserrat-Medium'),
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                  SizedBox(height: 6.v),
+                  Text(
+                    detailscreenItemModelObj.time!,
+                    style: theme.textTheme.bodyMedium?.copyWith( fontFamily: 'Montserrat-Medium'),
+                  ),
+                  SizedBox(height: 6.v),
+                  Text(
+                    "₹ ${detailscreenItemModelObj.price.toString()??""}/hour",
+                    style: theme.textTheme.bodyMedium?.copyWith( fontFamily: 'Montserrat-Medium'),
+                  ),
+                  SizedBox(height: 6.v),
+                ],
               ),
-              SizedBox(height: 6.v),
-              Text(
-                detailscreenItemModelObj.time!,
-                style: theme.textTheme.bodyMedium?.copyWith( fontFamily: 'Montserrat-Medium',),
-              ),
-              SizedBox(height: 6.v),
-              Text(
-                "₹ ${detailscreenItemModelObj.price.toString()??""}/hour",
-                style: theme.textTheme.bodyMedium?.copyWith( fontFamily: 'Montserrat-Medium',),
-              ),
-              SizedBox(height: 6.v),
             ],
           ),
         ),

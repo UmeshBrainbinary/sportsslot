@@ -169,31 +169,18 @@ class _SelectDateTimeScreenState extends State<SelectDateTimeScreen> {
                          selectDateTimeController.timeData.refresh();
                        },
                      ),
-                     SizedBox(height: 19.v),
-
-                     Align(
-                         alignment: Alignment.centerRight,
-                         child: Padding(
-                           padding: EdgeInsets.only(left: 20.h, right: 20.h),
-                           child:   Text("₹ ${selectDateTimeController.price}/hour",
-                               style: theme.textTheme.titleLarge!.copyWith(
-                                 color: appTheme.buttonColor,
-                               )),
-                           // child:    Row(
-                           //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                           //   children: [
-                           //     Text("lbl_price".tr,
-                           //         style: theme.textTheme.titleLarge!.copyWith(
-                           //           color: appTheme.black900,
-                           //         )),
-                           //     Text("₹ ${selectDateTimeController.price}",
-                           //         style: theme.textTheme.titleLarge!.copyWith(
-                           //           color: appTheme.buttonColor,
-                           //         )),
-                           //   ],
-                           // )
-                         )
-                     ),
+                     // SizedBox(height: 19.v),
+                     // Align(
+                     //     alignment: Alignment.centerRight,
+                     //     child: Padding(
+                     //       padding: EdgeInsets.only(left: 20.h, right: 20.h),
+                     //       child:   Text("₹ ${selectDateTimeController.price}/hour",
+                     //           style: theme.textTheme.titleLarge!.copyWith(
+                     //             color: appTheme.buttonColor,
+                     //           )),
+                     //
+                     //     )
+                     // ),
                      SizedBox(height: 22.v),
                      Align(
                          alignment: Alignment.centerLeft,
@@ -210,8 +197,9 @@ class _SelectDateTimeScreenState extends State<SelectDateTimeScreen> {
                          padding: EdgeInsets.symmetric(horizontal: 20.h),
                          child: CustomTextFormField(
                            controller: selectDateTimeController.memberController,
-                           hintText: "Enter number of member",
+                           hintText: "Enter number of participant",
                            textInputType: TextInputType.number,
+                           focusNode: FocusNode(),
                          )
                        // SizedBox(
                        //   width: double.maxFinite,
@@ -251,14 +239,13 @@ class _SelectDateTimeScreenState extends State<SelectDateTimeScreen> {
                          shrinkWrap: true,
                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                            mainAxisExtent: 56.v,
-                           crossAxisCount: 2,
+                           crossAxisCount: 1,
                            crossAxisSpacing: 16.h,
                            mainAxisSpacing: 16.v,),
                          itemCount: selectDateTimeController.timeData.value.length,
                          itemBuilder: (context, index) {
 
                            SelectDateTimeModel data = selectDateTimeController.timeData.value[index];
-
 
                            selectDateTimeController.isAddBooking.value = true;
 
@@ -356,10 +343,10 @@ class _SelectDateTimeScreenState extends State<SelectDateTimeScreen> {
                              child: Container(
                                padding: EdgeInsets.symmetric(horizontal: 10.h),
                                decoration: BoxDecoration(
-                                   color: selectDateTimeController.currentTime?.value == index?appTheme.secondarybgcolor:appTheme.textfieldFillColor,
+                                   color: selectDateTimeController.currentTime?.value == index?Colors.transparent:appTheme.textfieldFillColor,
                                    borderRadius: BorderRadius.circular(20.h),
                                    border: Border.all(
-                                       color:  selectDateTimeController.currentTime?.value == index?appTheme.buttonColor:Colors.transparent,
+                                       color:  selectDateTimeController.currentTime?.value == index?appTheme.buttonColor : Colors.transparent,
                                        width: 1.h)),
                                child: Center(
                                  child: Text(data.time!,
@@ -414,7 +401,7 @@ class _SelectDateTimeScreenState extends State<SelectDateTimeScreen> {
               } else if (selectDateTimeController.bookingTime.value.isEmpty){
                 errorToast("Please select booking time");
               } else if (selectDateTimeController.memberController.text.isEmpty){
-                errorToast("Please add member");
+                errorToast("Please add participant");
               } else {
 
 

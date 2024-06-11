@@ -25,52 +25,52 @@ class EventsItemWidget extends StatelessWidget {
         );
       },
       child: Container(
-        padding: EdgeInsets.all(4.h),
+        padding: EdgeInsets.all(8.h),
         decoration: AppDecoration.fillGray.copyWith(
-          color: appTheme.textfieldFillColor,
+          color: appTheme.boxWhite,
           borderRadius: BorderRadiusStyle.roundedBorder16,
+          border: Border.all(color: appTheme.boxBorder)
         ),
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomImageView(
-              imagePath: eventsItemModelObj.image?[0],
-              height: 100.adaptSize,
-              width: 100.adaptSize,
-              radius: BorderRadius.circular(16.h),
-              fit: BoxFit.cover,
+            Hero(
+              tag: eventsItemModelObj.image?[0],
+              child: CustomImageView(
+                  imagePath: eventsItemModelObj.image?[0],
+                  height: 163.v,
+                  width: double.infinity,
+                  radius: BorderRadius.circular(16.h),
+                  alignment: Alignment.center),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 16.h, top: 8.v, bottom: 5.v),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: Get.width - (100.adaptSize + 74.h + 16.v),
-                    child: Text(
-                      eventsItemModelObj.tournamentName!,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.titleMedium!.copyWith(
-                        color: appTheme.black900,
-                          fontFamily: 'Montserrat-Medium'
-                      ),
-                    ),
+            SizedBox(height: 9.v),
+            Row(
+              children: [
+                Text(
+                  eventsItemModelObj.tournamentName!,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: theme.textTheme.titleMedium!.copyWith(
+                      color: appTheme.black900,
+                      fontFamily: 'Montserrat-Medium'
                   ),
-                  SizedBox(height: 9.v),
-                  Text(
-                    eventsItemModelObj.date!,
-                    style: theme.textTheme.bodyMedium?.copyWith(fontFamily: 'Montserrat-Medium'),
-                  ),
-                  SizedBox(height: 9.v),
-                  CustomElevatedButton(
-                    height: 29.v,
-                    width: 77.h,
-                    text: "lbl_explore".tr,
-                    buttonTextStyle: CustomTextStyles.bodyMediumPrimaryContainer,
-                  ),
-                ],
-              ),
+                ),
+                // SizedBox(width: 10),
+                // CustomElevatedButton(
+                //   height: 29.v,
+                //   width: 77.h,
+                //   text: "lbl_explore".tr,
+                //   buttonTextStyle: CustomTextStyles.bodyMediumPrimaryContainer,
+                // ),
+              ],
             ),
+            SizedBox(height: 9.v),
+            Text(
+              eventsItemModelObj.date!,
+              style: theme.textTheme.bodyMedium?.copyWith(fontFamily: 'Montserrat-Medium'),
+            ),
+            SizedBox(height: 9.v),
+
           ],
         ),
       ),

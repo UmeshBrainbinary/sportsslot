@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sportsslot/core/app_export.dart';
 import 'package:sportsslot/widgets/custom_elevated_button.dart';
 
-// ignore_for_file: must_be_immutable
+
 class HistoryDetailScreen extends GetWidget<HistoryDetailController> {
   const HistoryDetailScreen({Key? key})
       : super(
@@ -12,6 +12,7 @@ class HistoryDetailScreen extends GetWidget<HistoryDetailController> {
 
   @override
   Widget build(BuildContext context) {
+
     mediaQueryData = MediaQuery.of(context);
 
     return SafeArea(

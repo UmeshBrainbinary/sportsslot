@@ -32,9 +32,9 @@ class _MyBookingUpcomingTabContainerScreenState
     mediaQueryData = MediaQuery.of(context);
 
     return GetBuilder<MyBookingUpcomingController>(
+
         init: MyBookingUpcomingController(),
         builder: (myBookingUpcomingController) =>
-
 
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,13 +60,14 @@ class _MyBookingUpcomingTabContainerScreenState
                       fontWeight: FontWeight.w600,
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 20.h),
-                    unselectedLabelColor: appTheme.gray60001,
+                    //unselectedLabelColor: appTheme.gray60001,
                     unselectedLabelStyle: TextStyle(
                       fontSize: 16.fSize,
                       fontFamily: 'SF Pro Display',
                       fontWeight: FontWeight.w400,
                     ),
                     indicatorColor: theme.colorScheme.primary,
+                    //indicator: BoxDecoration(),
                     tabs: [
                       Tab(
                         child: Text(
@@ -200,46 +201,13 @@ class _MyBookingUpcomingTabContainerScreenState
                                 ],
                               ),
                             )
-                            : Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  height: 116.adaptSize,
-                                  width: 116.adaptSize,
-                                  padding: EdgeInsets.all(30.h),
-                                  decoration: AppDecoration.fillPrimary.copyWith(
-                                    borderRadius: BorderRadiusStyle.circleBorder58,
-                                  ),
-                                  child: CustomImageView(
-                                    imagePath: ImageConstant.imgEdit1,
-                                    height: 56.adaptSize,
-                                    width: 56.adaptSize,
-                                    alignment: Alignment.center,
-                                  ),
-                                ),
-                                SizedBox(height: 20.v),
-                                Text(
-                                  "lbl_no_booking_yet".tr,
-                                  style: CustomTextStyles.titleLarge22,
-                                ),
-                                SizedBox(height: 20.v),
-                                Container(
-                                  width: 346.h,
-                                  margin: EdgeInsets.symmetric(horizontal: 40.h),
-                                  child: Text(
-                                    "msg_when_you_book_an".tr,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.center,
-                                    style: theme.textTheme.bodyLarge!.copyWith(
-                                      color: appTheme.black900,
-                                      height: 1.50,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            : Center(
+                              child: Text(
+                                "lbl_no_booking_yet".tr,
+                                style: CustomTextStyles.titleMedium16.copyWith(color: appTheme.themeColor),
+                              ),
                             );
-                          } else{
+                          } else {
                             return Center(
                               child: CircularProgressIndicator(),
                             );

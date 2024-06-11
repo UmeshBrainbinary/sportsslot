@@ -41,17 +41,7 @@ class ConfirmDeletePopupScreen extends GetWidget<ConfirmDeletePopupController> {
            Column(
              mainAxisSize: MainAxisSize.min,
              children: [
-               Container(
-                   height: 116.adaptSize,
-                   width: 116.adaptSize,
-                   padding: EdgeInsets.symmetric(horizontal: 33.h, vertical: 27.v),
-                   decoration: AppDecoration.fillPrimary
-                       .copyWith(borderRadius: BorderRadiusStyle.circleBorder58),
-                   child: CustomImageView(
-                       imagePath: ImageConstant.imgVectorPrimarycontainer,
-                       height: 61.v,
-                       width: 48.h,
-                       alignment: Alignment.center)),
+
                SizedBox(height: 19.v),
                Container(
                    width: 313.h,
@@ -184,7 +174,7 @@ class ConfirmDeletePopupScreen extends GetWidget<ConfirmDeletePopupController> {
 
 
      await sendNotification(
-         title: "Ground canceled successfully",
+         title: "Stadium canceled successfully",
          body: "${bookingDetailsController.data.title}, ${bookingDetailsController.data.subGround}",
          dateTime: "${bookingDetailsController.data.date} - ${bookingDetailsController.data.time}"
      );

@@ -63,7 +63,6 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       SizedBox(height: 16.v),
                     Expanded(child:
                     StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-
                         stream: FirebaseFirestore.instance.collection("Notification").snapshots(),
                         builder: (context, snapshot){
 

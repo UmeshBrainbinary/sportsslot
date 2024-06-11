@@ -126,18 +126,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             Padding(
                               padding: EdgeInsets.only(right: 20.h, top: 16.v),
                               child: GestureDetector(
-                                // onTap: () {},
                                 onTap: () async {
-
-
-                                  // var link =  await DynamicLinkService.createReferralLink(stadiumId: groundDetailListModel.stadiumId);
-                                  //
-                                  // print(link);
-                                  // print(link.runtimeType);
-                                  //
-                                  // await Share.share(
-                                  //     link,
-                                  // );
 
                                 },
                                 child: Container(
@@ -151,8 +140,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                   child: Padding(
                                     padding: EdgeInsets.all(12.h),
                                     child: CustomImageView(
-                                        imagePath:
-                                            ImageConstant.imgGroup1171274871),
+                                        imagePath: ImageConstant.imgGroup1171274871),
                                   ),
                                 ),
                               ),
@@ -304,25 +292,72 @@ class _DetailScreenState extends State<DetailScreen> {
                                 Text(
                                   "lbl_ground_list".tr,
                                   style: theme.textTheme.titleLarge!
-                                      .copyWith(color: appTheme.black900,  fontFamily: 'Montserrat-Medium',),
+                                      .copyWith(color: appTheme.black900,  fontFamily: 'Montserrat-Medium'),
                                 ),
                                 SizedBox(height: 19.v),
+                                ListView.builder(
+                                    primary: false,
+                                    shrinkWrap: true,
+                                    physics: NeverScrollableScrollPhysics(),
+                                    itemCount: groundDetailListModel.getGroundList.length,
+                                    itemBuilder: (context, index){
+                                  GroundListModel model = groundDetailListModel.getGroundList[index];
+                                  return DetailscreenItemWidget(model, index);
+                                }),
+
+                                SizedBox(height: 26.v),
+
+                                Text(
+                                  "msg_our_popular_features".tr,
+                                  style: theme.textTheme.titleLarge!
+                                      .copyWith(color: appTheme.black900,  fontFamily: 'Montserrat-Medium',),
+                                ),
+
+                                SizedBox(height: 19.v),
+
                                 GridView.builder(
                                   primary: false,
                                   shrinkWrap: true,
-                                  itemCount: groundDetailListModel.getGroundList.length,
-                                  gridDelegate:
-                                      SliverGridDelegateWithFixedCrossAxisCount(
-                                          mainAxisExtent: 220.v,
-                                          crossAxisCount: 3,
-                                          mainAxisSpacing: 16.h,
-                                          crossAxisSpacing: 17.h),
+                                  itemCount: groundDetailListModel.features.length,
+                                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                    mainAxisExtent: 25.v,
+                                    crossAxisCount: 2,
+                                    mainAxisSpacing: 16.h,
+                                    crossAxisSpacing: 17.h,
+                                  ),
                                   itemBuilder: (context, index) {
-                                    GroundListModel model = groundDetailListModel.getGroundList[index];
-                                    //controller.selectGroundList = groundDetailListModel.getGroundList[0];
-                                    return DetailscreenItemWidget(model, index);
+                                    return Row(
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            height: 10.adaptSize,
+                                            width: 10.adaptSize,
+                                            margin: EdgeInsets.only(
+                                                top: 8.v, bottom: 6.v),
+                                            decoration: BoxDecoration(
+                                                color:
+                                                theme.colorScheme.primary,
+                                                borderRadius:
+                                                BorderRadius.circular(5.h)),
+                                          ),
+                                          Padding(
+                                            padding:
+                                            EdgeInsets.only(left: 12.h),
+                                            child: Text(
+                                                groundDetailListModel.features[index]["name"],
+                                                style: theme
+                                                    .textTheme.bodyLarge!
+                                                    .copyWith(
+                                                    color:
+                                                    appTheme.black900)),
+                                          ),
+                                        ]);
                                   },
                                 ),
+
+
+
                                 SizedBox(height: 26.v),
 
                                 getViewAllRow("lbl_reviews".tr, () {
@@ -376,56 +411,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                     }
                                 ),
 
-                                SizedBox(height: 26.v),
 
-                                Text(
-                                  "msg_our_popular_features".tr,
-                                  style: theme.textTheme.titleLarge!
-                                      .copyWith(color: appTheme.black900,  fontFamily: 'Montserrat-Medium',),
-                                ),
-
-                                SizedBox(height: 19.v),
-
-                                GridView.builder(
-                                  primary: false,
-                                  shrinkWrap: true,
-                                  itemCount: groundDetailListModel.features.length,
-                                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                    mainAxisExtent: 25.v,
-                                    crossAxisCount: 2,
-                                    mainAxisSpacing: 16.h,
-                                    crossAxisSpacing: 17.h,
-                                  ),
-                                  itemBuilder: (context, index) {
-                                    return Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            height: 10.adaptSize,
-                                            width: 10.adaptSize,
-                                            margin: EdgeInsets.only(
-                                                top: 8.v, bottom: 6.v),
-                                            decoration: BoxDecoration(
-                                                color:
-                                                    theme.colorScheme.primary,
-                                                borderRadius:
-                                                    BorderRadius.circular(5.h)),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsets.only(left: 12.h),
-                                            child: Text(
-                                                groundDetailListModel.features[index]["name"],
-                                                style: theme
-                                                    .textTheme.bodyLarge!
-                                                    .copyWith(
-                                                        color:
-                                                            appTheme.black900)),
-                                          ),
-                                        ]);
-                                  },
-                                ),
                               ],
                             ),
                           ]),
@@ -484,7 +470,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     overflow: TextOverflow.ellipsis,
                     style: CustomTextStyles.titleLarge22
                 ),
-              )
+              ),
             ],
           ),
         ),
