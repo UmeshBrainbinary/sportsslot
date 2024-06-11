@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:sportsslot/core/app_export.dart';
 import 'package:sportsslot/core/utils/prefKeys.dart';
 import '../../widgets/app_bar/custum_bottom_bar_controller.dart';
@@ -36,6 +37,7 @@ class _LogOutDialogueState extends State<LogOutDialogue> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
                 CustomOutlinedButton(
                   onPressed: () {
                     Get.back();
@@ -44,11 +46,21 @@ class _LogOutDialogueState extends State<LogOutDialogue> {
                   text: "lbl_cancel".tr,
                   margin: EdgeInsets.only(right: 8.h),
                 ),
+
+               // Container(
+               //   width: 170.h,
+               //   alignment: Alignment.center,
+               //   child:  InkWell(
+               //       onTap: (){
+               //         Get.back();
+               //       },
+               //       child: Text("lbl_cancel".tr, style: CustomTextStyles.titleMediumPrimaryBold)),
+               // ),
+
                 CustomElevatedButton(
                   onPressed: () async{
                     PrefUtils.setIsSignIn(true);
                     PrefUtils.setValue(PrefKey.isLoggedIn, false);
-
                     Get.offAllNamed(AppRoutes.loginScreen);
                     await  FirebaseAuth.instance.signOut();
                   },

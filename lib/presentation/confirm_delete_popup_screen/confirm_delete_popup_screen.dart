@@ -66,7 +66,9 @@ class ConfirmDeletePopupScreen extends GetWidget<ConfirmDeletePopupController> {
                          margin: EdgeInsets.only(right: 8.h),
                          onPressed: () {
                            onTapCancel();
-                         })),
+                         }
+                         )
+                 ),
                  Expanded(
                      child: Obx(() => CustomElevatedButton(
                          text: "lbl_delete".tr,
