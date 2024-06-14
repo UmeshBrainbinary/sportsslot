@@ -63,7 +63,6 @@ Future<void> main() async {
     runApp(MyApp());
   });
 
-
   try {
     await FirebaseMessaging.instance.getToken().then((value) async {
       await PrefService.setValue(PrefKey.fcmToken, value);

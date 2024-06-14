@@ -68,6 +68,7 @@ class _MyBookingUpcomingTabContainerScreenState
                     ),
                     indicatorColor: theme.colorScheme.primary,
                     //indicator: BoxDecoration(),
+                    dividerColor: Colors.transparent,
                     tabs: [
                       Tab(
                         child: Text(

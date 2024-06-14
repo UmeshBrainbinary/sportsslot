@@ -66,9 +66,6 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
 
                                 privacyPolicyController.data.value = snapshot.data?["description"].toString()??"";
 
-
-
-
                                 return SizedBox(
                                   width: double.infinity,
                                   child: HtmlWidget(privacyPolicyController.data.value),

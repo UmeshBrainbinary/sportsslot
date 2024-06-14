@@ -288,7 +288,7 @@ class ImageConstant {
 
   static String imgIcSearch = '$imagePath/img_ic_search.svg';
 
-  static String imgGroup1171275017 = '$imagePath/img_group_1171275017.svg';
+  static String imgGroup1171275017 = '$imagePath/img_group_1171275017.png';
 
   static String imgSoccer11 = '$imagePath/img_soccer_1_1.svg';
 

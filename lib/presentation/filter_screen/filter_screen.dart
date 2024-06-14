@@ -54,8 +54,21 @@ class _FilterScreenState extends State<FilterScreen> {
               builder: (controller) => Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
-                    getCommonAppBar("lbl_filter".tr),
+                    getCommonAppBar("lbl_filter".tr,
+                      actionwidget: Padding(
+                        padding: EdgeInsets.only(right: 20),
+                        child: InkWell(
+                            onTap: (){
+                              controller.categoryId = null;
+                              controller.startRangeController.clear();
+                              controller.endRangeController.clear();
+                              controller.locationController.clear();
+                              controller.searchedLocation = null;
+                              controller.update();
+                            },
+                            child: Icon(Icons.refresh, color: appTheme.black900)),
+                      ),
+                    ),
                     SizedBox(height: 20.v),
                    Expanded(child:  Column(
                      crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,33 +121,29 @@ class _FilterScreenState extends State<FilterScreen> {
                        SizedBox(height: 17.v),
                        Padding(
                            padding: EdgeInsets.symmetric(horizontal: 20.h),
-                           child: Row(
-                             children: [
-                               CustomTextFormField(
-                                   width: 185.h,
-                                   focusNode: FocusNode(),
-                                   controller: controller.startRangeController,
-                                   textInputType: TextInputType.number,
-                                   filled: true,
-                                   hintText: "Enter start range",
-                                 inputFormatters: <TextInputFormatter>[
-                                   FilteringTextInputFormatter.digitsOnly
-                                 ],
-                               ),
+                           child: CustomTextFormField(
+                               focusNode: FocusNode(),
+                               controller: controller.startRangeController,
+                               textInputType: TextInputType.number,
+                               filled: true,
+                               hintText: "Enter start range",
+                             inputFormatters: <TextInputFormatter>[
+                               FilteringTextInputFormatter.digitsOnly
+                             ],
+                           )
+                       ),
+                       SizedBox(height: 18.v),
+                       Padding(
+                           padding: EdgeInsets.symmetric(horizontal: 20.h),
+                           child: CustomTextFormField(
 
-                               Spacer(),
-                               CustomTextFormField(
-                                   width: 185.h,
-                                   focusNode: FocusNode(),
-                                   controller: controller.endRangeController,
-                                   textInputType: TextInputType.number,
-                                   filled: true,
-                                   hintText: "Enter end range",
-                                   inputFormatters: <TextInputFormatter>[
-                                     FilteringTextInputFormatter.digitsOnly
-                                   ],
-                               )
-
+                             focusNode: FocusNode(),
+                             controller: controller.endRangeController,
+                             textInputType: TextInputType.number,
+                             filled: true,
+                             hintText: "Enter end range",
+                             inputFormatters: <TextInputFormatter>[
+                               FilteringTextInputFormatter.digitsOnly
                              ],
                            )
                        ),
@@ -232,159 +241,157 @@ class _FilterScreenState extends State<FilterScreen> {
 
   /// Section Widget
   Widget buildApply() {
-    return Expanded(
-        child: Obx(() => CustomElevatedButton(
-            text: "lbl_apply".tr,
-            margin: EdgeInsets.only(left: 8.h),
-            onPressed: searchController.loader.value ? (){} : () async{
-              searchController.loader.value = true;
+    return Obx(() => CustomElevatedButton(
+        text: "lbl_apply".tr,
+        margin: EdgeInsets.only(left: 8.h),
+        onPressed: searchController.loader.value ? (){} : () async{
+          searchController.loader.value = true;
 
-              searchController.isFilter = true;
+          searchController.isFilter = true;
 
-              searchController.searchList = [];
-              searchController.update(["search"]);
-              ///
-
+          searchController.searchList = [];
+          searchController.update(["search"]);
+          ///
 
 
 
 
 
-              if(controller.startRangeController.text.isNotEmpty && controller.endRangeController.text.isEmpty){
-                errorToast("Enter end range");
-              } else if (controller.endRangeController.text.isNotEmpty && controller.startRangeController.text.isEmpty){
-                errorToast("Enter start range");
-              } else{
 
-                for(var data in  searchController.searchRecentList){
+          if(controller.startRangeController.text.isNotEmpty && controller.endRangeController.text.isEmpty){
+            errorToast("Enter end range");
+          } else if (controller.endRangeController.text.isNotEmpty && controller.startRangeController.text.isEmpty){
+            errorToast("Enter start range");
+          } else{
 
-                  Location searchLocation = Location(latitude: controller.searchedLocation?.latitude ??0.0, longitude: controller.searchedLocation?.longitude??0.0, timestamp: DateTime.now());
-                  Location dataLocation = Location(latitude: data.latitude, longitude: data.longitude, timestamp: DateTime.now());
+            for(var data in  searchController.searchRecentList){
 
-                  double threshold = 15000;
+              Location searchLocation = Location(latitude: controller.searchedLocation?.latitude ??0.0, longitude: controller.searchedLocation?.longitude??0.0, timestamp: DateTime.now());
+              Location dataLocation = Location(latitude: data.latitude, longitude: data.longitude, timestamp: DateTime.now());
 
-                  double distance = calculateDistance(searchLocation, dataLocation);
+              double threshold = 15000;
 
-                  bool isPrice = false;
+              double distance = calculateDistance(searchLocation, dataLocation);
 
-                  for(var data2 in data.getGroundList){
-                    if((controller.startRangeController.text.isNotEmpty && controller.endRangeController.text.isNotEmpty)
-                        && data2.price >= int.parse(controller.startRangeController.text)
-                        && data2.price <= int.parse(controller.endRangeController.text)){
-                      isPrice = true;
-                    }
-                  }
-                  /// ------------- all -----------
+              bool isPrice = false;
 
-
-                  if(controller.categoryId != null
-                      && (controller.startRangeController.text.isNotEmpty && controller.endRangeController.text.isNotEmpty)
-                      && controller.locationController.text.isNotEmpty){
-
-                    if(isPrice && data.categoryId.contains(controller.categoryId) && (distance <= threshold)){
-                      searchController.searchList.add(data);
-                      searchController.update(["search"]);
-                    }
-                  } else if(controller.categoryId != null
-                      && (controller.startRangeController.text.isNotEmpty && controller.endRangeController.text.isNotEmpty)){
-
-                    if(isPrice && data.categoryId.contains(controller.categoryId)){
-                      searchController.searchList.add(data);
-                      searchController.update(["search"]);
-
-                    }
-                  } else if(controller.categoryId != null
-                      && controller.locationController.text.isNotEmpty){
-                    if(data.categoryId.contains(controller.categoryId) && (distance <= threshold)){
-                      searchController.searchList.add(data);
-                      searchController.update(["search"]);
-                    }
-                  } else if((controller.startRangeController.text.isNotEmpty && controller.endRangeController.text.isNotEmpty)
-                         && controller.locationController.text.isNotEmpty){
-                    if(isPrice  && (distance <= threshold)){
-                      searchController.searchList.add(data);
-                      searchController.update(["search"]);
-                    }
-                  } else if(controller.categoryId != null){
-                    if(data.categoryId.contains(controller.categoryId)){
-                      searchController.searchList.add(data);
-                      searchController.update(["search"]);
-                    }
-                  } else if(controller.startRangeController.text.isNotEmpty && controller.endRangeController.text.isNotEmpty){
-                    if(isPrice){
-                      searchController.searchList.add(data);
-                      searchController.update(["search"]);
-                    }
-                  } else if(controller.locationController.text.isNotEmpty){
-                    if((distance <= threshold)){
-                      searchController.searchList.add(data);
-                      searchController.update(["search"]);
-                    }
-                  } else{
-
-                  }
-
-                  /// - ------------ all end -----------
-
-                  // /// for price filter
-                  // if(isPrice){
-                  //
-                  //   searchController.searchList.add(data);
-                  //   searchController.update(["search"]);
-                  //
-                  //   searchController.searchList = searchController.searchList.fold([], (accumulator, currentMap) {
-                  //     if (!accumulator.any((map) => map.stadiumId == currentMap.stadiumId)) {
-                  //       accumulator.add(currentMap);
-                  //     }
-                  //     return accumulator;
-                  //   });
-                  //
-                  // }
-                  //
-                  // /// for category filter
-                  // if((controller.categoryId != null) && data.categoryId.contains(controller.categoryId)){
-                  //
-                  //   searchController.searchList.add(data);
-                  //   searchController.update(["search"]);
-                  //
-                  //   searchController.searchList = searchController.searchList.fold([], (accumulator, currentMap) {
-                  //     if (!accumulator.any((map) => map.stadiumId == currentMap.stadiumId)) {
-                  //       accumulator.add(currentMap);
-                  //     }
-                  //     return accumulator;
-                  //   });
-                  //
-                  // }
-                  //
-                  // /// for location filter
-                  // if(controller.locationController.text.isNotEmpty && (distance <= threshold)){
-                  //
-                  //   searchController.searchList.add(data);
-                  //   searchController.update(["search"]);
-                  //
-                  //   searchController.searchList = searchController.searchList.fold([], (accumulator, currentMap) {
-                  //     if (!accumulator.any((map) => map.stadiumId == currentMap.stadiumId)) {
-                  //       accumulator.add(currentMap);
-                  //     }
-                  //     return accumulator;
-                  //   });
-                  //
-                  // }
-
+              for(var data2 in data.getGroundList){
+                if((controller.startRangeController.text.isNotEmpty && controller.endRangeController.text.isNotEmpty)
+                    && data2.price >= int.parse(controller.startRangeController.text)
+                    && data2.price <= int.parse(controller.endRangeController.text)){
+                  isPrice = true;
                 }
               }
+              /// ------------- all -----------
+
+
+              if(controller.categoryId != null
+                  && (controller.startRangeController.text.isNotEmpty && controller.endRangeController.text.isNotEmpty)
+                  && controller.locationController.text.isNotEmpty){
+
+                if(isPrice && data.categoryId.contains(controller.categoryId) && (distance <= threshold)){
+                  searchController.searchList.add(data);
+                  searchController.update(["search"]);
+                }
+              } else if(controller.categoryId != null
+                  && (controller.startRangeController.text.isNotEmpty && controller.endRangeController.text.isNotEmpty)){
+
+                if(isPrice && data.categoryId.contains(controller.categoryId)){
+                  searchController.searchList.add(data);
+                  searchController.update(["search"]);
+
+                }
+              } else if(controller.categoryId != null
+                  && controller.locationController.text.isNotEmpty){
+                if(data.categoryId.contains(controller.categoryId) && (distance <= threshold)){
+                  searchController.searchList.add(data);
+                  searchController.update(["search"]);
+                }
+              } else if((controller.startRangeController.text.isNotEmpty && controller.endRangeController.text.isNotEmpty)
+                     && controller.locationController.text.isNotEmpty){
+                if(isPrice  && (distance <= threshold)){
+                  searchController.searchList.add(data);
+                  searchController.update(["search"]);
+                }
+              } else if(controller.categoryId != null){
+                if(data.categoryId.contains(controller.categoryId)){
+                  searchController.searchList.add(data);
+                  searchController.update(["search"]);
+                }
+              } else if(controller.startRangeController.text.isNotEmpty && controller.endRangeController.text.isNotEmpty){
+                if(isPrice){
+                  searchController.searchList.add(data);
+                  searchController.update(["search"]);
+                }
+              } else if(controller.locationController.text.isNotEmpty){
+                if((distance <= threshold)){
+                  searchController.searchList.add(data);
+                  searchController.update(["search"]);
+                }
+              } else{
+
+              }
+
+              /// - ------------ all end -----------
+
+              // /// for price filter
+              // if(isPrice){
+              //
+              //   searchController.searchList.add(data);
+              //   searchController.update(["search"]);
+              //
+              //   searchController.searchList = searchController.searchList.fold([], (accumulator, currentMap) {
+              //     if (!accumulator.any((map) => map.stadiumId == currentMap.stadiumId)) {
+              //       accumulator.add(currentMap);
+              //     }
+              //     return accumulator;
+              //   });
+              //
+              // }
+              //
+              // /// for category filter
+              // if((controller.categoryId != null) && data.categoryId.contains(controller.categoryId)){
+              //
+              //   searchController.searchList.add(data);
+              //   searchController.update(["search"]);
+              //
+              //   searchController.searchList = searchController.searchList.fold([], (accumulator, currentMap) {
+              //     if (!accumulator.any((map) => map.stadiumId == currentMap.stadiumId)) {
+              //       accumulator.add(currentMap);
+              //     }
+              //     return accumulator;
+              //   });
+              //
+              // }
+              //
+              // /// for location filter
+              // if(controller.locationController.text.isNotEmpty && (distance <= threshold)){
+              //
+              //   searchController.searchList.add(data);
+              //   searchController.update(["search"]);
+              //
+              //   searchController.searchList = searchController.searchList.fold([], (accumulator, currentMap) {
+              //     if (!accumulator.any((map) => map.stadiumId == currentMap.stadiumId)) {
+              //       accumulator.add(currentMap);
+              //     }
+              //     return accumulator;
+              //   });
+              //
+              // }
+
+            }
+          }
 
 
 
 
-              ///
-              searchController.loader.value = false;
-              searchController.searchController.clear();
-              //Get.offAllNamed(AppRoutes.searchScreen);
-              Get.back();
+          ///
+          searchController.loader.value = false;
+          searchController.searchController.clear();
+          //Get.offAllNamed(AppRoutes.searchScreen);
+          Get.back();
 
-            }))
-    );
+        }));
   }
 
   double calculateDistance(Location location1, Location location2) {
@@ -411,9 +418,8 @@ class _FilterScreenState extends State<FilterScreen> {
       width: double.infinity,
         color: appTheme.bgColor,
         padding: EdgeInsets.only(left: 20.h, right: 20.h, bottom: 32.v,top: 16.v),
-        child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [buildReset(), buildApply()]));
+        child: buildApply()
+    );
   }
 
 

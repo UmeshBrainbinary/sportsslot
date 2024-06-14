@@ -52,7 +52,8 @@ class _MyBookingCompletedPageState extends State<MyBookingCompletedPage> {
                   child: Container(
                     padding: EdgeInsets.all(4.h),
                     decoration: AppDecoration.fillGray.copyWith(
-                      color: appTheme.textfieldFillColor,
+                      color: appTheme.boxWhite,
+                      border: Border.all(color: appTheme.boxBorder),
                       borderRadius: BorderRadiusStyle.roundedBorder16,
                     ),
                     child: Row(

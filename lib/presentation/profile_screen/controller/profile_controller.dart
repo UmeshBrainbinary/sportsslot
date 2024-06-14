@@ -23,6 +23,8 @@ class ProfileController extends GetxController {
 
   RxBool loader = false.obs;
 
+  RxBool switchValue = true.obs;
+
   @override
   void onClose() {
     super.onClose();

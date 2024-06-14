@@ -85,6 +85,31 @@ class _DetailScreenState extends State<DetailScreen> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    getCommonAppBar(
+                      "", actionwidget: Padding(
+                      padding: EdgeInsets.only(right: 20.h, top: 16.v),
+                      child: GestureDetector(
+                        onTap: () async {
+
+                          //var link =  await DynamicLinkService.createReferralLink(stadiumId: groundDetailListModel.stadiumId);
+
+                          // print(link);
+                          // print(link.runtimeType);
+
+                          await Share.share(
+                            //link,
+                            ""
+                          );
+
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.all(12.h),
+                          child: CustomImageView(
+                              imagePath: ImageConstant.imgGroup1171274871, color: appTheme.black900, height: 20),
+                        ),
+                      ),
+                    ),
+                    ),
                     Expanded(
                         child: CustomScrollView(
                       shrinkWrap: true,
@@ -98,54 +123,9 @@ class _DetailScreenState extends State<DetailScreen> {
                           backgroundColor: Colors.transparent,
                           expandedHeight: 285.v,
                           leadingWidth: 68.h,
-                          leading: Padding(
-                            padding: EdgeInsets.only(left: 20.h, top: 16.v),
-                            child: GestureDetector(
-                              onTap: () {
-                                Get.back();
-                              },
-                              child: Container(
-                                height: 48.v,
-                                width: 48.h,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12.h),
-                                  color: appTheme.blackTransperant
-                                      .withOpacity(0.30),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.all(12.h),
-                                  child: CustomImageView(
-                                      imagePath:
-                                          ImageConstant.imgGroup1171274870),
-                                ),
-                              ),
-                            ),
-                          ),
+                            leading: SizedBox(),
                           centerTitle: true,
-                          actions: [
-                            Padding(
-                              padding: EdgeInsets.only(right: 20.h, top: 16.v),
-                              child: GestureDetector(
-                                onTap: () async {
 
-                                },
-                                child: Container(
-                                  height: 48.v,
-                                  width: 48.h,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12.h),
-                                    color: appTheme.blackTransperant
-                                        .withOpacity(0.30),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(12.h),
-                                    child: CustomImageView(
-                                        imagePath: ImageConstant.imgGroup1171274871),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
                           flexibleSpace: FlexibleSpaceBar(
                             background: Container(
                                 height: 285.v,

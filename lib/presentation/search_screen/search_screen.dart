@@ -139,7 +139,19 @@ class _SearchScreenState extends State<SearchScreen> {
                  init: SearchControllers(),
                  builder:(controller) =>  Column(
                      children: [
-                   getCommonAppBar("lbl_search".tr),
+                   getCommonAppBar(
+                     "lbl_search".tr,
+                     actionwidget: Padding(
+                       padding: EdgeInsets.only(right: 20),
+                       child: InkWell(
+                         onTap: (){
+                           controller.searchList.clear();
+                           controller.isFilter = false;
+                           controller.update(["search"]);
+                         },
+                           child: Icon(Icons.refresh, color: appTheme.black900)),
+                     ),
+                   ),
                    SizedBox(height: 16.v),
                    Padding(
                        padding: EdgeInsets.symmetric(horizontal: 20.h),
@@ -217,38 +229,18 @@ class _SearchScreenState extends State<SearchScreen> {
                                ),
 
                              ),
+
                              Padding(
                                  padding: EdgeInsets.only(left: 16.h),
-                                 child: CustomIconButton(
-                                     height: 56.adaptSize,
-                                     width: 56.adaptSize,
-                                     padding: EdgeInsets.all(16.h),
-                                     decoration: IconButtonStyleHelper.fillPrimary,
-                                     onTap: () {
-                                       onTapBtnIconButton();
-                                     },
-                                     child: CustomImageView(
-                                         imagePath: ImageConstant.imgGroup1171275017)))
+                                 child:  InkWell(
+                                   onTap: (){
+                                     onTapBtnIconButton();
+                                   },
+                                     child: CustomImageView(imagePath: ImageConstant.imgGroup1171275017, color: appTheme.themeColor, height: 22))
+                             )
                            ])),
                    SizedBox(height: 27.v),
-                   Align(
-                       alignment: Alignment.centerLeft,
-                       child: Padding(
-                           padding: EdgeInsets.only(left: 25.h),
-                           child: GestureDetector(
-                             onTap: (){
-                               controller.searchList.clear();
-                               controller.isFilter = false;
-                               controller.update(["search"]);
-                             },
-                             child: Text("Refresh",//"lbl_recent".tr,
-                                 style: theme.textTheme.titleMedium!.copyWith(
-                                   color: appTheme.buttonColor,
-                                     fontFamily: 'Montserrat-Medium'
-                                 )),
-                           ))),
 
-                   SizedBox(height: 18.v),
 
                    Expanded(
                      child:
@@ -289,9 +281,11 @@ class _SearchScreenState extends State<SearchScreen> {
                                              margin: EdgeInsets.only(bottom:  20.v),
                                              decoration: AppDecoration.fillGray.copyWith(
                                                  color: appTheme
-                                                     .textfieldFillColor,
+                                                     .boxWhite,
                                                  borderRadius: BorderRadiusStyle
-                                                     .roundedBorder16),
+                                                     .roundedBorder16,
+                                               border: Border.all(color: appTheme.boxBorder)
+                                             ),
                                              child: Column(
                                                  mainAxisSize:
                                                  MainAxisSize.min,

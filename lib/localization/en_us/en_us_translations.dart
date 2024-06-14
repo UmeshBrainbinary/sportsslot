@@ -269,9 +269,9 @@ final Map<String, String> enUs = {
   "msg_october_31_2017": "October 31, 2017",
 
   // My booking / Upcoming - Tab Container Screen
-  "lbl_complated": "Completed",
-  "lbl_upcoming": "Upcoming",
-  "lbl_running": "Running",
+  "lbl_complated": "Executed",
+  "lbl_upcoming": "Approaching",
+  "lbl_running": "Active",
 
   // My booking / Complated Screen
   "lbl_football2": "Football ",
@@ -480,7 +480,7 @@ final Map<String, String> enUs = {
   "lbl_ground_01": "Ground 01",
   "lbl_ground_list": "Sub ground",
   "lbl_haiti": "Haiti",
-  "lbl_help": "Help",
+  "lbl_help": "FAQ",
   "lbl_faq": "FAQ",
   "lbl_history": "History",
   "lbl_history_detail": "History detail",
