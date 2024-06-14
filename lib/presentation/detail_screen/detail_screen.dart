@@ -86,7 +86,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     getCommonAppBar(
-                      "", actionwidget: Padding(
+                      groundDetailListModel.title , actionwidget: Padding(
                       padding: EdgeInsets.only(right: 20.h, top: 16.v),
                       child: GestureDetector(
                         onTap: () async {
@@ -444,13 +444,13 @@ class _DetailScreenState extends State<DetailScreen> {
                 ],
               ),
               SizedBox(height: 12.v),
-              SizedBox(
-                width: 400.h,
-                child: Text(groundDetailListModel.title,
-                    overflow: TextOverflow.ellipsis,
-                    style: CustomTextStyles.titleLarge22
-                ),
-              ),
+              // SizedBox(
+              //   width: 400.h,
+              //   child: Text(groundDetailListModel.title,
+              //       overflow: TextOverflow.ellipsis,
+              //       style: CustomTextStyles.titleLarge22
+              //   ),
+              // ),
             ],
           ),
         ),

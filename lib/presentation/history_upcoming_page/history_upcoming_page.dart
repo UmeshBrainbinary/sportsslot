@@ -177,9 +177,31 @@ class _HistoryUpcomingPageState extends State<HistoryUpcomingPage> {
                     },
                   )
                 : Center(
-                  child: Text(
-                    "lbl_no_booking_yet".tr,
-                    style: CustomTextStyles.titleMedium16.copyWith(color: appTheme.themeColor),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+
+                    children: [
+                      Container(
+                        height: 116.adaptSize,
+                        width: 116.adaptSize,
+                        padding: EdgeInsets.all(30.h),
+                        decoration: AppDecoration.fillPrimary.copyWith(
+                          borderRadius: BorderRadiusStyle.circleBorder58,
+                        ),
+                        child: CustomImageView(
+                          imagePath: ImageConstant.imgEdit1,
+                          height: 56.adaptSize,
+                          width: 56.adaptSize,
+                          alignment: Alignment.center,
+                        ),
+                      ),
+                      SizedBox(height: 10,),
+                      Text(
+                        "lbl_no_booking_yet".tr,
+                        style: CustomTextStyles.titleMedium16.copyWith( color: appTheme.black),
+                      ),
+                    ],
                   ),
                 );
           } else {

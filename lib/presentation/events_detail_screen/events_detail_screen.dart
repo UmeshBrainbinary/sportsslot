@@ -52,7 +52,20 @@ class _EventsDetailScreenState extends State<EventsDetailScreen> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    getCommonAppBar(eventsItemModel.tournamentName.toString()),
+                    getCommonAppBar(actionwidget:  Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: GestureDetector(onTap: () async {
+                        await launchUrl(Uri.parse(eventsItemModel.url ?? ""));
+                      },
+                        child: Column(
+                          children: [
+                            Icon(Icons.location_on,color: Colors.red,),
+                            Text("Click Here", style: theme.textTheme.bodyLarge!.copyWith(color: appTheme.black900),)
+                          ],
+                        ),
+                      ),
+                    ),
+                        eventsItemModel.tournamentName.toString()),
                     Expanded(
                         child: CustomScrollView(
                           shrinkWrap: true,
@@ -161,17 +174,7 @@ class _EventsDetailScreenState extends State<EventsDetailScreen> {
                                       style: theme.textTheme.bodyLarge!.copyWith(color: appTheme.black900),
                                       linkStyle: theme.textTheme.titleMedium!.copyWith(color: appTheme.buttonColor, fontSize: 16.fSize),
                                     ),
-                                    SizedBox(height: 24.v),
-
-                                    buildDetails(
-                                      lastDayOfRegistration: eventsItemModel.lastDayOfRegistration.toString(),
-                                      entryFee: eventsItemModel.entryFee.toString(),
-                                      tournamentStartDate: eventsItemModel.matchDate.toString(),
-                                      tournamentTime: eventsItemModel.tournamentTime.toString(),
-                                    ),
-                                    SizedBox(height: 24.v),
-
-                                    /// location
+                                    // SizedBox(height: 24.v),
                                     // Row(
                                     //   children: [
                                     //     Text(
@@ -195,9 +198,20 @@ class _EventsDetailScreenState extends State<EventsDetailScreen> {
                                     //     ),
                                     //   ],
                                     // ),
-                                    ///
-
                                     SizedBox(height: 24.v),
+
+                                    buildDetails(
+                                      lastDayOfRegistration: eventsItemModel.lastDayOfRegistration.toString(),
+                                      entryFee: eventsItemModel.entryFee.toString(),
+                                      tournamentStartDate: eventsItemModel.matchDate.toString(),
+                                      tournamentTime: eventsItemModel.tournamentTime.toString(),
+                                    ),
+                                    SizedBox(height: 24.v),
+
+
+
+
+
                                     Text(
                                       "lbl_previous_memory".tr,
                                       style: theme.textTheme.titleLarge!.copyWith(color: appTheme.black900),

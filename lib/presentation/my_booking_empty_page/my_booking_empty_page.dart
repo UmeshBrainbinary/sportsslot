@@ -43,6 +43,7 @@ class MyBookingEmptyPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20.v),
+              Icon(Icons.account_box_outlined),
               Text(
                 "lbl_no_booking_yet".tr,
                 style: CustomTextStyles.titleLarge22,

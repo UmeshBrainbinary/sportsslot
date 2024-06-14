@@ -75,7 +75,8 @@ class _BookingDetailsOneScreenState extends State<BookingDetailsOneScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
 
-                          getCommonAppBar("lbl_booking_details".tr),
+                          getCommonAppBar(
+                              "lbl_booking_details".tr),
                           SizedBox(height: 16.v),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 20.h),
