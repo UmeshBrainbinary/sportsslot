@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:sportsslot/core/utils/image_constant.dart';
@@ -72,7 +73,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         Container(
                             height: size.height / 6,
-                            child: Image.asset(AssetRes.logo)),
+                            child: SvgPicture(SvgAssetLoader(AssetRes.logoweb)
+                            )
+                        ),
                         SizedBox(
                           height: 10,
                         ),

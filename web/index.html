@@ -44,20 +44,41 @@
   <link rel="manifest" href="manifest.json">
 
   <!--  /// FIREBASE NOTIFICATION CONFIG START-->
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-messaging.js"></script>
-  <script>
-    var firebaseConfig = {
-               apiKey: "AIzaSyBCAfZFOvkFEkqABD--Ke-xweCClIrhNG0",
-  authDomain: "sportot-8af62.firebaseapp.com",
-  projectId: "sportot-8af62",
-  storageBucket: "sportot-8af62.appspot.com",
-  messagingSenderId: "739072824156",
-  appId: "1:739072824156:web:b7dcbd7906a55668c12799",
-  measurementId: "G-10CT5JQG3X"
+  <script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+
+
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBx3-8Qawfviay6Iq7EqG2r_dBNLHLEfgo",
+      authDomain: "sportslotadmin.firebaseapp.com",
+      projectId: "sportslotadmin",
+      storageBucket: "sportslotadmin.appspot.com",
+      messagingSenderId: "94659129924",
+      appId: "1:94659129924:web:09bc6c6186c5f463b58211",
+      measurementId: "G-V6L2ZGJ01E"
     };
-    firebase.initializeApp(firebaseConfig);
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
   </script>
+<!--  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>-->
+<!--  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-messaging.js"></script>-->
+<!--  <script>-->
+<!--    var firebaseConfig = {-->
+<!--               apiKey: "AIzaSyBCAfZFOvkFEkqABD&#45;&#45;Ke-xweCClIrhNG0",-->
+<!--  authDomain: "sportot-8af62.firebaseapp.com",-->
+<!--  projectId: "sportot-8af62",-->
+<!--  storageBucket: "sportot-8af62.appspot.com",-->
+<!--  messagingSenderId: "739072824156",-->
+<!--  appId: "1:739072824156:web:b7dcbd7906a55668c12799",-->
+<!--  measurementId: "G-10CT5JQG3X"-->
+<!--    };-->
+<!--    firebase.initializeApp(firebaseConfig);-->
+<!--  </script>-->
   <!--  /// FIREBASE NOTIFICATION CONFIG END-->
   <script type="text/javascript">
     window.flutterWebRenderer = "html";

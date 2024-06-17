@@ -24,7 +24,7 @@ import 'localization/app_localization.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if(!kIsWeb) {
+  if (!kIsWeb) {
     await Firebase.initializeApp(
       options: const FirebaseOptions(
         apiKey: "AIzaSyCDRdW5HiAV8LhwPqnWMZNlwP-qdmM9CFU",
@@ -36,20 +36,26 @@ Future<void> main() async {
         //measurementId: "G-L6363G9BNQ"
       ),
     );
-  }else{
+  } else {
     await Firebase.initializeApp(
-      options: const FirebaseOptions(
-          apiKey: "AIzaSyBCAfZFOvkFEkqABD--Ke-xweCClIrhNG0",
-          authDomain: "sportot-8af62.firebaseapp.com",
-          projectId: "sportot-8af62",
-          storageBucket: "sportot-8af62.appspot.com",
-          messagingSenderId: "739072824156",
-          appId: "1:739072824156:web:b7dcbd7906a55668c12799",
-          measurementId: "G-10CT5JQG3X"
-      ),
-     );
-  }
+        options: const FirebaseOptions(
+          storageBucket: "sportslotadmin.appspot.com",
+            apiKey: "AIzaSyBx3-8Qawfviay6Iq7EqG2r_dBNLHLEfgo",
+            appId: "1:94659129924:web:09bc6c6186c5f463b58211",
+            messagingSenderId: "94659129924",
+            projectId:  "sportslotadmin")
 
+      //  options: const FirebaseOptions(
+      //      apiKey: "AIzaSyBCAfZFOvkFEkqABD--Ke-xweCClIrhNG0",
+      //      authDomain: "sportot-8af62.firebaseapp.com",
+      //      projectId: "sportot-8af62",
+      //      storageBucket: "sportot-8af62.appspot.com",
+      //      messagingSenderId: "739072824156",
+      //      appId: "1:739072824156:web:b7dcbd7906a55668c12799",
+      //      measurementId: "G-10CT5JQG3X"
+      //  ),
+    );
+  }
 
 
   await NotificationService.init();
@@ -78,10 +84,8 @@ Future<void> main() async {
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp,
   ]).then((value) {
-
     runApp(MyApp());
   });
-
 }
 
 class MyApp extends StatefulWidget {
@@ -97,7 +101,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    themeController = Get.put(ThemeController(),permanent: true);
+    themeController = Get.put(ThemeController(), permanent: true);
     themeController.isDarkMode.listen((isDarkMode) {
       setState(() {});
     });
@@ -105,7 +109,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return  (!kIsWeb) ? GetMaterialApp(
+    return (!kIsWeb) ? GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme,
       translations: AppLocalization(),
@@ -121,7 +125,8 @@ class _MyAppState extends State<MyApp> {
       // theme: theme,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      themeMode: themeController.isDarkMode.value ? ThemeMode.dark : ThemeMode.light,
+      themeMode: themeController.isDarkMode.value ? ThemeMode.dark : ThemeMode
+          .light,
       translations: AppLocalization(),
       locale: Get.deviceLocale,
       fallbackLocale: Locale('en', 'US'),

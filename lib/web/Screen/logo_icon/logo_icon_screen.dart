@@ -46,7 +46,7 @@ ThemeController themeController = Get.find<ThemeController>();
                           Padding(
                             padding: const EdgeInsets.only(bottom: 10),
                             child: Row(
-                              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
                                   'sportIcon'.tr,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sportsslot/core/app_export.dart';
 import 'package:sportsslot/web/Screen/booking_history/booking_history_screen.dart';
 import 'package:sportsslot/web/Screen/dashboard/dashboard_controller.dart';
@@ -104,7 +105,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   const EdgeInsets.symmetric(horizontal: 0, vertical: 30),
                   child: Column(
                     children: [
-                      Image.asset(AssetRes.logo, height: height*0.1),
+                      SvgPicture(SvgAssetLoader(AssetRes.logoweb),height:height*0.1),
+
                       SizedBox(
                         height: 10,
                       ),

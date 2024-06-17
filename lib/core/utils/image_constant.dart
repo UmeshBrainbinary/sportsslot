@@ -400,6 +400,7 @@ class AssetRes {
   static const deleteIcon = "${icons}ic_delete.png";
 
   ///--------------------------------------------- images ---------------------------------------------
+  static const logoweb = images + 'weblogo.svg';
 
   static const logo = images + 'logo.png';
   static const Groups = images + 'Group.png';
