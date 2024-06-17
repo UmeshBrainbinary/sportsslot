@@ -19,6 +19,8 @@ class FilterController extends GetxController {
  TextEditingController startRangeController = TextEditingController();
  TextEditingController endRangeController = TextEditingController();
  TextEditingController locationController = TextEditingController();
+ TextEditingController searchController = TextEditingController();
+
 
  LatLng? searchedLocation;
 

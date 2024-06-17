@@ -335,118 +335,120 @@ class HomeController extends GetxController {
   Widget giveReviewDialog({required String groundName, required String id, required String time, required List reviewList}){
     return Padding(
       padding: EdgeInsets.all(20),
-      child:  Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-
-         Stack(
-           alignment: Alignment.center,
-           children: [
-             Column(
-               mainAxisAlignment: MainAxisAlignment.center,
-               crossAxisAlignment: CrossAxisAlignment.center,
-               mainAxisSize: MainAxisSize.min,
-               children: [
-                 Column(
-                   crossAxisAlignment: CrossAxisAlignment.start,
-                   mainAxisSize: MainAxisSize.min,
-                   children: [
-                     Align(
-                       alignment: Alignment.topLeft,
-                       child: AppbarTitle(text: "lbl_write_a_review_for".tr),
-                     ),
-                     Text(
-                       "Stadium: $groundName",
-                       style: theme.textTheme.headlineMedium!.copyWith(
-                           color: appTheme.gray600,
-                           fontSize: 14,
-                           fontFamily: 'Montserrat-Medium'
+      child:  SingleChildScrollView(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+        
+           Stack(
+             alignment: Alignment.center,
+             children: [
+               Column(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 crossAxisAlignment: CrossAxisAlignment.center,
+                 mainAxisSize: MainAxisSize.min,
+                 children: [
+                   Column(
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     mainAxisSize: MainAxisSize.min,
+                     children: [
+                       Align(
+                         alignment: Alignment.topLeft,
+                         child: AppbarTitle(text: "lbl_write_a_review_for".tr),
                        ),
-                     ),
-                   ],
-                 ),
-                 SizedBox(height: 15.v),
-                 CustomTextFormField(
-                     controller: reviewController,
-                     hintText: "msg_write_your_review".tr,
-                     hintStyle: CustomTextStyles.bodyLargeGray60001,
-                     filled: true,
-                     fillColor: PrefUtils().getThemeData() == "primary" ? appTheme.textfieldFillColor : appTheme.bgColor,
-                     textInputAction: TextInputAction.done,
-                     maxLines: 7),
-
-                 SizedBox(height: 5.v),
-
-                 RatingBar.builder(
-                   initialRating: 1,
-                   minRating: 1,
-                   direction: Axis.horizontal,
-                   allowHalfRating: true,
-                   glow: false,
-                   itemCount: 5,
-                   itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                   itemBuilder: (context, _) =>
-                       Icon(Icons.star, color: Colors.amber),
-                   onRatingUpdate: (rating) {
-                     rating2 = rating;
-                   },
-                 ),
-                 SizedBox(height: 15.v),
-
-                 Padding(
-                   padding: EdgeInsets.only(
-                       left: 20.h, right: 20.h, top: 16.v, bottom: 32.v),
-                   child: CustomElevatedButton(
-                       text: "lbl_submit_review".tr,
-                       onPressed: loaderDialog.value ? (){} : () async {
-
-                         loaderDialog.value = true;
-
-                         if (reviewController.text.isEmpty) {
-                           errorToast("Please enter your review");
-                           loaderDialog.value = false;
-                         } else {
-
-
-
-                           Map reviewMap = {
-                             "name": PrefUtils.getString(PrefKey.fullName),
-                             "review": reviewController.text,
-                             "star": rating2.toString(),
-                             "userId": PrefUtils.getString(PrefKey.userId),
-                             "time": DateTime.now()
-                           };
-
-                           try {
-
-                             List reviews = [];
-
-                             reviews.addAll(reviewList);
-
-                             reviews.add(reviewMap);
-
-                             await FirebaseService.groundListCollection.doc(id).update({
-                               "review" : reviews
-                             });
-
+                       Text(
+                         "Stadium: $groundName",
+                         style: theme.textTheme.headlineMedium!.copyWith(
+                             color: appTheme.gray600,
+                             fontSize: 14,
+                             fontFamily: 'Montserrat-Medium'
+                         ),
+                       ),
+                     ],
+                   ),
+                   SizedBox(height: 15.v),
+                   CustomTextFormField(
+                       controller: reviewController,
+                       hintText: "msg_write_your_review".tr,
+                       hintStyle: CustomTextStyles.bodyLargeGray60001,
+                       filled: true,
+                       fillColor: PrefUtils().getThemeData() == "primary" ? appTheme.textfieldFillColor : appTheme.bgColor,
+                       textInputAction: TextInputAction.done,
+                       maxLines: 7),
+        
+                   SizedBox(height: 5.v),
+        
+                   RatingBar.builder(
+                     initialRating: 1,
+                     minRating: 1,
+                     direction: Axis.horizontal,
+                     allowHalfRating: true,
+                     glow: false,
+                     itemCount: 5,
+                     itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                     itemBuilder: (context, _) =>
+                         Icon(Icons.star, color: Colors.amber),
+                     onRatingUpdate: (rating) {
+                       rating2 = rating;
+                     },
+                   ),
+                   SizedBox(height: 15.v),
+        
+                   Padding(
+                     padding: EdgeInsets.only(
+                         left: 20.h, right: 20.h, top: 16.v, bottom: 32.v),
+                     child: CustomElevatedButton(
+                         text: "lbl_submit_review".tr,
+                         onPressed: loaderDialog.value ? (){} : () async {
+        
+                           loaderDialog.value = true;
+        
+                           if (reviewController.text.isEmpty) {
+                             errorToast("Please enter your review");
                              loaderDialog.value = false;
-                             Get.back();
-
-                           } catch (e) {
-                             loaderDialog.value = false;
+                           } else {
+        
+        
+        
+                             Map reviewMap = {
+                               "name": PrefUtils.getString(PrefKey.fullName),
+                               "review": reviewController.text,
+                               "star": rating2.toString(),
+                               "userId": PrefUtils.getString(PrefKey.userId),
+                               "time": DateTime.now()
+                             };
+        
+                             try {
+        
+                               List reviews = [];
+        
+                               reviews.addAll(reviewList);
+        
+                               reviews.add(reviewMap);
+        
+                               await FirebaseService.groundListCollection.doc(id).update({
+                                 "review" : reviews
+                               });
+        
+                               loaderDialog.value = false;
+                               Get.back();
+        
+                             } catch (e) {
+                               loaderDialog.value = false;
+                             }
                            }
-                         }
-                       }),
-                 ),
-               ],
-             ),
-             Obx(() => loaderDialog.value ? Center(child: CircularProgressIndicator(),) : SizedBox()),
-           ],
-         ),
-
-          ]),
+                         }),
+                   ),
+                 ],
+               ),
+               Obx(() => loaderDialog.value ? Center(child: CircularProgressIndicator(),) : SizedBox()),
+             ],
+           ),
+        
+            ]),
+      ),
     );
   }
 

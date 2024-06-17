@@ -53,7 +53,7 @@ class _EventsDetailScreenState extends State<EventsDetailScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     getCommonAppBar(actionwidget:  Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.only(right: 8,top: 2),
                       child: GestureDetector(onTap: () async {
                         await launchUrl(Uri.parse(eventsItemModel.url ?? ""));
                       },

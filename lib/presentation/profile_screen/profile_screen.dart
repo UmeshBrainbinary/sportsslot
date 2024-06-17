@@ -39,10 +39,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   bottom: 13.v,
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     CustomImageView(
-                      imagePath: ImageConstant.imgAvtar1,
+                      imagePath:  ImageConstant.imgAvtar1,
                       height: 100.adaptSize,
                       width: 100.adaptSize,
                       fit: BoxFit.contain,
@@ -54,6 +54,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: theme.textTheme.titleLarge!.copyWith(
                           color: appTheme.black900,
                           fontFamily: 'Montserrat-Medium'),
+                    ),
+                    SizedBox(height: 1.v),
+                    Text(
+                      controller.email.value ?? "",
+                      style: theme.textTheme.bodyLarge!.copyWith(
+                          color: appTheme.black900,
+                          fontFamily: 'Montserrat-Medium'),
+                      // style: theme.textTheme.titleLarge!.copyWith(
+                      //     color: appTheme.black900,
+                      //     fontFamily: 'Montserrat-Medium'),
                     ),
                   ],
                 ),

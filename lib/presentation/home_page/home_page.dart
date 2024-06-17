@@ -67,9 +67,11 @@ class _HomePageState extends State<HomePage> {
 
                       children: [
                         buildAppBar(),
-                        SizedBox(height: 16.v),
-                        _buildSearchbar(),
-                        SizedBox(height: 24.v),
+                        SizedBox(height: 5.v),
+                        // _buildSearchbar(),
+                        Divider(color:    appTheme.gray100,),
+                        SizedBox(height: 5.v),
+                        // SizedBox(height: 24.v),
                         Expanded(
                           child: ListView(
                             children: [
@@ -826,9 +828,21 @@ class _HomePageState extends State<HomePage> {
               AppbarSubtitle(text: "Hello ${PrefUtils.getString(PrefKey.fullName).split(" ")[0]}")
             ]),
         actions: [
-          getCustomIconButton(ImageConstant.imgGroup9, () {
-            Get.toNamed(AppRoutes.notificationScreen);
-          })
+          Row(
+            children: [
+
+              getCustomIconButton(ImageConstant.imgIcSearch, () {
+                Get.toNamed(AppRoutes.searchScreen);
+              }),
+              SizedBox(width: 15.v,),
+
+              getCustomIconButton(ImageConstant.imgGroup9, () {
+                Get.toNamed(AppRoutes.notificationScreen);
+              })
+
+            ],
+          )
+
         ]
       ),
     );
@@ -836,7 +850,8 @@ class _HomePageState extends State<HomePage> {
 
   /// Section Widget
   Widget _buildSearchbar() {
-    return Padding(
+    return
+      Padding(
         padding: EdgeInsets.only(right: 20.h, left: 20.h),
         child: CustomSearchView(
             onTap: () {

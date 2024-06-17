@@ -11,11 +11,15 @@ class ImageConstant {
   static String onboardingbg3 = '$imagePath/onboarding3.png';
   static String onboardingbg1Player = '$imagePath/onboarding1user.png';
   static String onboardingbg2Player = '$imagePath/onboarding2user.png';
-  static String onboardingbg3Player = '$imagePath/onboarding3user.png';
+  static String onboardingbg3Player = '$imagePath/onborad3.svg';
 
   //static String onboardingbg1PlayerNew = '$imagePath/onboarding1usernew.svg';
-  static String onboardingbg1PlayerNew = '$imagePath/onboarding1usernew.png';
-  static String onboardingbg2PlayerNew = '$imagePath/onboarding2usernew.png';
+  // static String onboardingbg1PlayerNew = '$imagePath/onboarding1usernew.png';
+  // static String onboardingbg2PlayerNew = '$imagePath/onboarding2usernew.png';
+
+  //static String onboardingbg1PlayerNew = '$imagePath/onboarding1usernew.svg';
+  static String onboardingbg1PlayerNew = '$imagePath/onborad1.svg';
+  static String onboardingbg2PlayerNew = '$imagePath/onborad2.svg';
 
 
 // eye icon
@@ -286,6 +290,7 @@ class ImageConstant {
 
 
 
+
   static String imgIcSearch = '$imagePath/img_ic_search.svg';
 
   static String imgGroup1171275017 = '$imagePath/img_group_1171275017.png';
@@ -391,6 +396,11 @@ class ImageConstant {
   static String stadiumBarcelonaFromHelicopter = 'assets/images/stadium-barcelona-from-helicopter-spain.jpg';
   static String stadiumForRunning = 'assets/images/stadium-one-runner.jpg';
   static String cricketImage = 'assets/images/cricket.png';
+
+
+
+  static String applogo = '$imagePath/applogo.svg';
+
 }
 
 

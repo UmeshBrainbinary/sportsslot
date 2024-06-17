@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomImageView(
-                  imagePath: AssetRes.logo,
+                  imagePath: ImageConstant.applogo,
                     height: Get.height*0.15
                 ),
 

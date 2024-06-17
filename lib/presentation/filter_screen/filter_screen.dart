@@ -12,6 +12,7 @@ import 'package:sportsslot/widgets/custom_outlined_button.dart';
 import 'package:sportsslot/widgets/custom_text_form_field.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_places_flutter/model/prediction.dart';
+import '../../widgets/custom_search_view.dart';
 import '../categories_screen/controller/categories_controller.dart';
 import '../categories_screen/models/categories_item_model.dart';
 import '../categories_screen/widgets/categories_item_widget.dart';
@@ -54,6 +55,7 @@ class _FilterScreenState extends State<FilterScreen> {
               builder: (controller) => Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+
                     getCommonAppBar("lbl_filter".tr,
                       actionwidget: Padding(
                         padding: EdgeInsets.only(right: 20),

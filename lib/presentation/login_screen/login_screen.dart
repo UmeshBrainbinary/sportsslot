@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:sportsslot/core/app_export.dart';
 import 'package:sportsslot/core/utils/validation_functions.dart';
 import 'package:sportsslot/widgets/custom_elevated_button.dart';
@@ -49,7 +50,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Column(
                               children: [
                             SizedBox(height: 20.v),
-                            Image.asset(AssetRes.logo, height: Get.height*0.12),
+
+                            SvgPicture(SvgAssetLoader(ImageConstant.applogo), height: Get.height*0.12),
+
                             SizedBox(height: 60.v),
                             Align(
                                 alignment: Alignment.centerLeft,

@@ -104,6 +104,9 @@ class RateUsExperirnceScreen extends GetWidget<RateUsExperirnceController> {
               margin: EdgeInsets.only(right: 8.h),
             ),
             CustomElevatedButton(
+              onPressed: () {
+                Get.back();
+              },
               width: 170.h,
               text: "lbl_submit".tr,
               margin: EdgeInsets.only(left: 8.h),
